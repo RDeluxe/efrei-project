@@ -13,9 +13,11 @@ public interface ManagingUsersService {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
+	 * @param name
+	 * @param user_id
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modifyUserName();
+	public void modifyUserName(String name, Integer user_id);
 
 	/** 
 	 * <!-- begin-UML-doc -->

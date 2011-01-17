@@ -32,4 +32,16 @@ public class DAO implements IDAO {
 		return null;
 	}
 
+	@Override
+	public Boolean CheckPassword(String Email, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void ForgetPassword(String Email) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

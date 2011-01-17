@@ -3,11 +3,12 @@ package domain;
 public class DAO implements IDAO {
 
 	@Override
-	public void CreatUser(String firstname, String lastname, String Email) {
+	public void AddUser(String firstname, String lastname, String Email) {
 		// TODO Auto-generated method stub
-
+		
 	}
-
+	
+	
 	@Override
 	public void ModifyProfile() {
 		// TODO Auto-generated method stub
@@ -32,16 +33,8 @@ public class DAO implements IDAO {
 		return null;
 	}
 
-	@Override
-	public Boolean CheckPassword(String Email, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
-	public void ForgetPassword(String Email) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

@@ -5,6 +5,8 @@ package domain;
 
 import java.util.Set;
 
+import javax.swing.text.html.HTML.Tag;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->

@@ -9,6 +9,9 @@ public interface IDAO {
 	Artist SearchArtistByType(String type);
 	Artist SearchArtistByLocation(String location);
 	
+	Boolean CheckPassword(String Email, String password);
+	void ForgetPassword(String Email);
+	
 	
 	
 	

@@ -3,6 +3,8 @@
  */
 package Controller;
 
+import domain.User;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->

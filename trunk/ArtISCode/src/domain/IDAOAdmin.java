@@ -1,9 +1,7 @@
 /**
  * 
  */
-package Controller;
-
-import domain.User;
+package domain;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -11,41 +9,30 @@ import domain.User;
  * @author Benjamin BOZOU
  * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public interface ManagingUsersService {
+public interface IDAOAdmin {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param name
-	 * @param user_id
+	 * @param admin
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modifyUserName(String name, Integer user_id);
+	public void addAdmin(Admin admin);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
-	 * @param user
-	 * @return
+	 * @param admin_id
+	 * @param admin
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean modifyUser(User user);
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param user
-	 * @return
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Boolean RegisteringUser(User user);
+	public void updateAdmin(Integer admin_id, Admin admin);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @param login
-	 * @param password
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean logIn(String login, String password);
+	public Admin searchByLogin(String login);
 }

@@ -1,10 +1,7 @@
 /**
  * 
  */
-package Controller;
-
-import java.util.Set;
-import domain.User;
+package domain;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -12,49 +9,37 @@ import domain.User;
  * @author Benjamin BOZOU
  * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class Search implements SearchService {
+public class DAOAdmin implements IDAOAdmin {
 	/** 
 	 * (non-Javadoc)
-	 * @see SearchService#SearchByName(String name)
+	 * @see IDAOAdmin#addAdmin(Admin admin)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> SearchByName(String name) {
+	public void addAdmin(Admin admin) {
 		// begin-user-code
 		// TODO Module de remplacement de méthode auto-généré
-		return null;
+
 		// end-user-code
 	}
 
 	/** 
 	 * (non-Javadoc)
-	 * @see SearchService#SearchByTags(String... tags)
+	 * @see IDAOAdmin#updateAdmin(Integer admin_id, Admin admin)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> SearchByTags(String... tags) {
+	public void updateAdmin(Integer admin_id, Admin admin) {
 		// begin-user-code
 		// TODO Module de remplacement de méthode auto-généré
-		return null;
+
 		// end-user-code
 	}
 
 	/** 
 	 * (non-Javadoc)
-	 * @see SearchService#SearchByLogin(String login)
+	 * @see IDAOAdmin#searchByLogin(String login)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public User SearchByLogin(String login) {
-		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
-		// end-user-code
-	}
-
-	/** 
-	 * (non-Javadoc)
-	 * @see SearchService#SearchById(Integer user_id)
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public User SearchById(Integer user_id) {
+	public Admin searchByLogin(String login) {
 		// begin-user-code
 		// TODO Module de remplacement de méthode auto-généré
 		return null;

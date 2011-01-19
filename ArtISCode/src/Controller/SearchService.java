@@ -4,6 +4,7 @@
 package Controller;
 
 import java.util.Set;
+import domain.User;
 
 /** 
  * <!-- begin-UML-doc -->

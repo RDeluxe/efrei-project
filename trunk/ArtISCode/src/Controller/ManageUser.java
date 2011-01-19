@@ -46,10 +46,7 @@ public class ManageUser implements ManagingUsersService {
 	 */
 	public void modifyUserName(String name, Integer user_id) {
 		// begin-user-code
-
-		User u = searchService.SearchById(user_id);
-		u.setName(name);
-		//TODO add the connection to the DB and the update...
+		// TODO Module de remplacement de méthode auto-généré
 
 		// end-user-code
 	}

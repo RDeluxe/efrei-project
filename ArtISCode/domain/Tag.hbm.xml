@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="domain">
+	<class name="Tag" table="TAG">
+		
+		<id name="id" column="TAG_ID">
+      <generator class="increment"></generator>
+      
+      <property name="name">
+      <column name="NAME"></column>
+    </property>
+    
+    <set name="artist" inverse="true" table="ARTIST&TAG">
+		  <key column="Tag_id"></key>
+		  <many-to-many class="domain.Artist" column="User_id"></many-to-many>
+		  
+    </id>
+	
+    </class>
+</hibernate-mapping>

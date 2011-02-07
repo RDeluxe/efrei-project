@@ -3,7 +3,14 @@
  */
 package domain;
 
+import java.util.List;
 import java.util.Set;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -17,11 +24,34 @@ public class DAOUser implements IDAOUser {
 	 * @see IDAOUser#addUser(User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void addUser(User user) {
+	private User user;
+	private SessionFactory sessionFactory;
+	private Session session=null;
+	private Transaction tx;
+	
+	public DAOUser()
+	{
+		try{
+			sessionFactory=new Configuration().configure().buildSessionFactory();
+			session = sessionFactory.openSession();
+			tx=session.beginTransaction();
+		}catch(Exception e)
+		{
+		}
+	}
+	
+	public void addUser(User u) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-
-		// end-user-code
+		// TODO Module de remplacement de mé– hode auto-gé–šé–žï¿½
+		User newuser =new User();
+		
+		newuser.setId(u.getId());
+		newuser.setFirstname(u.getFirstname());
+		newuser.setLastname(u.getLastname());
+		newuser.setLogin(u.getLogin());
+		newuser.setPassword(u.getPassword());
+		
+		// end-use-code
 	}
 
 	/** 
@@ -29,10 +59,17 @@ public class DAOUser implements IDAOUser {
 	 * @see IDAOUser#updateUser(Integer id_user, User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void updateUser(Integer id_user, User user) {
+	public void updateUser(Integer id_user, User u) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
+		// TODO Module de remplacement de mé– hode auto-gé–šé–žï¿½
 
+		User newuser=(User)session.get(User.class,id_user);
+		newuser.setFirstname(u.getFirstname());
+		newuser.setLastname(u.getLastname());
+		newuser.setLogin(u.getLogin());
+		newuser.setPassword(u.getPassword());
+		
+		tx.commit();
 		// end-user-code
 	}
 
@@ -43,8 +80,12 @@ public class DAOUser implements IDAOUser {
 	 */
 	public User searchByLogin(String login) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+		// TODO Module de remplacement de mé– hode auto-gé–šé–žï¿½
+		/*Vector result=new Vector(); */
+		User newuser=(User)session.get(User.class, login);
+		
+		return newuser;
+	//	return null;
 		// end-user-code
 	}
 
@@ -55,8 +96,12 @@ public class DAOUser implements IDAOUser {
 	 */
 	public Set<User> getAllArtists() {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+		// TODO Module de remplacement de mé– hode auto-gé–šé–žï¿½
+		Set<User> users=null;
+		String queryString="from User";
+		Query queryObject=session.createQuery(queryString);
+		return (Set<User>) queryObject.list();
+	//	return null;
 		// end-user-code
 	}
 
@@ -67,8 +112,10 @@ public class DAOUser implements IDAOUser {
 	 */
 	public Set<User> searchArtistByName(String firstname, String lastname) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+		// TODO Module de remplacement de mé– hode auto-gé–šé–žï¿½
+		List contacts=session.createCriteria(User.class).add(Restrictions.like("firstname", firstname)).add(Restrictions.like("lastname",lastname)).setMaxResults(3).list();
+		return (Set<User>)contacts;
+		/*return null;*/
 		// end-user-code
 	}
 }

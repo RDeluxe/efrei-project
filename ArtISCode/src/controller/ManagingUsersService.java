@@ -17,9 +17,10 @@ public interface ManagingUsersService {
 	 * <!-- end-UML-doc -->
 	 * @param name
 	 * @param user_id
+	 * @throws Exception 
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modifyUserName(String name, Integer user_id);
+	public void modifyUserName(String name, Integer user_id) throws Exception;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -28,7 +29,7 @@ public interface ManagingUsersService {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean modifyUser(User user);
+	public void modifyUser(User user);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -37,7 +38,7 @@ public interface ManagingUsersService {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean RegisteringUser(User user);
+	public void RegisteringUser(User user);
 
 	/** 
 	 * <!-- begin-UML-doc -->

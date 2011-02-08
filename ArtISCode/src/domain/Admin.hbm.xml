@@ -4,13 +4,13 @@
 
 <hibernate-mapping package="domain">
  
-  <class name="Admin" table="ADMIN">
+  <class name="Admin" table="ADMIN" lazy="true">
    
-    <!--<id name="id" column="ID_ADDRESS">
-      <generator class="increment"></generator>
+    <id name="id" type="java.lang.Long" column="ID_ADMIN">
+      <generator class="increment"/>
     </id>
     
-    --><property name="name">
+    <property name="name">
       <column name="NAME"></column>
     </property>
     

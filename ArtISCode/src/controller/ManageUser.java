@@ -3,6 +3,9 @@
  */
 package controller;
 
+import domain.Artist;
+import domain.DAOArtist;
+import domain.DAOUser;
 import domain.User;
 
 /** 
@@ -17,7 +20,27 @@ public class ManageUser implements ManagingUsersService {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private SearchService searchService;
+	private SearchService searchService = new Search();
+	private DAOArtist daoA = new DAOArtist();
+	private DAOUser daoU = new DAOUser();
+	
+	
+	
+	public void setDaoA(DAOArtist daoA) {
+		this.daoA = daoA;
+	}
+
+	public DAOArtist getDaoA() {
+		return daoA;
+	}
+
+	public void setDaoU(DAOUser daoU) {
+		this.daoU = daoU;
+	}
+
+	public DAOUser getDaoU() {
+		return daoU;
+	}
 
 	/** 
 	 * @return searchService
@@ -41,13 +64,19 @@ public class ManageUser implements ManagingUsersService {
 
 	/** 
 	 * (non-Javadoc)
+	 * @throws Exception 
 	 * @see ManagingUsersService#modifyUserName(String name, Integer user_id)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modifyUserName(String name, Integer user_id) {
+	public void modifyUserName(String name, Integer user_id) throws Exception {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
 
+		User u = daoU.searchUserById(user_id);
+		if (u==null) {
+			u = daoA.searchUserById(user_id);
+			if (u==null) throw new Exception("User doesn't exists");
+		}
+		u.setLastname(name);
 		// end-user-code
 	}
 
@@ -56,10 +85,14 @@ public class ManageUser implements ManagingUsersService {
 	 * @see ManagingUsersService#modifyUser(User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean modifyUser(User user) {
+	public void modifyUser(User user) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+	
+		if (user instanceof Artist) {
+			daoA.updateUser(user);
+		}
+		else daoU.updateUser(user);
+		
 		// end-user-code
 	}
 
@@ -68,10 +101,13 @@ public class ManageUser implements ManagingUsersService {
 	 * @see ManagingUsersService#RegisteringUser(User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean RegisteringUser(User user) {
+	public void RegisteringUser(User user) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+		
+		if (user instanceof Artist) {
+			daoA.addUser(user);
+		}
+		else daoU.addUser(user);
 		// end-user-code
 	}
 
@@ -82,7 +118,8 @@ public class ManageUser implements ManagingUsersService {
 	 */
 	public Boolean logIn(String login, String password) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
+		User u = daoA.searchByLogin(login);
+		if ()
 		return null;
 		// end-user-code
 	}

@@ -3,7 +3,7 @@
  */
 package domain;
 
-import java.util.Set;
+import java.util.List;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -19,5 +19,5 @@ public interface IDAOArtist extends IDAOUser {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<Artist> SearchArtistByTag(Tag tag);
+	public List<Artist> SearchArtistByTag(Tag tag);
 }

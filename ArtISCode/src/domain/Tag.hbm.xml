@@ -5,18 +5,17 @@
 <hibernate-mapping package="domain">
 	<class name="Tag" table="TAG">
 		
-		<id name="id" column="TAG_ID">
-      <generator class="increment"></generator>
-      
-      <property name="name">
-      <column name="NAME"></column>
-    </property>
+		<id name="id" column="ID_TAG">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="name">
+			<column name="NAME"></column>
+		</property>
     
-    <set name="artist" inverse="true" table="ARTIST&TAG">
-		  <key column="Tag_id"></key>
-		  <many-to-many class="domain.Artist" column="User_id"></many-to-many>
-		  
-    </id>
-	
+		<set name="artist" table="TAGGED" cascade="all">
+			<key column="ID_TAG"/>
+			<many-to-many class="Artist" column="ID_USER"/>
+		</set>
     </class>
 </hibernate-mapping>

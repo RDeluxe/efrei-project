@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register Confirmed !</title>
+<title>Your Profile</title>
 <link href="habillage.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -54,14 +54,9 @@
   </div>
 </div>
 <div id="contenu">
-  <%String resultreg = (String) request.getAttribute("resultreg");
-  if(resultreg.equalsIgnoreCase("ok"))
-	  {%>
-	  Welcome, <%=request.getAttribute("login") %>. You can now login
-	  <%}else if(resultreg.equalsIgnoreCase("ko"))
-			  {%>
-			  Registering failed. Password check failed or/and another user with the same login. Please try again (use the forward function of your browser to get your information)
-<%} %>
+  <p>This is our website<br />
+    Some functionalities are in construction<br />
+    Coming soon ;)</p>
 </div>
 
 <div id="pied">

@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		String login =request.getParameter("login");
 		String pass = (String) request.getParameter("pass");
-		String kind = request.getParameter("kind");
+		String kind = (String) request.getParameter("kind");
 		ManageUser service= new ManageUser();
 		Boolean check=false;
 		

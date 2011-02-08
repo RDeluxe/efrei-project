@@ -18,7 +18,9 @@
   if((result!=null)&&(result.equalsIgnoreCase("ok"))){
   
 	  String login =request.getParameter("login");
+	  String kind = request.getParameter("kind");
   session.setAttribute( "login", login );
+  session.setAttribute("kind", kind);
   }
    String sessionlog=(String) session.getAttribute("login");
   if(sessionlog==null){%>
@@ -41,7 +43,7 @@
   <%request.getSession().invalidate();
   }else{%>
   <p> Hi, <%= session.getAttribute("login")  %></p>
-  <p> Modify your<a href="GetProfile" >profile</a>  </p>
+  <p> Modify your<a href="Profile" >profile</a>  </p>
   <p> <input type="button" value="Deconnexion" onClick="document.location='deconnexion.jsp'"></p>
   <%} %>
   <%if(result!=null){ %>

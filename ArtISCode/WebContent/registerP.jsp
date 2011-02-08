@@ -98,41 +98,11 @@
     </fieldset>
     <br/>
     <fieldset>
-    <legend>Artist Information</legend>
+    <legend>Your Professionnal Info</legend><br/>
     <label for="description">Your Description</label><br />
-       <textarea name="description" id="description"></textarea>
-       Choose Tags (3 maximum):
-       <SELECT name="tag1">
-		<OPTION VALUE="rock">Rock</OPTION>
-		<OPTION VALUE="pop">Pop</OPTION>
-		<OPTION VALUE="classic">Classic</OPTION>
-		<OPTION VALUE="folk">Folk</OPTION>
-		<OPTION VALUE="soloist">Soloist</OPTION>	
-		<OPTION VALUE="band">Band</OPTION>	
-		<OPTION VALUE="celtic">Celtic</OPTION>	
-		<OPTION VALUE="hard">Hard rock</OPTION>		
-	</SELECT>
-Group 2:	<SELECT name="tag2">
-		<OPTION VALUE="rock">Rock</OPTION>
-		<OPTION VALUE="pop">Pop</OPTION>
-		<OPTION VALUE="classic">Classic</OPTION>
-		<OPTION VALUE="folk">Folk</OPTION>
-		<OPTION VALUE="soloist">Soloist</OPTION>	
-		<OPTION VALUE="band">Band</OPTION>	
-		<OPTION VALUE="celtic">Celtic</OPTION>	
-		<OPTION VALUE="hard">Hard rock</OPTION>	
-	</SELECT>
-Group 3: <SELECT name="tag3">
-		<OPTION VALUE="rock">Rock</OPTION>
-		<OPTION VALUE="pop">Pop</OPTION>
-		<OPTION VALUE="classic">Classic</OPTION>
-		<OPTION VALUE="folk">Folk</OPTION>
-		<OPTION VALUE="soloist">Soloist</OPTION>	
-		<OPTION VALUE="band">Band</OPTION>	
-		<OPTION VALUE="celtic">Celtic</OPTION>	
-		<OPTION VALUE="hard">Hard rock</OPTION>	
-	</SELECT><br>
-    </fieldset>
+       <textarea name="description" id="description"></textarea><br/>
+       </fieldset>
+       
     <p></p>
     <input type="submit"
 value="Submit" />

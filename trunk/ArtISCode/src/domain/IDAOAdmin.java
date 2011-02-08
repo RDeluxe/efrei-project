@@ -25,7 +25,7 @@ public interface IDAOAdmin {
 	 * @param admin
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void updateAdmin(Integer admin_id, Admin admin);
+	public void updateAdmin(Admin admin);
 
 	/** 
 	 * <!-- begin-UML-doc -->

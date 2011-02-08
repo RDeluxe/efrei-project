@@ -3,7 +3,7 @@
  */
 package domain;
 
-import java.util.Set;
+import java.util.List;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -27,7 +27,7 @@ public interface IDAOTag {
 	 * @param tag
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void updateTag(Integer id_tag, Tag tag);
+	public void updateTag(Tag tag);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -44,5 +44,5 @@ public interface IDAOTag {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<Tag> getAllTags();
+	public List<Tag> getAllTags();
 }

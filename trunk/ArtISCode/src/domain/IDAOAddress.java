@@ -3,7 +3,7 @@
  */
 package domain;
 
-import java.util.Set;
+import java.util.List;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -27,7 +27,7 @@ public interface IDAOAddress {
 	 * @param address
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void updateAddress(Integer id_address, Address address);
+	public void updateAddress(Address address);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -35,5 +35,5 @@ public interface IDAOAddress {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<Address> getAllAddress();
+	public List<Address> getAllAddress();
 }

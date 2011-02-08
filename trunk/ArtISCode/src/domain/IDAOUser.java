@@ -3,7 +3,7 @@
  */
 package domain;
 
-import java.util.Set;
+import java.util.List;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -27,7 +27,7 @@ public interface IDAOUser {
 	 * @param user
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void updateUser(Integer id_user, User user);
+	public void updateUser(User user);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -44,7 +44,7 @@ public interface IDAOUser {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> getAllArtists();
+	public List<User> getAllUser();
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -54,5 +54,7 @@ public interface IDAOUser {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> searchArtistByName(String firstname, String lastname);
+	public List<User> searchUserByName(String firstname, String lastname);
+	
+	public User searchUserById(int id);
 }

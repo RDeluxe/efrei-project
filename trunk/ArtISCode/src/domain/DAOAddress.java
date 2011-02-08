@@ -3,7 +3,11 @@
  */
 package domain;
 
-import java.util.Set;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -17,10 +21,19 @@ public class DAOAddress implements IDAOAddress {
 	 * @see IDAOAddress#addAddress(Address address)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void addAddress(Address address) {
+	private Session session = OpenSession.getSession();;
+	//private Transaction tx;
+	
+	public DAOAddress(){
+	}
+	
+	public void addAddress(Address ad) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
 
+		Transaction tx = session.beginTransaction();
+		session.save(ad);
+		tx.commit();
+		
 		// end-user-code
 	}
 
@@ -29,10 +42,12 @@ public class DAOAddress implements IDAOAddress {
 	 * @see IDAOAddress#updateAddress(Integer id_address, Address address)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void updateAddress(Integer id_address, Address address) {
+	public void updateAddress(Address ad) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-
+		
+		Transaction tx = session.beginTransaction();
+		session.update(ad);
+		tx.commit();
 		// end-user-code
 	}
 
@@ -41,10 +56,13 @@ public class DAOAddress implements IDAOAddress {
 	 * @see IDAOAddress#getAllAddress()
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<Address> getAllAddress() {
+	@SuppressWarnings("unchecked")
+	public List<Address> getAllAddress() {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+
+		String queryString="from Address";
+		Query queryObject=session.createQuery(queryString);
+		return (List<Address>) queryObject.list();
 		// end-user-code
 	}
 }

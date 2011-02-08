@@ -3,13 +3,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="domain">
-  <class name="Address" table="ADDRESS">
+  <class name="Address" table="ADDRESS" lazy="true">
    
-    <!--<id name="id" column="ID_ADDRESS">
+    <id name="id" column="ID_ADDRESS">
       <generator class="increment"></generator>
     </id>
     
-    --><property name="street">
+    <property name="street">
       <column name="STREET"></column>
     </property>
     
@@ -25,7 +25,7 @@
       <column name="COUNTRY"></column>
     </property>
     
-    <many-to-one name="user" column="USER" unique="true" not-null="false" inverse="true"></many-to-one>
+    <one-to-one name="user" property-ref="address"/>
   
   </class>
 </hibernate-mapping>

@@ -3,7 +3,12 @@
  */
 package domain;
 
-import java.util.Set;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -11,16 +16,26 @@ import java.util.Set;
  * @author Benjamin BOZOU
  * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
+
+
 public class DAOArtist implements IDAOArtist {
 	/** 
 	 * (non-Javadoc)
 	 * @see IDAOUser#addUser(User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	private Session session=OpenSession.getSession();;
+	
+	public DAOArtist(){
+	}
+	
 	public void addUser(User user) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
 
+		Artist artist=(Artist)user;
+		Transaction tx = session.beginTransaction();
+		session.save(artist);
+		tx.commit();
 		// end-user-code
 	}
 
@@ -29,10 +44,12 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOUser#updateUser(Integer id_user, User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void updateUser(Integer id_user, User user) {
+	public void updateUser(User user) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-
+		
+		Transaction tx = session.beginTransaction();
+		session.update(user);
+		tx.commit();
 		// end-user-code
 	}
 
@@ -43,8 +60,10 @@ public class DAOArtist implements IDAOArtist {
 	 */
 	public User searchByLogin(String login) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+
+		Artist artist = (Artist)session.get(Artist.class, login);
+		
+		return artist;
 		// end-user-code
 	}
 
@@ -53,10 +72,13 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOUser#getAllArtists()
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> getAllArtists() {
+	@SuppressWarnings("unchecked")
+	public List<User> getAllUser() {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+
+		String queryString="from Artist";
+		Query queryObject=session.createQuery(queryString);
+		return (List<User>) queryObject.list();
 		// end-user-code
 	}
 
@@ -65,10 +87,12 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOUser#searchArtistByName(String firstname, String lastname)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> searchArtistByName(String firstname, String lastname) {
+	public List<User> searchUserByName(String firstname, String lastname) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+
+		@SuppressWarnings("unchecked")
+		List<User> users=session.createCriteria(Artist.class).add(Restrictions.like("firstname", firstname)).add(Restrictions.like("lastname",lastname)).list();
+		return users;
 		// end-user-code
 	}
 
@@ -77,10 +101,18 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOArtist#SearchArtistByTag(Tag tag)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<Artist> SearchArtistByTag(Tag tag) {
+	@SuppressWarnings("unchecked")
+	public List<Artist> SearchArtistByTag(Tag tag) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+		// TODO Module de remplacement de mé– hode auto-gé–šé–žï¿½
+		String queryString="from Artist artist where artist.tag="+tag;
+		Query queryObject=session.createQuery(queryString);
+		return (List<Artist>) queryObject.list();
 		// end-user-code
+	}
+
+	@Override
+	public User searchUserById(int id) {
+		return (User)session.get(Artist.class, id);
 	}
 }

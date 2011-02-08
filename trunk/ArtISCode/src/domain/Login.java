@@ -1,5 +1,7 @@
 package domain;
 
+import controller.*;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,33 +37,24 @@ public class Login extends HttpServlet {
 		String login =request.getParameter("login");
 		String pass = (String) request.getParameter("pass");
 		DAOUser dao = new DAOUser();
-		User user =dao.searchByLogin(login);
+		ManageUser service= new ManageUser();
+		Boolean check=service.logInUser(login, pass);
 		
-		if(user==null){
-			System.out.println("ko1");
-			request.setAttribute("result","ko1");
+		
+		if(check==false){
+			System.out.println("ko");
+			request.setAttribute("result","ko");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		}else {
 		System.out.println("check !");
-		if(user.getLogin().equalsIgnoreCase(login)){
-			
-			if(user.getPassword().equalsIgnoreCase(pass))
-			{
 				System.out.println("ok");
 				request.setAttribute("result", "ok");
 				request.setAttribute("login", login);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
-			}else {
-				System.out.println("ko2");
-				request.setAttribute("result","ko2");
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-			}
+			
 		}
-		
-		}
-		
-		
+
 	}
 
 }

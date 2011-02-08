@@ -42,7 +42,11 @@ body {
 	letter-spacing: 1px;
 	color: #000;
 }
-#loginbox input { margin-left: 1%; width: 55%; border: #CCC 1px solid; }
+#loginbox input {
+	margin-left: 1%;
+	width: 55%;
+	border: #CCC 1px solid;
+}
 #menubox {
 	clear:both;
 	height:auto;

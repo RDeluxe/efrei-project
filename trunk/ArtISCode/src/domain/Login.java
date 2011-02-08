@@ -36,9 +36,20 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		String login =request.getParameter("login");
 		String pass = (String) request.getParameter("pass");
-		DAOUser dao = new DAOUser();
+		String kind = request.getParameter("kind");
 		ManageUser service= new ManageUser();
-		Boolean check=service.logInUser(login, pass);
+		Boolean check=false;
+		if(kind==null){
+			kind="0";
+		}
+		if(kind.equalsIgnoreCase("1")){
+			check=service.logInArtist(login, pass);
+			System.out.println("artiste!");
+		}else {
+			System.out.println("user!");
+			check=service.logInUser(login, pass);
+		}
+		
 		
 		
 		if(check==false){

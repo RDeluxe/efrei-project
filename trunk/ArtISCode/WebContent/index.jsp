@@ -27,9 +27,13 @@
   <label for="login">Login : </label> <input id="login" name="login" type="text" width="100" />
   <label for="pass">Password : </label> <input id="pass" name="pass" type="password" width="80" />
   
-  <label for="kind">Artist ? :</label> <input type="checkbox" name="kind" value="1"  /><br/>
-  
-  <a href="register.jsp" style="font-size:10px; padding-top:10px; margin-left:16px; margin-right:20px;  font-style:italic"> register </a> 
+  <label for="kind">Kind :</label> <SELECT name="kind">
+		<OPTION VALUE="1">User</OPTION>
+		<OPTION VALUE="2">Artist</OPTION>
+		<OPTION VALUE="3">Pro</OPTION>
+        </SELECT>
+  <br/>
+  <a href="register.jsp" style="font-size:10px; padding-top:10px; margin-left:16px; margin-right:20px;  font-style:italic"> register </a>
   
  <input id="send"  type="submit" value="log in"/>
   </form>

@@ -19,7 +19,9 @@ body {
 	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0px;
+	border-style: solid;
+	border-color: #FFF;
+	border-width: 1px;
 }
 #entete { padding:5px; margin: auto; width: auto; }
 #menu {
@@ -61,7 +63,6 @@ body {
 	float:left;
 	width:78%;
 	height:auto;
-	padding-top: 10px;
 	padding-left: 10px;
 	margin-top:10px;
 	color: #000;
@@ -89,3 +90,38 @@ body {
 #pied { clear:both; }
 
 /*filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#FFF', EndColorStr='#000'); background:-moz-linear-gradient(left, #FFF 0%, #000 100%); background:-webkit-gradient(linear, left top, right top, color-stop(0,#FFF), color-stop(1, #000));*/
+#kind {
+	margin-bottom: 10px;
+	border-color: #FFF;
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+
+}
+input, textarea
+{
+   font-family: "Times New Roman", Times, serif; /* On modifie la police du texte tapé l'intérieur des champs */
+}
+ 
+input:focus, textarea:focus /* Quand le curseur est sur un champ */
+{
+	background-color: #999;
+}
+ 
+label
+{
+   color: blue; /* Colorer en bleu tous les labels (bah oui, pourquoi pas en bleu ?) */
+}
+ 
+legend /* On met un peu plus en valeur les titres des fieldset */
+{
+	font-family: Arial, "Arial Black", Georgia, "Times New Roman", Times, serif;
+	color: #E17100;
+	font-weight: bold;
+}
+ 
+fieldset
+{
+   margin-bottom: 15px; /* Une marge pour séparer les fieldset */
+   background-color: #D6D6D6;
+}

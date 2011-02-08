@@ -100,7 +100,7 @@ public class ManageUser implements ManagingUsersService {
 	 */
 	public Boolean RegisteringUser(User user) {
 		// begin-user-code
-		if (this.checkLoginArtist(user.getLogin())==null) {
+		if (this.checkLoginUser(user.getLogin())==null) {
 			daoU.addUser(user);
 			return true;
 		}
@@ -115,7 +115,8 @@ public class ManageUser implements ManagingUsersService {
 		else {
 			if (u.getPassword().equals(password)) return true;
 			else return false;
-		}	}
+		}	
+	}
 
 	@Override
 	public Boolean logInArtist(String login, String password) {

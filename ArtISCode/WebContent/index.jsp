@@ -36,11 +36,8 @@
   <p> Modify your<a href="profile.jsp" >profile</a>  </p>
   <%} %>
   <%if(result!=null){ %>
-  <%if(result.equalsIgnoreCase("ko1")==true){ %>
+  <%if(result.equalsIgnoreCase("ko")==true){ %>
   <p> No user with this Login</p>
-  <%} %>
-  <%if(result.equalsIgnoreCase("ko2")==true){ %>
-  <p> Wrong Password</p>
   <%} %>
   <%} %>
   </div> 

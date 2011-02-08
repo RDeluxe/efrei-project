@@ -61,7 +61,7 @@ public class DAOArtist implements IDAOArtist {
 	public User searchByLogin(String login) {
 		// begin-user-code
 
-		Artist artist = (Artist)session.get(Artist.class, login);
+		Artist artist = (Artist)session.createCriteria(Artist.class).add(Restrictions.like("login", login)).uniqueResult();
 		
 		return artist;
 		// end-user-code

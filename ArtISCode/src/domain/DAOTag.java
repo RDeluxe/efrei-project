@@ -8,6 +8,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -62,7 +63,7 @@ public class DAOTag implements IDAOTag {
 	public Tag searchTagByName(String name) {
 		// begin-user-code
 		// TODO Module de remplacement de m閠hode auto-g閚閞�
-		Tag newtag=(Tag)session.get(Tag.class, name);
+		Tag newtag=(Tag)session.createCriteria(Tag.class).add(Restrictions.like("name", name)).uniqueResult();
 		return newtag;
 		// end-user-code
 	}

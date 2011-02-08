@@ -37,7 +37,7 @@ public class Login extends HttpServlet {
 		DAOUser dao = new DAOUser();
 		User user =dao.searchByLogin(login);
 		
-		if(user.getLogin()==null){
+		if(user==null){
 			System.out.println("ko1");
 			request.setAttribute("result","ko1");
 			request.getRequestDispatcher("index.jsp").forward(request, response);

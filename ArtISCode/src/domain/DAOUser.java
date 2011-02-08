@@ -58,7 +58,7 @@ public class DAOUser implements IDAOUser {
 	public User searchByLogin(String login) {
 		// begin-user-code
 
-		User newuser=(User)session.get(User.class, login);
+		User newuser = (User)session.createCriteria(User.class).add(Restrictions.like("login", login)).uniqueResult();
 		
 		return newuser;
 		// end-user-code

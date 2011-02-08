@@ -5,6 +5,7 @@ package domain;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -56,7 +57,7 @@ public class DAOAdmin implements IDAOAdmin {
 	public Admin searchByLogin(String login) {
 		// begin-user-code
 
-		Admin newadmin=(Admin)session.get(Admin.class, login);
+		Admin newadmin=(Admin)session.createCriteria(Admin.class).add(Restrictions.like("login", login)).uniqueResult();
 		
 		return newadmin;
 		// end-user-code

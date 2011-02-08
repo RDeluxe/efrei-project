@@ -63,11 +63,11 @@
   
   <form method="post" action="Register">
   <fieldset>
-  <legend>Registration page for User</legend>
+  <legend>Registration page for Professional</legend>
     <fieldset>
     <legend>Basic Info</legend><br/>
     Kind of account:<br/>
-    <input type="text" name="kind" value="User" readonly="readonly" /><br/>
+    <input type="text" name="kind" value="Professional" readonly="readonly" /><br/>
     Firstname:<br/>
     <input type="text" name="firstname"  size="25" /><br/>
     Lastname:<br/>

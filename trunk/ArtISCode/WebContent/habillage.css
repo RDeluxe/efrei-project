@@ -100,20 +100,17 @@ body {
 }
 input, textarea
 {
-   font-family: "Times New Roman", Times, serif; /* On modifie la police du texte tapé l'intérieur des champs */
+   font-family: "Times New Roman", Times, serif; 
 }
  
-input:focus, textarea:focus /* Quand le curseur est sur un champ */
+input:focus, textarea:focus 
 {
 	background-color: #999;
 }
  
-label
-{
-   color: blue; /* Colorer en bleu tous les labels (bah oui, pourquoi pas en bleu ?) */
-}
+
  
-legend /* On met un peu plus en valeur les titres des fieldset */
+legend 
 {
 	font-family: Arial, "Arial Black", Georgia, "Times New Roman", Times, serif;
 	color: #E17100;
@@ -122,6 +119,6 @@ legend /* On met un peu plus en valeur les titres des fieldset */
  
 fieldset
 {
-   margin-bottom: 15px; /* Une marge pour séparer les fieldset */
+   margin-bottom: 15px; 
    background-color: #D6D6D6;
 }

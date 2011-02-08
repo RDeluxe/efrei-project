@@ -7,8 +7,9 @@
 <link href="habillage.css" rel="stylesheet" type="text/css" />
 </head>
 <body>r
+<body>
 <div id="page">
-<%@ page  import="java.sql.*"%>
+
 <div id="entete"><img src="banner.jpg" width="947" height="186" /></div>
 <div id="menu">
   <div id="loginbox">
@@ -36,7 +37,7 @@
   <%request.getSession().invalidate();
   }else{%>
   <p> Hi, <%= session.getAttribute("login")  %></p>
-  <p> Modify your<a href="profile.jsp" >profile</a>  </p>
+  <p> Modify your<a href="GetProfile" >profile</a>  </p>
   <p> <input type="button" value="Deconnexion" onClick="document.location='deconnexion.jsp'"></p>
   <%} %>
   <%if(result!=null){ %>

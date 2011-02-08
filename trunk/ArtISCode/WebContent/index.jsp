@@ -37,7 +37,7 @@
   <%request.getSession().invalidate();
   }else{%>
   <p> Hi, <%= session.getAttribute("login")  %></p>
-  <p> Modify your<a href="profile.jsp" >profile</a>  </p>
+  <p> Modify your<a href="GetProfile" >profile</a>  </p>
   <p> <input type="button" value="Deconnexion" onClick="document.location='deconnexion.jsp'"></p>
   <%} %>
   <%if(result!=null){ %>

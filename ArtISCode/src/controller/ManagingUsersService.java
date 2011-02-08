@@ -3,6 +3,7 @@
  */
 package controller;
 
+import domain.Artist;
 import domain.User;
 
 /** 
@@ -30,6 +31,8 @@ public interface ManagingUsersService {
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public void modifyUser(User user);
+	
+	public void modifyArtist(Artist artist);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -38,7 +41,7 @@ public interface ManagingUsersService {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void RegisteringUser(User user);
+	public Boolean RegisteringUser(User user);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -48,5 +51,15 @@ public interface ManagingUsersService {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean logIn(String login, String password);
+	public Boolean logInUser(String login, String password);
+	
+	public Boolean logInArtist(String login, String password);
+	
+	public User checkLoginUser(String login);
+	
+	public Artist checkLoginArtist(String login);
+	
+	public Boolean RegisteringArtist(Artist artist);
+	
+	
 }

@@ -11,6 +11,7 @@
 <body>
 <div id="page">
 <%@ page import="domain.*" %>
+<%@ page import="java.util.*" %>
 <div id="entete"><img src="banner.jpg" width="947" height="186" /></div>
 <div id="menu">
   <div id="loginbox">
@@ -54,7 +55,7 @@
   </div>
 </div>
 <div id="contenu">
-<% User user = (User) request.getAttribute("user"); %>
+  <% User user = (User) request.getAttribute("user"); %>
   <form method="post" action="Profile">
   <fieldset>
   <legend>Registration page for User</legend>
@@ -89,6 +90,48 @@
     <input type="text" name="zip" value="<%=user.getAddress().getZip() %>"  size="10" /><br/>
     Country:<br/>
     <input type="text" name="country" value="<%=user.getAddress().getCountry() %>"  size="25" /><br/>
+    </fieldset>
+    <fieldset>
+    <legend>Artist Information</legend><br/>
+    <label for="description">Your Description</label><br />
+       <textarea name="description" id="description"><%=((Artist)user).getDescription()%></textarea><br/>
+       Choose Tags (3 maximum):<br/>
+       <%
+       List<Tag> tags = new ArrayList<Tag>(((Artist)user).getTag());
+       %>
+       <SELECT name="tag1">
+        <OPTION VALUE="<%=tags.get(0).getName() %>"><%=tags.get(0).getName() %></OPTION>
+		<OPTION VALUE="rock">Rock</OPTION>
+		<OPTION VALUE="pop">Pop</OPTION>
+		<OPTION VALUE="classic">Classic</OPTION>
+		<OPTION VALUE="folk">Folk</OPTION>
+		<OPTION VALUE="soloist">Soloist</OPTION>	
+		<OPTION VALUE="band">Band</OPTION>	
+		<OPTION VALUE="celtic">Celtic</OPTION>	
+		<OPTION VALUE="hard">Hard rock</OPTION>		
+	</SELECT><br/>
+		<SELECT name="tag2">
+		<OPTION VALUE="<%=tags.get(1).getName() %>"><%=tags.get(1).getName() %></OPTION>
+		<OPTION VALUE="rock">Rock</OPTION>
+		<OPTION VALUE="pop">Pop</OPTION>
+		<OPTION VALUE="classic">Classic</OPTION>
+		<OPTION VALUE="folk">Folk</OPTION>
+		<OPTION VALUE="soloist">Soloist</OPTION>	
+		<OPTION VALUE="band">Band</OPTION>	
+		<OPTION VALUE="celtic">Celtic</OPTION>	
+		<OPTION VALUE="hard">Hard rock</OPTION>	
+	</SELECT>
+ 		<SELECT name="tag3"><br/>
+ 		<OPTION VALUE="<%=tags.get(2).getName() %>"><%=tags.get(2).getName() %></OPTION>
+		<OPTION VALUE="rock">Rock</OPTION>
+		<OPTION VALUE="pop">Pop</OPTION>
+		<OPTION VALUE="classic">Classic</OPTION>
+		<OPTION VALUE="folk">Folk</OPTION>
+		<OPTION VALUE="soloist">Soloist</OPTION>	
+		<OPTION VALUE="band">Band</OPTION>	
+		<OPTION VALUE="celtic">Celtic</OPTION>	
+		<OPTION VALUE="hard">Hard rock</OPTION>	
+	</SELECT><br>
     </fieldset>
     <br/>
     <p></p>

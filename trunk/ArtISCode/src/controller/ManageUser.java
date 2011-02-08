@@ -88,10 +88,7 @@ public class ManageUser implements ManagingUsersService {
 	public void modifyUser(User user) {
 		// begin-user-code
 	
-		if (user instanceof Artist) {
-			daoA.updateUser(user);
-		}
-		else daoU.updateUser(user);
+		daoU.updateUser(user);
 		
 		// end-user-code
 	}
@@ -101,26 +98,56 @@ public class ManageUser implements ManagingUsersService {
 	 * @see ManagingUsersService#RegisteringUser(User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void RegisteringUser(User user) {
+	public Boolean RegisteringUser(User user) {
 		// begin-user-code
-		
-		if (user instanceof Artist) {
-			daoA.addUser(user);
+		if (this.checkLoginArtist(user.getLogin())==null) {
+			daoU.addUser(user);
+			return true;
 		}
-		else daoU.addUser(user);
+		else return false;
 		// end-user-code
 	}
 
-	/** 
-	 * (non-Javadoc)
-	 * @see ManagingUsersService#logIn(String login, String password)
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Boolean logIn(String login, String password) {
-		// begin-user-code
-		User u = daoA.searchByLogin(login);
-		if ()
-		return null;
-		// end-user-code
+	@Override
+	public Boolean logInUser(String login, String password) {
+		User u = this.checkLoginUser(login);
+		if (u==null) return false;
+		else {
+			if (u.getPassword().equals(password)) return true;
+			else return false;
+		}	}
+
+	@Override
+	public Boolean logInArtist(String login, String password) {
+		Artist a = this.checkLoginArtist(login);
+		if (a==null) return false;
+		else {
+			if (a.getPassword().equals(password)) return true;
+			else return false;
+		}
+	}
+
+	@Override
+	public User checkLoginUser(String login) {
+		return (User) daoU.searchByLogin(login);
+	}
+
+	@Override
+	public Artist checkLoginArtist(String login) {
+		return (Artist) daoA.searchByLogin(login);
+	}
+
+	@Override
+	public Boolean RegisteringArtist(Artist artist) {
+		if (this.checkLoginArtist(artist.getLogin())==null) {
+			daoA.addUser(artist);
+			return true;
+		}
+		else return false;
+	}
+
+	@Override
+	public void modifyArtist(Artist artist) {
+		daoA.updateUser(artist);
 	}
 }

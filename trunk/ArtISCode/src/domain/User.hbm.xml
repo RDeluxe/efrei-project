@@ -9,28 +9,20 @@
 			<generator class="increment"/>
 		</id>	
 
-		<property name="login" column="LOGIN" type="string">
-			
-		</property>
+		<property name="login" column="LOGIN" type="string"/>
 		
-		<property name="firstname" column="FIRSTNAME" type="string">
-			
-		</property>
+		<property name="firstname" column="FIRSTNAME" type="string"/>
 		
-		<property name="lastname" column="LASTNAME" type="string">
-			
-		</property>	
+		<property name="lastname" column="LASTNAME" type="string"/>	
 		
-		<property name="password" column="PASSWORD" type="string">
-			
-		</property>	
+		<property name="password" column="PASSWORD" type="string"/>	
 		
+		<property name="email" column="EMAIL" type="string"/>
 		
 		<many-to-one name="address" column="addressId" unique="true" not-null="true" cascade="all"/>
 
 		<joined-subclass name="Artist" table="ARTIST" lazy="true">
 		  	<key column="ID_USER"/>
-		  	<property name="email" column="EMAIL" type="string"></property>
 		 	<property name="description" column="DESCRIPTION" type="string"/>
 		  
 			<set name="tag" table="TAGGED" cascade="all">

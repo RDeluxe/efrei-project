@@ -42,6 +42,33 @@ public class User {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	private String email;
+
+	/** 
+	 * @return email
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public String getEmail() {
+		// begin-user-code
+		return email;
+		// end-user-code
+	}
+
+	/** 
+	 * @param email email à définir
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void setEmail(String email) {
+		// begin-user-code
+		this.email = email;
+		// end-user-code
+	}
+	
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	private String login;
 
 	/** 

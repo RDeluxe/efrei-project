@@ -39,13 +39,11 @@ public class Login extends HttpServlet {
 		String kind = request.getParameter("kind");
 		ManageUser service= new ManageUser();
 		Boolean check=false;
-		if(kind==null){
-			kind="0";
-		}
-		if(kind.equalsIgnoreCase("1")){
+		
+		if(kind.equalsIgnoreCase("2")){
 			check=service.logInArtist(login, pass);
 			System.out.println("artiste!");
-		}else {
+		}else if (kind.equalsIgnoreCase("1")) {
 			System.out.println("user!");
 			check=service.logInUser(login, pass);
 		}
@@ -61,6 +59,7 @@ public class Login extends HttpServlet {
 		System.out.println("check !");
 				System.out.println("ok");
 				request.setAttribute("result", "ok");
+				request.setAttribute("kind",kind);
 				request.setAttribute("login", login);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			

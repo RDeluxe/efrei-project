@@ -1,21 +1,18 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Artist Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Index</title>
 <link href="habillage.css" rel="stylesheet" type="text/css">
 </head>
-
-
 <body>
-<%@ page import=domain.* %>
-<% Artist artist = (Artist) request.getAttribute("artist"); %>
 <div id="page">
 
-<div id="entete"><a herf="www.index.html"><img src="banner.jpg" width="947" height="186" border=no></a></div>
+<div id="entete"><img src="banner.jpg" width="947" height="186" /></div>
 <div id="menu">
- <div id="loginbox">
+  <div id="loginbox">
   <%String result=(String) request.getAttribute("result");
   System.out.println(result);
   if((result!=null)&&(result.equalsIgnoreCase("ok"))){
@@ -50,39 +47,18 @@
   
   <div id="menubox">
  
-  <label for="search"> Search </label> <input id="search" name="search" width="100" />
+  <label for="search"> Search </label> <input id="search" name="search" width="80" />
   </div>
 </div>
+
 <div id="contenu">
-  <p>Artist Page</p>
-  
- <div id="left_column">
- <p>Infos colum </p>
- 
- <img src="album-cocoon.jpg" width="180" height="180" />
- <h3> From </h3>
- <p> <%= artist.getAddress().getCountry() %>
- <h3> Audio samples </h3>
- 
-<br> <br/>
- <h3> Tags </h3>
- <p> <%= artist.getTag() %>
- 
- 
- 
- <p> 
- </div>
- 
- <div id="text">
- <p><h1> <%= artist.getFirstname()%> </h1> </p>
- <p><%= artist.getDescription()%>
- </p>
-
- </div>
- 
-</div>
-<div id="pied">Apex Corporation</div>
+  <p>This is our website<br />
+    Some functionalities are in construction<br />
+    Coming soon ;)</p>
 </div>
 
+<div id="pied">
+</div>
+</div>
 </body>
 </html>

@@ -32,8 +32,36 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String login =request.getParameter("login");
+		String pass = (String) request.getParameter("pass");
+		DAOUser dao = new DAOUser();
+		User user =dao.searchByLogin(login);
 		
-		searchByLogin(String login)
+		if(user.getLogin()==null){
+			System.out.println("ko1");
+			request.setAttribute("result","ko1");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+		}else {
+		System.out.println("check !");
+		if(user.getLogin().equalsIgnoreCase(login)){
+			
+			if(user.getPassword().equalsIgnoreCase(pass))
+			{
+				System.out.println("ok");
+				request.setAttribute("result", "ok");
+				request.setAttribute("login", login);
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}else {
+				System.out.println("ko2");
+				request.setAttribute("result","ko2");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
+		}
+		
+		}
+		
+		
 	}
 
 }

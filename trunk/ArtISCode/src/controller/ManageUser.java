@@ -6,6 +6,8 @@ package controller;
 import domain.Artist;
 import domain.DAOArtist;
 import domain.DAOUser;
+import domain.IDAOArtist;
+import domain.IDAOUser;
 import domain.User;
 
 /** 
@@ -21,24 +23,24 @@ public class ManageUser implements ManagingUsersService {
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private SearchService searchService = new Search();
-	private DAOArtist daoA = new DAOArtist();
-	private DAOUser daoU = new DAOUser();
+	private IDAOArtist daoA = new DAOArtist();
+	private IDAOUser daoU = new DAOUser();
 	
 	
 	
-	public void setDaoA(DAOArtist daoA) {
+	public void setDaoA(IDAOArtist daoA) {
 		this.daoA = daoA;
 	}
 
-	public DAOArtist getDaoA() {
+	public IDAOArtist getDaoA() {
 		return daoA;
 	}
 
-	public void setDaoU(DAOUser daoU) {
+	public void setDaoU(IDAOUser daoU) {
 		this.daoU = daoU;
 	}
 
-	public DAOUser getDaoU() {
+	public IDAOUser getDaoU() {
 		return daoU;
 	}
 
@@ -149,6 +151,6 @@ public class ManageUser implements ManagingUsersService {
 
 	@Override
 	public void modifyArtist(Artist artist) {
-		daoA.updateUser(artist);
+		((DAOArtist) daoA).updateUser(artist);
 	}
 }

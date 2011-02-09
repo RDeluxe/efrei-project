@@ -10,13 +10,13 @@
 
 
 <body>
-<%@ page import=domain.* %>
+<%@ page import="domain.*" %>
+<%@ page import="java.util.*" %>
 <% Artist artist = (Artist) request.getAttribute("artist"); %>
 <div id="page">
 
-<div id="entete"><a herf="www.index.html"><img src="banner.jpg" width="947" height="186" border=no></a></div>
-<div id="menu">
-<div id="entete"><img src="banner.jpg" width="947" height="186" /></div>
+<div id="entete"><a href="index.jsp"><img src="banner.jpg" width="947" height="186" border=no></a></div>
+
 <div id="menu">
   <div id="loginbox">
   <%String result=(String) request.getAttribute("result");
@@ -77,6 +77,7 @@
   </div>
 </div>
 <div id="contenu">
+<% User user =(User) request.getAttribute("user"); %>
   <p>Artist Page</p>
   
  <div id="left_column">
@@ -84,22 +85,28 @@
  
  <img src="album-cocoon.jpg" width="180" height="180" />
  <h3> From </h3>
- <p> <%= artist.getAddress().getCountry() %>
+ <p> <%= user.getAddress().getCountry() %></p><br/>
+ <p> <%= user.getAddress().getCity() %></p><br/>
+ <p> <%= user.getAddress().getStreet() %></p><br/>
+ <p> <%= user.getAddress().getZip() %></p><br/>
+ 
  <h3> Audio samples </h3>
  
 <br> <br/>
  <h3> Tags </h3>
- <p> <%= artist.getTag() %>
+ <p> <% List<Tag> tags = new ArrayList<Tag>(((Artist)user).getTag()); %>
+<%=tags.get(0).getName() %><br/>
+<%=tags.get(1).getName() %><br/>
+<%=tags.get(2).getName() %><br/>
+</p>
  
  
- 
- <p> 
+
  </div>
- 
- <div id="text">
- <p><h1> <%= artist.getFirstname()%> </h1> </p>
- <p><%= artist.getDescription()%>
- </p>
+  <div id="text">
+ <p><h1> <%= user.getFirstname()%> </h1> </p>
+ <h3>Description ;</h3>
+ <p><%= ((Artist)user).getDescription()%></p>
 
  </div>
  

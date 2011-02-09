@@ -62,12 +62,18 @@ function  handleResult() {
 		while(i < str.length - 1) {
 			//Build our element string.  This is cleaner using the DOM, but
 			//IE doesn't support dynamically added attributes.
-			var suggest = '<div onmouseover="javascript:suggestOver(this);" ';
-			suggest += 'onmouseout="javascript:suggestOut(this);" ';
 			
-			suggest += 'class="suggest_link"><h3>FirstName :</h3>' + str[i] + '&nbsp&nbsp&nbsp<h3> LastName :</h3>'+str[i+1]+'</div>';
+			var suggest = '<div id="results" onmouseover="javascript:suggestOver(this);" ';
+			suggest += 'onmouseout="javascript:suggestOut(this);" ';
+			suggest += 'class="suggest_link"><h3>FirstName :</h3>' + str[i] + '&nbsp&nbsp&nbsp<h3> LastName :</h3>'+str[i+1];
+			suggest += '<br /><br />';
+			suggest += '<form action="GetProfile" method="POST">';
+			suggest += '<input type="hidden" name="login" value="'+str[i+2]+'">';
+			suggest += '<input type="submit" value="Go on the Profile !">';
+			suggest += '</form>';
+			suggest += '</div>';
 			ss.innerHTML += suggest;
-			i=i+2;
+			i=i+3;
 		}
 	}
 }

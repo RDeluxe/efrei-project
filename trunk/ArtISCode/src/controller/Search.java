@@ -4,7 +4,12 @@
 package controller;
 
 import java.util.Set;
+
 import domain.User;
+import domain.Artist;
+import domain.DAOArtist;
+import domain.DAOUser;
+
 
 /** 
  * <!-- begin-UML-doc -->
@@ -13,6 +18,8 @@ import domain.User;
  * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public class Search implements SearchService {
+	private DAOArtist daoA = new DAOArtist();
+	private DAOUser daoU = new DAOUser();
 	/** 
 	 * (non-Javadoc)
 	 * @see SearchService#SearchByName(String name)
@@ -44,8 +51,13 @@ public class Search implements SearchService {
 	 */
 	public User SearchByLogin(String login) {
 		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
+		Artist a = (Artist) daoA.searchByLogin(login);
+        if (a == null) {
+                User u = daoU.searchByLogin(login);
+                return u;
+        }
+        return a;
+				
 		// end-user-code
 	}
 

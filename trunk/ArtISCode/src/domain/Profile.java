@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.ManageUser;
+import controller.Search;
 
 /**
  * Servlet implementation class Profile
@@ -71,13 +72,19 @@ public class Profile extends HttpServlet {
 		String city =request.getParameter("city");
 		String zip = (String) request.getParameter("zip");
 		String country = request.getParameter("country");
+		String description = (String) request.getParameter("description");
+		String tag1 = (String) request.getParameter("tag1");
+		String tag2 = (String) request.getParameter("tag2");
+		String tag3 = (String) request.getParameter("tag3");
+		System.out.println(tag1);
 		
 		ManageUser service= new ManageUser();
 		if(pass1.equals(pass2))
 		{
 			if(kind.equalsIgnoreCase("user"))
 			{
-				User user=new User();
+				
+				User user = service.checkLoginUser(login);
 				user.setFirstname(firstname);
 				user.setLastname(lastname);
 				user.setEmail(mail);
@@ -90,31 +97,35 @@ public class Profile extends HttpServlet {
 				address.setZip(zip);
 				user.setAddress(address);
 				service.modifyUser(user);
+				request.setAttribute("result", "upok");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 				
 			}
 			if(kind.equalsIgnoreCase("artist"))
 			{
-				String description = request.getParameter("description");
-				String tag1 = request.getParameter("tag1");
-				String tag2 = request.getParameter("tag2");
-				String tag3 = request.getParameter("tag3");
+				
 				Tag Tag1 = new Tag();
 				Tag Tag2 = new Tag();
 				Tag Tag3 = new Tag();
 				Tag1.setName(tag1);
 				Tag2.setName(tag2);
 				Tag3.setName(tag3);
-				Artist artist=new Artist();
+				Artist artist= service.checkLoginArtist(login);
+				Set<Artist> artists=new HashSet<Artist>();
 				artist.setFirstname(firstname);
 				artist.setLastname(lastname);
 				artist.setEmail(mail);
 				artist.setLogin(login);
 				artist.setPassword(pass1);
 				artist.setDescription(description);
+				artists.add(artist);
 				Set<Tag> tags = new HashSet<Tag>();
 				tags.add(Tag1);
 				tags.add(Tag2);
 				tags.add(Tag3);
+				Tag1.setArtist(artists);
+				Tag2.setArtist(artists);
+				Tag3.setArtist(artists);
 				artist.setTag(tags);
 				Address address=new Address();
 				address.setCity(city);
@@ -123,11 +134,8 @@ public class Profile extends HttpServlet {
 				address.setZip(zip);
 				artist.setAddress(address);
 				service.modifyArtist(artist);
-				
-					request.setAttribute("resultreg", "ok");
-					request.setAttribute("login", login);
-					request.setAttribute("kind", kind);
-					request.getRequestDispatcher("RegResult.jsp").forward(request, response);
+				request.setAttribute("result", "upok");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 				
 			}
 			/*

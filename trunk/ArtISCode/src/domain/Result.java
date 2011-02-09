@@ -15,15 +15,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Search
+ * Servlet implementation class Result
  */
-public class Search extends HttpServlet {
+public class Result extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Search() {
+    public Result() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,6 +32,7 @@ public class Search extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		String  keyword=request.getParameter("keyword");
 		PrintWriter out = response.getWriter();
 		
@@ -53,11 +54,13 @@ public class Search extends HttpServlet {
 			for (int i = 0; i < keyword.length(); i++) {
 				content.append(keyword.charAt(i) + "%");
 			}
-			ResultSet rs = stat.executeQuery("select * from user where firstname like \"%"+content.toString()+"%\" limit 5");
+			ResultSet rs = stat.executeQuery("select * from user where firstname like \"%"+content.toString()+"%\" limit 8");
 			
 			while (rs.next())
 			{
 				vData.add(rs.getString("firstname"));
+				vData.add(rs.getString("lastname"));
+				
 			}
 			StringBuffer buf = new StringBuffer();
 			for (int i=0;i<vData.size();i++)
@@ -69,7 +72,7 @@ public class Search extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		} finally {//最后关必记录集，Connection对象
 			try {
 				// this will close any associated ResultSets
 				if (stat != null)
@@ -79,27 +82,7 @@ public class Search extends HttpServlet {
 			} catch (SQLException sqle) {
 			}
 		}
-		
-		/*
-		
-			DAO dao=new DAO();
-			out.println("<html>");
-	    	out.println("<head>");
-	    	out.println("<title>Login Accept</title>");
-	    	out.println("</head>");
-	    	out.println("<body>");
-	    	
-	    	try {
-	    		out.println("MMMMM))))))"+keyword);
-				out.println(" Return Accueil ahahahahhahaah***********************"+dao.search(1120));
-				out.println("skskskskskskks%%%%%%%%%%%%%%%%5"+dao.search(1120));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    	out.println("</html>");*/
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -54,12 +54,13 @@ public class Result extends HttpServlet {
 			for (int i = 0; i < keyword.length(); i++) {
 				content.append(keyword.charAt(i) + "%");
 			}
-			ResultSet rs = stat.executeQuery("select * from user where firstname like \"%"+content.toString()+"%\" limit 8");
+			ResultSet rs = stat.executeQuery("select * from user u, artist a where firstname like \"%"+content.toString()+"%\" AND u.id_user=a.id_user limit 8");
 			
 			while (rs.next())
 			{
 				vData.add(rs.getString("firstname"));
 				vData.add(rs.getString("lastname"));
+				vData.add(rs.getString("login"));
 				
 			}
 			StringBuffer buf = new StringBuffer();

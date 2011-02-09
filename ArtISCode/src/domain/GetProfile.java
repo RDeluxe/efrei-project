@@ -26,6 +26,7 @@ public class GetProfile extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -33,14 +34,21 @@ public class GetProfile extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doRequest(request,response);
+		
+		String login = request.getParameter("login");
+		System.out.println(login);
+		
+		
+		
+		
+			System.out.println("artist");
+			DAOArtist dao = new DAOArtist();
+			User user = new User();
+			user= dao.searchByLogin(login);
+			request.setAttribute("user",user);
+			request.getRequestDispatcher("artists.jsp").forward(request, response);
+		
 	}
 
-	protected void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession(true);	
-		String login = (String) session.getAttribute("login");
-		
-		
-	}
+	
 }

@@ -58,6 +58,15 @@ body {
 	border-style:solid;
 	color: #000;
 }
+#result {
+	clear:both;
+	height:auto;
+	padding:5px;
+	border-width:1px;
+	border-color:#FFF;
+	border-style:solid;
+	color: #000;
+}
 
 #contenu {
 	float:left;

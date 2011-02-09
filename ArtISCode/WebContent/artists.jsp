@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Artist Page</title>
+<script type="text/javascript" src="suggest.js"></script>
 <link href="habillage.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -23,7 +24,10 @@
   if((result!=null)&&(result.equalsIgnoreCase("ok"))){
   
 	  String login =request.getParameter("login");
+	  String kind = request.getParameter("kind");
   session.setAttribute( "login", login );
+  session.setAttribute("kind", kind);
+  System.out.println(kind);
   }
    String sessionlog=(String) session.getAttribute("login");
   if(sessionlog==null){%>
@@ -32,9 +36,13 @@
   <label for="login">Login : </label> <input id="login" name="login" type="text" width="100" />
   <label for="pass">Password : </label> <input id="pass" name="pass" type="password" width="80" />
   
-  <label for="kind">Artist ? :</label> <input type="checkbox" name="kind" value="1"  /><br/>
-  
-  <a href="register.jsp" style="font-size:10px; padding-top:10px; margin-left:16px; margin-right:20px;  font-style:italic"> register </a> 
+  <label for="kind">Kind :</label> <SELECT name="kind">
+		<OPTION VALUE="1">User</OPTION>
+		<OPTION VALUE="2">Artist</OPTION>
+		<OPTION VALUE="3">Pro</OPTION>
+        </SELECT>
+  <br/>
+  <a href="register.jsp" style="font-size:10px; padding-top:10px; margin-left:16px; margin-right:20px;  font-style:italic"> register </a>
   
  <input id="send"  type="submit" value="log in"/>
   </form>
@@ -42,19 +50,30 @@
   <%request.getSession().invalidate();
   }else{%>
   <p> Hi, <%= session.getAttribute("login")  %></p>
-  <p> Modify your<a href="profile.jsp" >profile</a>  </p>
+  <p> Modify your<a href="Profile" >profile</a>  </p>
   <p> <input type="button" value="Deconnexion" onClick="document.location='deconnexion.jsp'"></p>
   <%} %>
   <%if(result!=null){ %>
   <%if(result.equalsIgnoreCase("ko")==true){ %>
   <p> No user with this Login</p>
   <%} %>
+  <%if(result.equalsIgnoreCase("upok")==true){ %>
+  <p> Profile correctly updated !</p>
+  <%} %>
   <%} %>
   </div> 
   
   <div id="menubox">
  
-  <label for="search"> Search </label> <input id="search" name="search" width="100" />
+	<form>
+    <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" autocomplete="off" />
+    <input type="button" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" /><br />
+    <div id="search_suggest"></div>
+     <div id="result"></div>
+	</form>
+   
+
+
   </div>
 </div>
 <div id="contenu">

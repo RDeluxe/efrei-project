@@ -3,11 +3,15 @@
  */
 package controller;
 
+import java.util.Iterator;
+
 import domain.Artist;
 import domain.DAOArtist;
+import domain.DAOTag;
 import domain.DAOUser;
 import domain.IDAOArtist;
 import domain.IDAOUser;
+import domain.Tag;
 import domain.User;
 
 /** 
@@ -25,6 +29,7 @@ public class ManageUser implements ManagingUsersService {
 	private SearchService searchService = new Search();
 	private IDAOArtist daoA = new DAOArtist();
 	private IDAOUser daoU = new DAOUser();
+	private DAOTag daoT = new DAOTag();
 	
 	
 	
@@ -143,6 +148,7 @@ public class ManageUser implements ManagingUsersService {
 	@Override
 	public Boolean RegisteringArtist(Artist artist) {
 		if (this.checkLoginArtist(artist.getLogin())==null) {
+			//daoT.updateTagList(artist.getTag());
 			daoA.addUser(artist);
 			return true;
 		}
@@ -151,6 +157,6 @@ public class ManageUser implements ManagingUsersService {
 
 	@Override
 	public void modifyArtist(Artist artist) {
-		((DAOArtist) daoA).updateUser(artist);
+		daoA.updateUser(artist);
 	}
 }

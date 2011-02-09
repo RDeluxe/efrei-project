@@ -103,39 +103,63 @@ public class Profile extends HttpServlet {
 			}
 			if(kind.equalsIgnoreCase("artist"))
 			{
-				
-
-				Artist artist= service.checkLoginArtist(login);
-				Set<Tag> tags = artist.getTag();
-				tags.clear();
-				Tag Tag1 = search.SearchTagByName(tag1);
-				Tag Tag2 = search.SearchTagByName(tag2);
-				Tag Tag3 = search.SearchTagByName(tag3);
-				//Set<Artist> artists=new HashSet<Artist>();
-				artist.setFirstname(firstname);
-				artist.setLastname(lastname);
-				artist.setEmail(mail);
-				artist.setLogin(login);
-				artist.setPassword(pass1);
-				artist.setDescription(description);
-				//artists.add(artist);
-				//Set<Tag> tags = new HashSet<Tag>();
-				Tag1.addArtist(artist);
-				Tag2.addArtist(artist);
-				Tag3.addArtist(artist);
-				tags.add(Tag1);
-				tags.add(Tag2);
-				tags.add(Tag3);
-				//Tag1.setArtist(artists);
-				//Tag2.setArtist(artists);
-				//Tag3.setArtist(artists);
-				artist.setTag(tags);
-				Address address= artist.getAddress();
-				address.setCity(city);
-				address.setCountry(country);
-				address.setStreet(street);
-				address.setZip(zip);
-				service.modifyArtist(artist);
+				try {
+					Artist artist= service.checkLoginArtist(login);
+					//Set<Artist> artists=new HashSet<Artist>();
+					artist.setFirstname(firstname);
+					artist.setLastname(lastname);
+					artist.setEmail(mail);
+					artist.setLogin(login);
+					artist.setPassword(pass1);
+					artist.setDescription(description);
+					Address address= artist.getAddress();
+					address.setCity(city);
+					address.setCountry(country);
+					address.setStreet(street);
+					address.setZip(zip);
+					//artists.add(artist);
+					//Set<Tag> tags = new HashSet<Tag>();
+					Set<Tag> tags = artist.getTag();
+					tags.clear();
+					Tag Tag1 = search.SearchTagByName(tag1);
+					Tag Tag2 = search.SearchTagByName(tag2);
+					Tag Tag3 = search.SearchTagByName(tag3);
+					Tag1.addArtist(artist);
+					Tag2.addArtist(artist);
+					Tag3.addArtist(artist);
+					artist.addTag(Tag1);
+					artist.addTag(Tag2);
+					artist.addTag(Tag3);
+					service.modifyArtist(artist);
+				} catch (Exception e) {
+					Artist artist= service.checkLoginArtist(login);
+					//Set<Artist> artists=new HashSet<Artist>();
+					artist.setFirstname(firstname);
+					artist.setLastname(lastname);
+					artist.setEmail(mail);
+					artist.setLogin(login);
+					artist.setPassword(pass1);
+					artist.setDescription(description);
+					Address address= artist.getAddress();
+					address.setCity(city);
+					address.setCountry(country);
+					address.setStreet(street);
+					address.setZip(zip);
+					//artists.add(artist);
+					//Set<Tag> tags = new HashSet<Tag>();
+					Set<Tag> tags = artist.getTag();
+					tags.clear();
+					Tag Tag1 = search.SearchTagByName(tag1);
+					Tag Tag2 = search.SearchTagByName(tag2);
+					Tag Tag3 = search.SearchTagByName(tag3);
+					Tag1.addArtist(artist);
+					Tag2.addArtist(artist);
+					Tag3.addArtist(artist);
+					artist.addTag(Tag1);
+					artist.addTag(Tag2);
+					artist.addTag(Tag3);
+					service.modifyArtist(artist);
+				}
 				request.setAttribute("result", "upok");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 				

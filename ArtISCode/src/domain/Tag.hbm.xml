@@ -13,7 +13,7 @@
 			<column name="NAME"></column>
 		</property>
     
-		<set name="artist" table="TAGGED" cascade="all">
+		<set name="artist" table="TAGGED">
 			<key column="ID_TAG"/>
 			<many-to-many class="Artist" column="ID_USER"/>
 		</set>

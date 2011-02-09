@@ -3,8 +3,11 @@
  */
 package domain;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
+import org.hibernate.FlushMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -46,6 +49,16 @@ public class DAOTag implements IDAOTag {
 	 * @see IDAOTag#updateTag(Integer id_tag, Tag tag)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	
+	public void updateTagList(Set<Tag> tags) {
+		Transaction tx = session.beginTransaction();
+		Iterator<Tag> it = tags.iterator();
+		while (it.hasNext()) {
+			session.update(it.next());
+		}
+		tx.commit();
+	}
+	
 	public void updateTag(Tag tag) {
 		// begin-user-code
 		// TODO Module de remplacement de m閠hode auto-g閚閞�

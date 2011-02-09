@@ -3,6 +3,7 @@
  */
 package domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /** 
@@ -45,7 +46,7 @@ public class Artist extends User {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Set<Tag> tag;
+	private Set<Tag> tag = new HashSet<Tag>();
 
 	/** 
 	 * @return tag
@@ -65,5 +66,9 @@ public class Artist extends User {
 		// begin-user-code
 		this.tag = tag;
 		// end-user-code
+	}
+	
+	public void addTag(Tag t) {
+		tag.add(t);
 	}
 }

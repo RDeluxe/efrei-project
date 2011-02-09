@@ -29,6 +29,7 @@ public class DAOArtist implements IDAOArtist {
 	public DAOArtist(){
 	}
 	
+	@Override
 	public void addUser(User user) {
 		// begin-user-code
 
@@ -39,16 +40,14 @@ public class DAOArtist implements IDAOArtist {
 		// end-user-code
 	}
 
-	/** 
-	 * (non-Javadoc)
-	 * @see IDAOUser#updateUser(Integer id_user, User user)
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	@Override
 	public void updateUser(User user) {
 		// begin-user-code
 		
 		Transaction tx = session.beginTransaction();
-		session.update(user);
+		Artist a = (Artist) user;
+		System.out.println(a.getDescription()+"**************************************");
+		session.update(a);
 		tx.commit();
 		// end-user-code
 	}
@@ -58,6 +57,7 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOUser#searchByLogin(String login)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	@Override
 	public User searchByLogin(String login) {
 		// begin-user-code
 
@@ -72,6 +72,7 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOUser#getAllArtists()
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<User> getAllUser() {
 		// begin-user-code
@@ -87,6 +88,7 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOUser#searchArtistByName(String firstname, String lastname)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	@Override
 	public List<User> searchUserByName(String firstname, String lastname) {
 		// begin-user-code
 
@@ -101,6 +103,7 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOArtist#SearchArtistByTag(Tag tag)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Artist> SearchArtistByTag(Tag tag) {
 		// begin-user-code

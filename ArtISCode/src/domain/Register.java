@@ -90,7 +90,6 @@ public class Register extends HttpServlet {
 				Tag2.setName(tag2);
 				Tag3.setName(tag3);
 				Artist artist=new Artist();
-				Set<Artist> artists=new HashSet<Artist>();
 				artist.setFirstname(firstname);
 				artist.setLastname(lastname);
 				artist.setEmail(mail);
@@ -101,9 +100,6 @@ public class Register extends HttpServlet {
 				tags.add(Tag1);
 				tags.add(Tag2);
 				tags.add(Tag3);
-				Tag1.setArtist(artists);
-				Tag2.setArtist(artists);
-				Tag3.setArtist(artists);
 				artist.setTag(tags);
 				Address address=new Address();
 				address.setCity(city);

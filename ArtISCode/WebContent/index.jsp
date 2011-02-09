@@ -50,6 +50,9 @@
   <%if(result.equalsIgnoreCase("ko")==true){ %>
   <p> No user with this Login</p>
   <%} %>
+  <%if(result.equalsIgnoreCase("upok")==true){ %>
+  <p> Profile correctly updated !</p>
+  <%} %>
   <%} %>
   </div> 
   

@@ -76,13 +76,14 @@ public class Profile extends HttpServlet {
 		String tag1 = (String) request.getParameter("tag1");
 		String tag2 = (String) request.getParameter("tag2");
 		String tag3 = (String) request.getParameter("tag3");
-		System.out.println(tag1);
+		System.out.println(description);
 		
 		ManageUser service= new ManageUser();
 		if(pass1.equals(pass2))
 		{
 			if(kind.equalsIgnoreCase("user"))
 			{
+				System.out.println("user");
 				
 				User user = service.checkLoginUser(login);
 				user.setFirstname(firstname);
@@ -103,7 +104,7 @@ public class Profile extends HttpServlet {
 			}
 			if(kind.equalsIgnoreCase("artist"))
 			{
-				
+				System.out.println("artiste");
 				Tag Tag1 = new Tag();
 				Tag Tag2 = new Tag();
 				Tag Tag3 = new Tag();
@@ -127,7 +128,7 @@ public class Profile extends HttpServlet {
 				Tag2.setArtist(artists);
 				Tag3.setArtist(artists);
 				artist.setTag(tags);
-				Address address=new Address();
+				Address address= artist.getAddress();
 				address.setCity(city);
 				address.setCountry(country);
 				address.setStreet(street);

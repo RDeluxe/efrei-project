@@ -11,7 +11,7 @@
 <body>
 <div id="page">
 
-<div id="entete"><img src="banner.jpg" width="947" height="186" /></div>
+<div id="entete"><a href="index.jsp"><img src="banner.jpg" width="947" height="186" border=no></a></div>
 <div id="menu">
   <div id="loginbox">
   <%String result=(String) request.getAttribute("result");
@@ -64,7 +64,7 @@
     <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" autocomplete="off" />
     <input type="button" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" /><br />
     <div id="search_suggest"></div>
-     <div id="result"></div>
+     
 	</form>
    
 
@@ -73,9 +73,7 @@
 </div>
 
 <div id="contenu">
-  <p>This is our website<br />
-    Some functionalities are in construction<br />
-    Coming soon ;)</p>
+  <div id="result"></div>
 </div>
 
 <div id="pied">

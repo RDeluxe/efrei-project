@@ -58,7 +58,7 @@ body {
 	border-style:solid;
 	color: #000;
 }
-#result {
+#results {
 	clear:both;
 	height:auto;
 	padding:5px;
@@ -85,6 +85,10 @@ body {
 	width:200px;
 	float: right;
 	height: auto;
+	margin-left: 10px;
+	border-width:1px;
+	border-color:#FFF;
+	border-style:solid;
 	
 	
 	
@@ -93,8 +97,9 @@ body {
 
 #text {
 	margin-left:10px;
-	margin-right: 210px;
 	color: #000;
+	overflow: auto;
+	
 }
 #pied { clear:both; }
 

@@ -13,7 +13,7 @@
 <div id="page">
 <%@ page import="domain.*" %>
 <%@ page import="java.util.*" %>
-<div id="entete"><img src="banner.jpg" width="947" height="186" /></div>
+<div id="entete"><a href="index.jsp"><img src="banner.jpg" width="947" height="186" border=no></a></div>
 <div id="menu">
   <div id="loginbox">
   <%String result=(String) request.getAttribute("result");

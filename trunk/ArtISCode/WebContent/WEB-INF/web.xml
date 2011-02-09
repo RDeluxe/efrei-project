@@ -34,7 +34,7 @@
     <servlet-name>GetProfile</servlet-name>
     <url-pattern>/GetProfile</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>Profile</display-name>
     <servlet-name>Profile</servlet-name>
@@ -43,5 +43,25 @@
   <servlet-mapping>
     <servlet-name>Profile</servlet-name>
     <url-pattern>/Profile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Search</display-name>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>domain.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Result</display-name>
+    <servlet-name>Result</servlet-name>
+    <servlet-class>domain.Result</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Result</servlet-name>
+    <url-pattern>/Result</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Index</title>
 <link href="habillage.css" rel="stylesheet" type="text/css">
+ <script type="text/javascript" src="suggest.js"></script>
 </head>
 <body>
 <div id="page">
@@ -21,6 +22,7 @@
 	  String kind = request.getParameter("kind");
   session.setAttribute( "login", login );
   session.setAttribute("kind", kind);
+  System.out.println(kind);
   }
    String sessionlog=(String) session.getAttribute("login");
   if(sessionlog==null){%>
@@ -58,7 +60,15 @@
   
   <div id="menubox">
  
-  <label for="search"> Search </label> <input id="search" name="search" width="80" />
+	<form>
+    <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" autocomplete="off" />
+    <input type="button" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" /><br />
+    <div id="search_suggest"></div>
+     <div id="result"></div>
+	</form>
+   
+
+
   </div>
 </div>
 

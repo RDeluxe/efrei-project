@@ -41,6 +41,7 @@
   
  <input id="send"  type="submit" value="log in"/>
   </form>
+  <a href="oauth-demo.jsp"><img border="0" src="Blue_150_Loginwithmyspaceid.png"/></a>
   
   <%request.getSession().invalidate();
   }else{%>

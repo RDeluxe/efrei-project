@@ -44,8 +44,7 @@ function handleProfileReq() {
 	if (searchReq.readyState == 4) {
 		var str = searchReq.responseText.split('\n');
 		var displayer = document.getElementById('contenu');
-		if (str[0] == "1") {
-		displayer.innerHTML = '<form method="post" action="Profile">' +
+		var result = '<form method="post" action="Profile">' +
 		  +'<fieldset>'
 		  +'<legend>Registration page for User</legend>'
 		  +'<fieldset>'
@@ -79,7 +78,15 @@ function handleProfileReq() {
 		  +'<input type="text" name="zip" value="' + str[8] + '"  size="10" /><br/>'
 		  +'Country:<br/>'
 		  +'<input type="text" name="country" value="' + str[9] + '"  size="25" /><br/>'
-		  +'</fieldset>'
+		  +'</fieldset>';
+		if (str[0] == "2") {
+			result += '<fieldset>'
+		    +'<legend>Artist Information</legend><br/>'
+		    +'<label for="description">Your Description</label><br />'
+		    +' <textarea name="description" id="description">'+ str[10] +'</textarea><br/>'
+		    +'</fieldset>';
+		}
+		displayer.innerHTML = result
 		  +'<br/>'
 		  +'<p></p>'
 		  +'<input type="submit"'
@@ -87,6 +94,6 @@ function handleProfileReq() {
 		  +'<input type="reset"'
 		  +'value="Reset" />'
 		  +'</fieldset>'
-		  +'</form>';}
+		  +'</form>';
 	}
 }

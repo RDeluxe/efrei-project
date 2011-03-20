@@ -18,7 +18,7 @@
 <div id="menu">
 <table id="menutab">
 <tr>
-  <td onClick="">
+  <td id="menubutton" onClick='document.location.href="index.jsp"'>
   	Accueil
   </td>
   <%String result=(String) request.getAttribute("result");
@@ -34,19 +34,15 @@
    String sessionlog=(String) session.getAttribute("login");
   if(sessionlog==null){%>
 
-  <td>
- <a href="register.jsp" style="font-size:10px; padding-top:10px; margin-left:16px; margin-right:20px;  font-style:italic"> register </a>
+  <td id="menubutton" onclick='document.location.href="register.jsp"'>
+ Register
   </td>
   <td>
   <form method="post" action="Login">
   <label for="login">Login : </label> <input id="login" name="login" type="text" width="100" />
   <label for="pass">Password : </label> <input id="pass" name="pass" type="password" width="80" />
   
-  <label for="kind">Kind :</label> <SELECT name="kind">
-		<OPTION VALUE="1">User</OPTION>
-		<OPTION VALUE="2">Artist</OPTION>
-		<OPTION VALUE="3">Pro</OPTION>
-        </SELECT>
+  
   <input id="send"  type="submit" value="log in"/>
 
  
@@ -55,7 +51,7 @@
   
   <%request.getSession().invalidate();
   }else{%>
-  <td onclick="javascript:displayProfileReq()">
+  <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>
    <td>
@@ -86,9 +82,22 @@
 
 </div>
 <div id="contenu">
+<div id="left">
+<div id="info">
+</div>
+<div id="desc">
+</div>
+</div>
+<div id="right" >
+<div id="pic">
+</div>
+<div id="events">
+</div>
+</div>
 </div>
 <div id="pied">
 </div>
 </div>
+5
 </body>
 </html>

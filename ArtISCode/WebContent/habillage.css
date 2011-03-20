@@ -7,15 +7,15 @@ body {
 	background-image: url(background.jpg);
 	background-repeat:no-repeat;
 	width:1000px;
-	margin:auto;
-	margin-top:20px;
+	margin-left:auto;
+	margin-right:auto;
 	margin-bottom:20px;
 }
 #page {
 	float:none;
 	width: 60em;
 	background-color:#D6D6D6;
-	margin-top: 50px;
+
 	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
@@ -28,7 +28,7 @@ body {
 }
 #entete { padding:5px; margin: auto; width: auto; }
 #menu {
-	width:100%;
+	width:95%;
 	height:50px;
 	margin:auto;
 	margin-top:10px;
@@ -65,6 +65,21 @@ body {
 	color: #000;
 	text-align: center;
 	padding-right: 10px;
+}
+
+#right {
+	width:25%;
+	height:auto;
+	float:right;
+	margin-right:20px;
+	border-left-width:1px;
+	border-left:#FFF;
+	border-left-style:solid;
+}
+#left{
+	float:left;
+	height:auto;
+	width:70%;
 }
 
 #left_column {

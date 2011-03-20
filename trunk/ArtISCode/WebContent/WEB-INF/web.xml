@@ -64,4 +64,14 @@
     <servlet-name>Result</servlet-name>
     <url-pattern>/Result</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckLogin</display-name>
+    <servlet-name>CheckLogin</servlet-name>
+    <servlet-class>domain.CheckLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckLogin</servlet-name>
+    <url-pattern>/CheckLogin</url-pattern>
+  </servlet-mapping>
 </web-app>

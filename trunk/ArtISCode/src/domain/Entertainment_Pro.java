@@ -1,6 +1,6 @@
 package domain;
 
-public class Entertainment_Pro {
+public class Entertainment_Pro extends User {
 
 	private String description=null;
 

@@ -18,7 +18,7 @@
 <div id="menu">
 <table id="menutab">
 <tr>
-  <td id="menubutton" onClick='document.location.href="index.jsp"'>
+  <td onClick="">
   	Accueil
   </td>
   <%String result=(String) request.getAttribute("result");
@@ -34,8 +34,8 @@
    String sessionlog=(String) session.getAttribute("login");
   if(sessionlog==null){%>
 
-  <td id="menubutton" onclick='document.location.href="register.jsp"'>
- Register
+  <td>
+ <a href="register.jsp" style="font-size:10px; padding-top:10px; margin-left:16px; margin-right:20px;  font-style:italic"> register </a>
   </td>
   <td>
   <form method="post" action="Login">
@@ -55,7 +55,7 @@
   
   <%request.getSession().invalidate();
   }else{%>
-  <td id="menubutton" onclick="javascript:displayProfileReq()">
+  <td onclick="javascript:displayProfileReq()">
   Profile
   </td>
    <td>

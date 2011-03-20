@@ -32,10 +32,61 @@ function createAjaxObj(){
 //Our XmlHttpRequest object to get the auto suggest
 var searchReq = createAjaxObj();
 
-function displayProfileReq(login) {
+function displayProfileReq() {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
-			searchReq.open("GET", 'Profile?login=' + login , true);
-			searchReq.onreadystatechange = handletest;
+			searchReq.open("GET", 'Profile' , true);
+			searchReq.onreadystatechange = handleProfileReq;
 			searchReq.send(null);
+	}
+}
+
+function handleProfileReq() {
+	if (searchReq.readyState == 4) {
+		var str = searchReq.responseText.split('\n');
+		var displayer = document.getElementById('contenu');
+		if (str[0] == "1") {
+		displayer.innerHTML = '<form method="post" action="Profile">' +
+		  +'<fieldset>'
+		  +'<legend>Registration page for User</legend>'
+		  +'<fieldset>'
+		  +'<legend>Basic Info</legend><br/>'
+		  +'Kind of account:<br/>'
+		  +'<input type="text" name="kind" value="User" readonly="readonly" /><br/>'
+		  +'Firstname:<br/>'
+		  +'<input type="text" name="firstname" value="' + str[1] + '" size="25" /><br/>'
+		  +'Lastname:<br/>'
+		  +'<input type="text" name="lastname" value="' + str[2] + '" size="25" /><br/>'
+		  +'Mail:<br/>'
+		  +'<input type="text" name="mail" value="' + str[3] + '" /><br/>'
+		  +'<br/>'
+		  +'</fieldset>'
+		  +'<fieldset>'
+		  +'<legend>Connection Info</legend><br/>'
+		  +'Your login:<br/>'
+		  +'<input type="text" name="login" value="' + str[4] + '" size="25" readonly="readonly" /><br/>'
+		  +'Your password:<br/>'
+		  +'<input type="password" name="pass1" value="' + str[5] + '" size="25" /><br/>'
+		  +'Password Check:<br/>'
+		  +'<input type="password" name="pass2" value="' + str[5] + '" size="25" /><br/>'
+		  +'</fieldset>'
+		  +'<fieldset>'
+		  +'<legend>Your Address</legend><br/>'
+		  +'Street:<br/>'
+		  +'<input type="text" name="street" value="' + str[6] + '" size="60" /><br/>'
+		  +'City:<br/>'
+		  +'<input type="text" name ="city" value="' + str[7] + '"  size="25" /><br/>'
+		  +'Zip code:<br/>'
+		  +'<input type="text" name="zip" value="' + str[8] + '"  size="10" /><br/>'
+		  +'Country:<br/>'
+		  +'<input type="text" name="country" value="' + str[9] + '"  size="25" /><br/>'
+		  +'</fieldset>'
+		  +'<br/>'
+		  +'<p></p>'
+		  +'<input type="submit"'
+		  +'value="Submit" />'
+		  +'<input type="reset"'
+		  +'value="Reset" />'
+		  +'</fieldset>'
+		  +'</form>';}
 	}
 }

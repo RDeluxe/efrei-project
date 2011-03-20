@@ -2,6 +2,7 @@ package domain;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.servlet.ServletException;
@@ -81,6 +82,12 @@ public class Register extends HttpServlet {
 			}
 			if(kind.equalsIgnoreCase("artist"))
 			{
+				String tag1 = request.getParameter("tag1");
+				String tag2 = request.getParameter("tag2");
+				String tag3 = request.getParameter("tag3");
+				Tag Tag1 = search.SearchTagByName(tag1);
+				Tag Tag2 = search.SearchTagByName(tag2);
+				Tag Tag3 = search.SearchTagByName(tag3);
 				String description = request.getParameter("description");
 				Artist artist=new Artist();
 				artist.setFirstname(firstname);
@@ -95,58 +102,14 @@ public class Register extends HttpServlet {
 				address.setStreet(street);
 				address.setZip(zip);
 				artist.setAddress(address);
+				Set<Tag> tags = new HashSet<Tag>();
+				tags.add(Tag1);
+				tags.add(Tag2);
+				tags.add(Tag3);
+				artist.setTag(tags);
+				/*Tag2.addArtist(artist);
+				Tag3.addArtist(artist);*/
 				Boolean check =service.RegisteringArtist(artist);
-				try {
-					artist = service.checkLoginArtist(login);
-					String tag1 = request.getParameter("tag1");
-					String tag2 = request.getParameter("tag2");
-					String tag3 = request.getParameter("tag3");
-					Tag Tag1 = search.SearchTagByName(tag1);
-					Tag Tag2 = search.SearchTagByName(tag2);
-					Tag Tag3 = search.SearchTagByName(tag3);
-					artist.getTag().clear();
-					Tag1.addArtist(artist);
-					Tag2.addArtist(artist);
-					Tag3.addArtist(artist);
-					artist.addTag(Tag1);
-					artist.addTag(Tag2);
-					artist.addTag(Tag3);
-					service.modifyArtist(artist);
-				} catch (Exception e) {
-					try {
-						artist = service.checkLoginArtist(login);
-						String tag1 = request.getParameter("tag1");
-						String tag2 = request.getParameter("tag2");
-						String tag3 = request.getParameter("tag3");
-						Tag Tag1 = search.SearchTagByName(tag1);
-						Tag Tag2 = search.SearchTagByName(tag2);
-						Tag Tag3 = search.SearchTagByName(tag3);
-						artist.getTag().clear();
-						Tag1.addArtist(artist);
-						Tag2.addArtist(artist);
-						Tag3.addArtist(artist);
-						artist.addTag(Tag1);
-						artist.addTag(Tag2);
-						artist.addTag(Tag3);
-						service.modifyArtist(artist);
-					} catch (Exception ex) {
-						artist = service.checkLoginArtist(login);
-						String tag1 = request.getParameter("tag1");
-						String tag2 = request.getParameter("tag2");
-						String tag3 = request.getParameter("tag3");
-						Tag Tag1 = search.SearchTagByName(tag1);
-						Tag Tag2 = search.SearchTagByName(tag2);
-						Tag Tag3 = search.SearchTagByName(tag3);
-						artist.getTag().clear();
-						Tag1.addArtist(artist);
-						Tag2.addArtist(artist);
-						Tag3.addArtist(artist);
-						artist.addTag(Tag1);
-						artist.addTag(Tag2);
-						artist.addTag(Tag3);
-						service.modifyArtist(artist);
-					}
-				}
 				if(check==true)
 				{
 					request.setAttribute("resultreg", "ok");

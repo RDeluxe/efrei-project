@@ -34,10 +34,15 @@ public class Profile extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String kind = new String();
 		HttpSession session = request.getSession(true);	
 		String login = (String) session.getAttribute("login");
-		String kind = (String) session.getAttribute("kind");
-		System.out.println(kind);
+		DAOArtist daoA = new DAOArtist();
+		Artist artist = (Artist) daoA.searchByLogin(login);
+		if (artist==null)
+		{kind="1";}else{kind="2";}
+		
+		
 		if(kind.equalsIgnoreCase("1"))
 		{
 			System.out.println("user");
@@ -59,12 +64,19 @@ public class Profile extends HttpServlet {
 		}
 		if(kind.equalsIgnoreCase("2"))
 		{
-			System.out.println("artist");
-			DAOArtist dao = new DAOArtist();
-			User user = new User();
-			user= dao.searchByLogin(login);
-			request.setAttribute("user",user);
-			request.getRequestDispatcher("profileA.jsp").forward(request, response);
+			Writer out = response.getWriter();
+			out.write(kind + '\n');
+			out.write(artist.getFirstname() + '\n');
+			out.write(artist.getLastname() + '\n');
+			out.write(artist.getEmail() + '\n');
+			out.write(artist.getLogin() + '\n');
+			out.write(artist.getPassword() + '\n');
+			Address a = artist.getAddress();
+			out.write(a.getStreet() + '\n');
+			out.write(a.getCity() + '\n');
+			out.write(a.getZip() + '\n');
+			out.write(a.getCountry() + '\n');
+			out.write(artist.getDescription() + '\n');
 		}
 	}
 

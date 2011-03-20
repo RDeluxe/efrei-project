@@ -42,11 +42,7 @@
   <label for="login">Login : </label> <input id="login" name="login" type="text" width="100" />
   <label for="pass">Password : </label> <input id="pass" name="pass" type="password" width="80" />
   
-  <label for="kind">Kind :</label> <SELECT name="kind">
-		<OPTION VALUE="1">User</OPTION>
-		<OPTION VALUE="2">Artist</OPTION>
-		<OPTION VALUE="3">Pro</OPTION>
-        </SELECT>
+  
   <input id="send"  type="submit" value="log in"/>
 
  

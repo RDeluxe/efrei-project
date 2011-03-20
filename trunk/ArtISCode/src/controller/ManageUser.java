@@ -7,8 +7,10 @@ import java.util.Iterator;
 
 import domain.Artist;
 import domain.DAOArtist;
+import domain.DAOPro;
 import domain.DAOTag;
 import domain.DAOUser;
+import domain.Entertainment_Pro;
 import domain.IDAOArtist;
 import domain.IDAOUser;
 import domain.Tag;
@@ -30,6 +32,7 @@ public class ManageUser implements ManagingUsersService {
 	private IDAOArtist daoA = new DAOArtist();
 	private IDAOUser daoU = new DAOUser();
 	private DAOTag daoT = new DAOTag();
+	private DAOPro daoP = new DAOPro();
 	
 	
 	
@@ -158,5 +161,13 @@ public class ManageUser implements ManagingUsersService {
 	@Override
 	public void modifyArtist(Artist artist) {
 		daoA.updateUser(artist);
+	}
+
+	public Boolean RegisteringProfessional(Entertainment_Pro pro) {
+		if (this.checkLoginArtist(pro.getLogin())==null) {
+			daoP.addUser(pro);
+			return true;
+		}
+		else return false;
 	}
 }

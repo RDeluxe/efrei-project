@@ -43,6 +43,7 @@ function searchSuggest() {
 		searchReq.send(null);
 	}
 }
+
 function result() {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
 		var str = escape(document.getElementById('txtSearch').value);

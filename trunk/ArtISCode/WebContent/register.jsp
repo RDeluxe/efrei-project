@@ -5,6 +5,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Register</title>
 <script type="text/javascript" src="suggest.js"></script>
+<script type="text/javascript">
+	function checkLoginBox() {
+		if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+			var str = escape(document.getElementById('loginBox').value);
+			searchReq.open("GET", 'CheckLogin?keyword=' + str, true);
+			searchReq.onreadystatechange = handleCheckLoginBox;
+			searchReq.send(null);
+		}
+	}
+	
+	function handleCheckLoginBox() {
+		if (searchReq.readyState == 4) {
+			var ss = document.getElementById('resultats');
+			ss.innerHTML = '';
+			var str = searchReq.responseText;
+			var suggest = str;
+			ss.innerHTML = suggest;
+		}
+	}
+</script>
 <link href="habillage.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -99,7 +119,7 @@
     <fieldset>
     <legend>Connection Info</legend><br/>
     Your login:<br/>
-    <input type="text" name="login" size="25" /><br/>
+    <input type="text" id="loginBox" name="login" size="25" onkeyup="checkLoginBox();"/><div id="resultats"></div><br/>
     Your password:<br/>
     <input type="password" name="pass1" size="25" /><br/>
     Password Check:<br/>

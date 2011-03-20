@@ -37,7 +37,6 @@ public class DAOArtist implements IDAOArtist {
 		Transaction tx = session.beginTransaction();
 		session.save(artist);
 		tx.commit();
-		session.evict(artist);
 		// end-user-code
 	}
 

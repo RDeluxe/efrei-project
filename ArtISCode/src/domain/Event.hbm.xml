@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 mars 2011 18:07:50 by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="domain.Event" table="EVENT">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="date" type="java.util.Date">
+            <column name="DATE" />
+        </property>
+        <property name="duration" type="int">
+            <column name="DURATION" />
+        </property>
+        <many-to-one name="owner" class="domain.User" column="OWNER"/>
+        
+        <set name="artists" inverse="true" lazy="true">
+            <key column="ID"/>
+            <one-to-many class="domain.Participant" />
+        </set>
+    </class>
+</hibernate-mapping>

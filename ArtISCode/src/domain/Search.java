@@ -54,7 +54,7 @@ public class Search extends HttpServlet {
 			for (int i = 0; i < keyword.length(); i++) {
 				content.append(keyword.charAt(i) + "%");
 			}
-			ResultSet rs = stat.executeQuery("select * from user where firstname like \"%"+content.toString()+"%\" limit 5");
+			ResultSet rs = stat.executeQuery("select * from user u, artist a where firstname like \"%"+content.toString()+"%\" AND u.id_user=a.id_user limit 5");
 			
 			while (rs.next())
 			{

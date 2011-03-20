@@ -3,6 +3,8 @@
  */
 package domain;
 
+import java.util.Set;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -197,5 +199,16 @@ public class User {
 		// begin-user-code
 		this.address = address;
 		// end-user-code
+	}
+
+	private Set<Event> events;
+	
+	
+	public void setEvents(Set<Event> events) {
+		this.events = events;
+	}
+
+	public Set<Event> getEvents() {
+		return events;
 	}
 }

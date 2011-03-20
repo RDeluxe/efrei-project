@@ -71,4 +71,14 @@ public class Artist extends User {
 	public void addTag(Tag t) {
 		tag.add(t);
 	}
+
+	private Set<Participant> participants;
+
+	public void setParticipants(Set<Participant> participants) {
+		this.participants = participants;
+	}
+
+	public Set<Participant> getParticipants() {
+		return participants;
+	}
 }

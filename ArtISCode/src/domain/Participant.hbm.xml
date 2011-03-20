@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 mars 2011 18:20:06 by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="domain.Participant" table="PARTICIPANT">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="member" column="MEMBER" class="domain.Artist" cascade="all"/>
+        <many-to-one name="event" class="domain.Event" column="EVENT" cascade="all"/>
+        <property name="acceptedByUser" type="boolean">
+            <column name="ACCEPTEDBYUSER" />
+        </property>
+        <property name="acceptedByArtist" type="boolean">
+            <column name="ACCEPTEDBYARTIST" />
+        </property>
+        <property name="UserCancelationRequest" type="boolean">
+            <column name="USERCANCELATIONREQUEST" />
+        </property>
+        <property name="ArtistCancelationRequest" type="boolean">
+            <column name="ARTISTCANCELATIONREQUEST" />
+        </property>
+    </class>
+</hibernate-mapping>

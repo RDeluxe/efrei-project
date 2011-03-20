@@ -24,7 +24,7 @@ public class DAOArtist implements IDAOArtist {
 	 * @see IDAOUser#addUser(User user)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private Session session=OpenSession.getSession();;
+	private Session session=OpenSession.getSession();
 	
 	public DAOArtist(){
 	}

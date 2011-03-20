@@ -19,22 +19,32 @@
 		
 		<property name="email" column="EMAIL" type="string"/>
 		
-		<many-to-one name="address" column="addressId" unique="true" not-null="true" cascade="all"/>
+		<many-to-one name="address" column="ADRRESSID" unique="true" not-null="true" cascade="all"/>
 
+		<set name="events" inverse="true">
+			<key column="ID"/>
+			<one-to-many class="domain.Event"/>
+		</set>
+		
 		<joined-subclass name="Artist" table="ARTIST" lazy="true">
 		  	<key column="ID_USER"/>
-		 	<property name="description" column="DESCRIPTION" type="string"/>
+		 	<property name="description" column="DESCRIPTION" type="text"/>
 		  
 			<set name="tag" table="TAGGED" cascade="all">
 				<key column="ID_USER"/>
 		  		<many-to-many class="domain.Tag" column="ID_TAG"/>
 			</set>
+			
+			<set name="participants" inverse="true">
+				<key column="ID"/>
+				<one-to-many class="domain.Participant"/>
+			</set>
 		</joined-subclass>
 		
-		<!--<joined-subclass name="domain.Entertainment_Pro" table="ENTERTAINMENT">
+		<joined-subclass name="domain.Entertainment_Pro" table="ENTERTAINMENT">
 		  	<key column="ID_USER"/>
-		  	<property name="description" column="DESCRIPTION" type="string"></property>
+		  	<property name="description" column="DESCRIPTION" type="text"></property>
 		</joined-subclass>
 		
-	--></class>
+	</class>
 </hibernate-mapping>

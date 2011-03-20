@@ -119,7 +119,7 @@
     <fieldset>
     <legend>Connection Info</legend><br/>
     Your login:<br/>
-    <input type="text" id="loginBox" name="login" size="25" onkeyup="checkLoginBox();"/><div id="resultats"></div><br/>
+    <input type="text" id="loginBox" name="login" size="25" /><br/>
     Your password:<br/>
     <input type="password" name="pass1" size="25" /><br/>
     Password Check:<br/>

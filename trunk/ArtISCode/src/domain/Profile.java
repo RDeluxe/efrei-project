@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.IOException;
+import java.io.Writer;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -43,8 +44,18 @@ public class Profile extends HttpServlet {
 			DAOUser dao = new DAOUser();
 			User user = new User();
 			user= dao.searchByLogin(login);
-			request.setAttribute("user",user);
-			request.getRequestDispatcher("profile.jsp").forward(request, response);
+			Writer out = response.getWriter();
+			out.write(kind + '\n');
+			out.write(user.getFirstname() + '\n');
+			out.write(user.getLastname() + '\n');
+			out.write(user.getEmail() + '\n');
+			out.write(user.getLogin() + '\n');
+			out.write(user.getPassword() + '\n');
+			Address a = user.getAddress();
+			out.write(a.getStreet() + '\n');
+			out.write(a.getCity() + '\n');
+			out.write(a.getZip() + '\n');
+			out.write(a.getCountry() + '\n');	
 		}
 		if(kind.equalsIgnoreCase("2"))
 		{

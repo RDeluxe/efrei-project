@@ -1,0 +1,68 @@
+package domain;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Search
+ */
+public class Search extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Search() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String  keyword=request.getParameter("keyword");
+		PrintWriter out = response.getWriter();
+		DAOArtist daoA = new DAOArtist();
+		Vector vData = new Vector(); 
+
+			List<Artist> artList = daoA.searchArtistByKeyword(keyword);
+			Iterator<Artist> it = artList.iterator();
+			
+			while (it.hasNext())
+			{
+				vData.add(it.next().getLogin());
+			}
+			StringBuffer buf = new StringBuffer();
+			for (int i=0;i<vData.size();i++)
+			{
+				String word = (String)vData.get(i);
+				buf.append(word+"\n");
+			}
+			out.print(buf.toString()); 
+
+	}
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+}

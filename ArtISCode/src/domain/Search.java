@@ -2,11 +2,6 @@ package domain;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
@@ -38,7 +33,7 @@ public class Search extends HttpServlet {
 		String  keyword=request.getParameter("keyword");
 		PrintWriter out = response.getWriter();
 		DAOArtist daoA = new DAOArtist();
-		Vector vData = new Vector(); 
+		Vector<String> vData = new Vector<String>(); 
 
 			List<Artist> artList = daoA.searchArtistByKeyword(keyword);
 			Iterator<Artist> it = artList.iterator();

@@ -40,11 +40,11 @@
   </td>
   <td>
   <form method="post" action="Login">
-  <label for="login">Login : </label> <input id="login" name="login" type="text" width="100" />
-  <label for="pass">Password : </label> <input id="pass" name="pass" type="password" width="80" />
+  <label id="menulabel" for="login">Login : </label> <input id="login" name="login" type="text" width="70" />
+  <label id="menulabel" for="pass">Password : </label> <input id="pass" name="pass" type="password" width="50" />
   
   
-  <input id="send"  type="submit" value="log in"/>
+  <input id="menubuttonform" type="submit" value="log in"/>
 
  
   </form>
@@ -54,23 +54,16 @@
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>
-   <td>
-<input type="button" value="Deconnexion" onClick="document.location='deconnexion.jsp'">
+   <td id="menubutton" onClick="document.location='deconnexion.jsp'">
+	Deconnexion
   </td>
   <%} %>
-  <%if(result!=null){ %>
-  <%if(result.equalsIgnoreCase("ko")==true){ %>
-  <p> No user with this Login</p>
-  <%} %>
-  <%if(result.equalsIgnoreCase("upok")==true){ %>
-  <p> Profile correctly updated !</p>
-  <%} %>
-  <%} %>
+  
   <td>
-  	<form>
+  	<form action="javascript:result();">
     <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" autocomplete="off" />
-    <input type="button" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" /><br />
-    <div id="search_suggest"></div>
+    
+    <input id="menubuttonform" type="hidden" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" />
      
 	</form>
   
@@ -78,6 +71,7 @@
 
 </tr>
 </table>
+<div id="search_suggest"></div>
  
 
 </div>

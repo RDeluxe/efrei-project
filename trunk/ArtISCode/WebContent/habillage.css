@@ -139,6 +139,9 @@ legend
  
 fieldset
 {
+	border:solid;
+	border-color:#CCC;
+	border-width:1px;
 	margin-bottom: 15px;
 	border-radius:10px;
 	-moz-border-radius:10px;

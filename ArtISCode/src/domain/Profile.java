@@ -147,8 +147,6 @@ public class Profile extends HttpServlet {
 					address.setCountry(country);
 					address.setStreet(street);
 					address.setZip(zip);
-					//artists.add(artist);
-					//Set<Tag> tags = new HashSet<Tag>();
 					Set<Tag> tags = artist.getTag();
 					Iterator<Tag> it = tags.iterator();
 					Tag Tag1 = it.next();
@@ -157,12 +155,6 @@ public class Profile extends HttpServlet {
 					Tag2 = search.SearchTagByName(tag2);
 					Tag Tag3 = it.next();
 					Tag3 = search.SearchTagByName(tag3);
-					System.out.println(Tag1);
-					//Tag Tag2 = search.SearchTagByName(tag2);
-					//Tag Tag3 = search.SearchTagByName(tag3);
-					Tag1.addArtist(artist);
-					Tag2.addArtist(artist);
-					Tag3.addArtist(artist);
 					service.modifyArtist(artist);
 				request.setAttribute("result", "upok");
 				request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -1,19 +1,26 @@
-<%@ page contentType="text/html; charset=utf-8" language="java"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Register</title>
-<script type="text/javascript" src="suggest.js"></script>
-<link href="habillage.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Index</title>
+<link href="habillage.css" rel="stylesheet" type="text/css">
+ <script type="text/javascript" src="suggest.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+ 
 </head>
-<body>
 <body>
 <div id="page">
 
-<div id="entete"><a href="index.jsp"><img src="banner.jpg" width="947" height="186" border=no></a></div>
+<div id="entete"><a href="index.jsp"><img src="Img/banner.jpg" width="950" height="100" border=no></a></div>
+
 <div id="menu">
-  <div id="loginbox">
+<table id="menutab">
+<tr>
+  <td id="menubutton" onClick='document.location.href="index.jsp"'>
+  	Accueil
+  </td>
   <%String result=(String) request.getAttribute("result");
   System.out.println(result);
   if((result!=null)&&(result.equalsIgnoreCase("ok"))){
@@ -25,28 +32,31 @@
   System.out.println(kind);
   }
    String sessionlog=(String) session.getAttribute("login");
-  if(sessionlog==null){%>
-  
+  if(sessionlog==null){
+	    request.getSession().invalidate();%>
+
+  <td id="menubutton" onclick='document.location.href="register.jsp"'>
+ Register
+  </td>
+  <td>
   <form method="post" action="Login">
   <label for="login">Login : </label> <input id="login" name="login" type="text" width="100" />
   <label for="pass">Password : </label> <input id="pass" name="pass" type="password" width="80" />
   
-  <label for="kind">Kind :</label> <SELECT name="kind">
-		<OPTION VALUE="1">User</OPTION>
-		<OPTION VALUE="2">Artist</OPTION>
-		<OPTION VALUE="3">Pro</OPTION>
-        </SELECT>
-  <br/>
-  <a href="register.jsp" style="font-size:10px; padding-top:10px; margin-left:16px; margin-right:20px;  font-style:italic"> register </a>
   
- <input id="send"  type="submit" value="log in"/>
+  <input id="send"  type="submit" value="log in"/>
+
+ 
   </form>
   
-  <%request.getSession().invalidate();
-  }else{%>
-  <p> Hi, <%= session.getAttribute("login")  %></p>
-  <p> Modify your<a href="Profile" >profile</a>  </p>
-  <p> <input type="button" value="Deconnexion" onClick="document.location='deconnexion.jsp'"></p>
+  
+  <%}else{%>
+  <td id="menubutton" onclick="javascript:displayProfileReq()">
+  Profile
+  </td>
+   <td>
+<input type="button" value="Deconnexion" onClick="document.location='deconnexion.jsp'">
+  </td>
   <%} %>
   <%if(result!=null){ %>
   <%if(result.equalsIgnoreCase("ko")==true){ %>
@@ -56,20 +66,20 @@
   <p> Profile correctly updated !</p>
   <%} %>
   <%} %>
-  </div> 
-  
-  <div id="menubox">
- 
-	<form>
+  <td>
+  	<form>
     <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" autocomplete="off" />
     <input type="button" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" /><br />
     <div id="search_suggest"></div>
-     <div id="result"></div>
+     
 	</form>
-   
+  
+</td>
 
+</tr>
+</table>
+ 
 
-  </div>
 </div>
 <div id="contenu">
 <div id="kind">

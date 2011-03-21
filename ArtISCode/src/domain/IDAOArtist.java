@@ -20,6 +20,4 @@ public interface IDAOArtist extends IDAOUser {
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public List<Artist> SearchArtistByTag(Tag tag);
-	
-	
 }

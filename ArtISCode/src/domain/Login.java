@@ -36,17 +36,14 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		String login =request.getParameter("login");
 		String pass = (String) request.getParameter("pass");
-		String kind = (String) request.getParameter("kind");
+		
 		ManageUser service= new ManageUser();
 		Boolean check=false;
 		
-		if(kind.equalsIgnoreCase("2")){
-			check=service.logInArtist(login, pass);
-			System.out.println("artiste!");
-		}else if (kind.equalsIgnoreCase("1")) {
-			System.out.println("user!");
+		
+			
 			check=service.logInUser(login, pass);
-		}
+		
 		
 		
 		
@@ -59,7 +56,7 @@ public class Login extends HttpServlet {
 		System.out.println("check !");
 				System.out.println("ok");
 				request.setAttribute("result", "ok");
-				request.setAttribute("kind",kind);
+				
 				request.setAttribute("login", login);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			

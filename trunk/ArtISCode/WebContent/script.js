@@ -100,7 +100,7 @@ function handleGetProfileReq() {
 		+'<div id="desc">'
 		+ str[10]
 		+'</div>'+ '<br/>' + ' <br/>'
-		+'<div><input type="button" value="Invite to your Event" onmouseover="javascript:getEventReq();" onmouseout="document.getElementById(\'search_suggest_event\').innerHTML = \'\';" />'
+		+'<div><input type="button" value="Invite to your Event" onclick="javascript:getEventReq();" onblur="document.getElementById(\'search_suggest_event\').innerHTML = \'\';" />'
 		+'</div><div id="search_suggest_event"></div>'
 		+'</div>'
 		+'</div>'

@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Event {
@@ -49,5 +50,17 @@ public class Event {
 		return artists;
 	}
 	
+	public Participant getParticipant(Artist a) {
+		Iterator<Participant> it = artists.iterator();
+		boolean found = false;
+		Participant p = null;
+		while (!found && it.hasNext()) {
+			p = it.next();
+			if (p.getMember().getLogin().equals(a.getLogin())) {
+				found = true;
+			}
+		}
+		return p;
+	}
 	
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="domain.*" %>
+    <%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -58,7 +60,7 @@
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>
-   <td id="menubutton" onClick="javascript:displayEventsReq()">
+   <td id="menubutton" onClick="document.location='EventPage'">
   Manage Events
   </td>
    <td id="menubutton" onClick="document.location='deconnexion.jsp'">
@@ -83,15 +85,45 @@
 
 </div>
 <div id="contenu">
-<%if(result!=null){ %>
-  <%if(result.equalsIgnoreCase("ko")==true){ %>
-  <p> No user with this Login</p>
-  <%} %>
-  <%if(result.equalsIgnoreCase("upok")==true){ %>
-  <p> Profile correctly updated !</p>
-  <%} %>
-  <%} %>
+<div id="table">
+<table id="events">
   
+  <thead>
+  <tr>
+       <th>Name</th>
+       <th>Date</th>
+       <th>Duration</th>
+       <th>Participants</th>
+       <th>Update Event</th>
+       <th>Delete Event</th>
+   </tr>
+   </thead>
+   <tbody>
+   <% List<Event> events = (List<Event>) request.getAttribute("events");
+   for(Iterator it=events.iterator(); it.hasNext();)
+   {
+       Event event = (Event) it.next();
+       Set<Participant> participants = event.getArtists();
+       %>
+       <tr>
+       <td><%= event.getName() %></td>
+       <td><%= event.getDate()%></td>
+       <td><%= event.getDuration() %></td>
+       <td><% for(Iterator it2=participants.iterator(); it2.hasNext();)
+       {  Participant participant = (Participant) it2.next(); %>
+       <%= participant.getMember().getFirstname() %>
+       &nbsp
+       <%} %></td>
+       <td id="menubutton" onclick="document.location='EventPage'"> Update </td>
+       <td id="menubutton" onclick="document.location='EventPage'"> Delete </td>
+       
+   <% }%>
+   
+
+   </tbody>
+
+</table>
+</div>
  
 </div>
 <div id="pied">

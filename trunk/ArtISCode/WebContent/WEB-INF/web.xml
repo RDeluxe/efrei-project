@@ -84,4 +84,14 @@
     <servlet-name>EventServlet</servlet-name>
     <url-pattern>/EventServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EventPage</display-name>
+    <servlet-name>EventPage</servlet-name>
+    <servlet-class>domain.EventPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EventPage</servlet-name>
+    <url-pattern>/EventPage</url-pattern>
+  </servlet-mapping>
 </web-app>

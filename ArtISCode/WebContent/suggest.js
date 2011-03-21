@@ -68,7 +68,7 @@ function  handleResult() {
 			//Build our element string.  This is cleaner using the DOM, but
 			//IE doesn't support dynamically added attributes.
 			
-			var suggest = '<div id="results" onmouseover="javascript:suggestOver(this);" ';
+			var suggest = '<div id="info" onmouseover="javascript:suggestOver(this);" ';
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
 			suggest += 'class="suggest_link"><h3>FirstName :</h3>' + str[i] + '&nbsp&nbsp&nbsp<h3> LastName :</h3>'+str[i+1];
 			suggest += '<br /><br />';

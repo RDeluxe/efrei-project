@@ -50,16 +50,17 @@ function handleProfileReq() {
 		+'<div id="info">'
 		+'Name : '+ str[2] +' <br/>'
 		+'Firstname : '+ str[1] +' <br/>'
-		+'Address : '+ str[6]
-		+' Town : '+ str[7]
-		+' Zip : '+ str[8]
+		+'Address : '+ str[6] +' '
+		+' Town : '+ str[7] +' '
+		+' Zip : '+ str[8] +' '
 		+' Country : '+ str[9] +' <br/>'
 		+' Mail : '+ str[3] +' <br/>'
 		+' Tags : '
 
 		+'</div>'
 		+'<div id="desc">'
-		+ str[10]+'</div>'
+		+ str[10]+'</div>' + '<br/>' + ' <br/>'
+		+'<input type="button" value="Modify your profile" onclick="javascript:modifyReq();" />'
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
@@ -92,10 +93,10 @@ function handleGetProfileReq() {
 		+'Name : '+ str[2] +' <br/>'
 		+'Firstname : '+ str[1] +' <br/>'
 		+'Address : '+ str[6]
-		+' Town : '+ str[7]
-		+' Zip : '+ str[8]
-		+' Country : '+ str[9] +' <br/>'
-		+' Mail : '+ str[3] +' <br/>'
+		+ str[7]
+		+ str[8]
+		+ str[9] +' <br/>'
+		+ str[3] +' <br/>'
 		+' Tags : '
 
 		+'</div>'
@@ -167,6 +168,37 @@ function handleModifyReq() {
 		    +'<legend>Artist Information</legend><br/>'
 		    +'<label for="description">Your Description</label><br />'
 		    +' <textarea name="description" id="description">'+ str[10] +'</textarea><br/>'
+		    +' Choose Tags (3 maximum):<br/>'
+		    +' <SELECT name="tag1">'
+		    +'<OPTION VALUE="rock">Rock</OPTION>'
+		    +'<OPTION VALUE="pop">Pop</OPTION>'
+		    +'<OPTION VALUE="classic">Classic</OPTION>'
+		    +'<OPTION VALUE="folk">Folk</OPTION>'
+		    +'<OPTION VALUE="soloist">Soloist</OPTION>'	
+		    +'<OPTION VALUE="band">Band</OPTION>'
+		    +'<OPTION VALUE="celtic">Celtic</OPTION>'	
+		    +'<OPTION VALUE="hard">Hard rock</OPTION>'		
+		    +'</SELECT><br/>'
+		    +'<SELECT name="tag2">'
+		    +'<OPTION VALUE="rock">Rock</OPTION>'
+		    +'<OPTION VALUE="pop">Pop</OPTION>'
+		    +'<OPTION VALUE="classic">Classic</OPTION>'
+		    +'<OPTION VALUE="folk">Folk</OPTION>'
+		    +'<OPTION VALUE="soloist">Soloist</OPTION>'
+		    +'<OPTION VALUE="band">Band</OPTION>'
+		    +'<OPTION VALUE="celtic">Celtic</OPTION>'	
+		    +'<OPTION VALUE="hard">Hard rock</OPTION>'	
+		    +'</SELECT>'
+		    +'<SELECT name="tag3"><br/>'
+		    +'<OPTION VALUE="rock">Rock</OPTION>'
+		    +'<OPTION VALUE="pop">Pop</OPTION>'
+		    +'<OPTION VALUE="classic">Classic</OPTION>'
+		    +'<OPTION VALUE="folk">Folk</OPTION>'
+		    +'<OPTION VALUE="soloist">Soloist</OPTION>'	
+		    +'<OPTION VALUE="band">Band</OPTION>'
+		    +'<OPTION VALUE="celtic">Celtic</OPTION>'
+		    +'<OPTION VALUE="hard">Hard rock</OPTION>'	
+		    +'</SELECT><br>'
 		    +'</fieldset>';
 		}
 		displayer.innerHTML = result

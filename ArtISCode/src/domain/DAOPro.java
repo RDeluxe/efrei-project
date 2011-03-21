@@ -47,7 +47,7 @@ public class DAOPro implements IDAOPro {
 	}
 
 	@Override
-	public User searchUserById(int id) {
+	public User searchUserById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

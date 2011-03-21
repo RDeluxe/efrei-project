@@ -10,10 +10,10 @@
         </id>
         <many-to-one name="member" column="MEMBER" class="domain.Artist" cascade="all"/>
         <many-to-one name="event" class="domain.Event" column="EVENT" cascade="all"/>
-        <property name="artistState" type="String">
+        <property name="artistState" type="java.lang.String">
             <column name="ARTISTSTATE" />
         </property>
-        <property name="UserState" type="String">
+        <property name="UserState" type="java.lang.String">
             <column name="USERSTATE" />
         </property>
     </class>

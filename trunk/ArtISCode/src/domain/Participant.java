@@ -5,7 +5,7 @@ public class Participant {
 	private long id;
 	private Artist member;
 	private Event event;
-	private boolean acceptedByUser, acceptedByArtist, UserCancelationRequest, ArtistCancelationRequest;
+	private String artistState, userState;
 	
 	public void setId(long id) {
 		this.id = id;
@@ -25,29 +25,17 @@ public class Participant {
 	public void setEvent(Event event) {
 		this.event = event;
 	}
-	public boolean isAcceptedByUser() {
-		return acceptedByUser;
+	public void setArtistState(String artistState) {
+		this.artistState = artistState;
 	}
-	public void setAcceptedByUser(boolean acceptedByUser) {
-		this.acceptedByUser = acceptedByUser;
+	public String getArtistState() {
+		return artistState;
 	}
-	public boolean isAcceptedByArtist() {
-		return acceptedByArtist;
+	public void setUserState(String userState) {
+		this.userState = userState;
 	}
-	public void setAcceptedByArtist(boolean acceptedByArtist) {
-		this.acceptedByArtist = acceptedByArtist;
-	}
-	public boolean isUserCancelationRequest() {
-		return UserCancelationRequest;
-	}
-	public void setUserCancelationRequest(boolean userCancelationRequest) {
-		UserCancelationRequest = userCancelationRequest;
-	}
-	public boolean isArtistCancelationRequest() {
-		return ArtistCancelationRequest;
-	}
-	public void setArtistCancelationRequest(boolean artistCancelationRequest) {
-		ArtistCancelationRequest = artistCancelationRequest;
+	public String getUserState() {
+		return userState;
 	}
 	
 }

@@ -37,6 +37,7 @@ public class DAOArtist implements IDAOArtist {
 		Transaction tx = session.beginTransaction();
 		session.save(artist);
 		tx.commit();
+		session.evict(artist);
 		// end-user-code
 	}
 
@@ -116,5 +117,15 @@ public class DAOArtist implements IDAOArtist {
 	@Override
 	public User searchUserById(int id) {
 		return (User)session.get(Artist.class, id);
+	}
+	
+	public List<Artist> searchArtistByKeyword(String search) {
+		StringBuilder content = new StringBuilder();
+		content.append("%");
+		for (int i = 0; i < search.length(); i++) {
+			content.append(search.charAt(i) + "%");
+		}
+		List<Artist> ret = (List<Artist>) session.createQuery("from artist a where login like \"%"+content.toString()+"%\" limit 5");
+		return ret;
 	}
 }

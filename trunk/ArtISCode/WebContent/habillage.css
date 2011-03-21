@@ -14,7 +14,7 @@ body {
 #page {
 	float:none;
 	width: 60em;
-	background-color:#D6D6D6;
+	background-color:#F5F5F5;
 
 	margin-bottom: 50px;
 	margin-left: auto;
@@ -22,22 +22,31 @@ body {
 	border-style: solid;
 	border-color: #FFF;
 	border-width: 1px;
-	border-radius:10px;
+		border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
+	box-shadow : 3px 3px 6px 0 #333;
+	-moz-box-shadow: 3px 3px 6px 0 #333;
+	-webkit-box-shadow: 3px 3px 6px 0 #333;
+	padding-bottom:20px;
+	color : black;
 }
 #entete { padding:5px; margin: auto; width: auto; }
 #menu {
 	width:95%;
-	height:50px;
+	height:40px;
 	margin:auto;
 	margin-top:10px;
 	text-align:left;
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
+	box-shadow : 3px 3px 6px 0 #333;
+	-moz-box-shadow: 3px 3px 6px 0 #333;
+	-webkit-box-shadow: 3px 3px 6px 0 #333;
 	border-style: solid;
 	border-width: 1px;
+	color : black;
 }
 
 
@@ -58,23 +67,20 @@ body {
 }
 
 #contenu {
+	padding: 20px;
 	width:100%;
 	height:auto;
-	padding-left: 10px;
 	margin-top:10px;
 	color: #000;
 	text-align: center;
-	padding-right: 10px;
 }
 
 #right {
 	width:25%;
 	height:auto;
 	float:right;
-	margin-right:20px;
-	border-left-width:1px;
-	border-left:#FFF;
-	border-left-style:solid;
+	margin-right:25px;
+
 }
 #left{
 	float:left;
@@ -142,8 +148,33 @@ fieldset
    margin-bottom: 15px; 
    background-color: #D6D6D6;
 }
-
+#menubutton {
+	color : black;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
 #menubutton:hover {
 	color : black;
 	background-color : #D7D7D7;
+}
+#info {
+	border: 1px solid;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	box-shadow : 3px 3px 6px 0 #333;
+	-moz-box-shadow: 3px 3px 6px 0 #333;
+	-webkit-box-shadow: 3px 3px 6px 0 #333;
+}
+#desc {
+		border: 1px solid;
+
+	margin-top : 20px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	box-shadow : 3px 3px 6px 0 #333;
+	-moz-box-shadow: 3px 3px 6px 0 #333;
+	-webkit-box-shadow: 3px 3px 6px 0 #333;
 }

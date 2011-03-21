@@ -139,17 +139,21 @@ input:focus, textarea:focus
 legend 
 {
 	font-family: Arial, "Arial Black", Georgia, "Times New Roman", Times, serif;
-	color: #E17100;
+	color: #C00;
 	font-weight: bold;
 }
  
 fieldset
 {
-   margin-bottom: 15px; 
-   background-color: #D6D6D6;
+	margin-bottom: 15px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	margin-right: 20px;
+	
 }
 #menubutton {
-	color : black;
+	color : #F5F5F5;
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;

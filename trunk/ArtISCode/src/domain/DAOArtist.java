@@ -119,13 +119,15 @@ public class DAOArtist implements IDAOArtist {
 		return (User)session.get(Artist.class, id);
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
 	public List<Artist> searchArtistByKeyword(String search) {
 		StringBuilder content = new StringBuilder();
 		content.append("%");
 		for (int i = 0; i < search.length(); i++) {
 			content.append(search.charAt(i) + "%");
 		}
-		List<Artist> ret = (List<Artist>) session.createQuery("from artist a where login like \"%"+content.toString()+"%\" limit 5");
+		List<Artist> ret = (List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("firstname", content.toString())).list();
 		return ret;
 	}
 }

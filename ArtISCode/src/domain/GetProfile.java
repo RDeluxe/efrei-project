@@ -1,6 +1,8 @@
 package domain;
 
 import java.io.IOException;
+import java.io.Writer;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,18 +38,21 @@ public class GetProfile extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String login = request.getParameter("login");
-		System.out.println(login);
-		
-		
-		
-		
-			System.out.println("artist");
-			DAOArtist dao = new DAOArtist();
-			User user = new User();
-			user= dao.searchByLogin(login);
-			request.setAttribute("user",user);
-			request.getRequestDispatcher("artists.jsp").forward(request, response);
-		
+		DAOArtist daoA = new DAOArtist();
+		Artist artist = (Artist) daoA.searchByLogin(login);
+		Writer out = response.getWriter();
+		out.write("2" + '\n');
+		out.write(artist.getFirstname() + '\n');
+		out.write(artist.getLastname() + '\n');
+		out.write(artist.getEmail() + '\n');
+		out.write(artist.getLogin() + '\n');
+		out.write(artist.getPassword() + '\n');
+		Address a = artist.getAddress();
+		out.write(a.getStreet() + '\n');
+		out.write(a.getCity() + '\n');
+		out.write(a.getZip() + '\n');
+		out.write(a.getCountry() + '\n');
+		out.write(artist.getDescription());
 	}
 
 	

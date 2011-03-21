@@ -72,6 +72,48 @@ function handleProfileReq() {
 	}
 }
 
+function getProfileReq() {
+	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+		var str = escape(document.getElementById('loginReq').value);
+		searchReq.open("POST", 'GetProfile?login=' + str, true);
+		searchReq.onreadystatechange = handleGetProfileReq;
+		searchReq.send(null);
+	}
+}
+
+
+function handleGetProfileReq() {
+	if (searchReq.readyState == 4) {
+		var str = searchReq.responseText.split('\n');
+		var displayer = document.getElementById('contenu');
+		var result = '<div id="left">'
+		+'<div id="info">'
+		+'Name : '+ str[2] +' <br/>'
+		+'Firstname : '+ str[1] +' <br/>'
+		+'Address : '+ str[6]
+		+' Town : '+ str[7]
+		+' Zip : '+ str[8]
+		+' Country : '+ str[9]
+		+' Mail : '+ str[3]
+		+' Tags : '
+
+		+'</div>'
+		+'<div id="desc">'
+		+ str[10]+'</div>'
+		+'</div>'
+		+'</div>'
+		+'<div id="right" >'
+		+'<div id="pic">'
+		+'<img src="Img/default_big.gif" width="180" height="240" border=no>'
+		+'</div>'
+		+'<div id="events">'
+		+'</div>'
+		+'</div>';
+		displayer.innerHTML = result;
+	}
+}
+
+
 function modifyReq() {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
 			searchReq.open("GET", 'Profile' , true);

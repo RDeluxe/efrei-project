@@ -68,9 +68,8 @@ function  handleResult() {
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
 			suggest += 'class="suggest_link"><h3>FirstName :</h3>' + str[i] + '&nbsp&nbsp&nbsp<h3> LastName :</h3>'+str[i+1];
 			suggest += '<br /><br />';
-			suggest += '<form action="GetProfile" method="POST">';
-			suggest += '<input type="hidden" name="login" value="'+str[i+2]+'">';
-			suggest += '<input type="submit" value="Go on the Profile !">';
+			suggest += '<input id="loginReq" type="hidden" name="login" value="'+str[i+2]+'">';
+			suggest += '<button onclick="javascript:getProfileReq()">Go on the profile</button>';
 			suggest += '</form>';
 			suggest += '</div>';
 			ss.innerHTML += suggest;

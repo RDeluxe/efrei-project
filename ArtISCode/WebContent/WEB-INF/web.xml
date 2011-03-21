@@ -74,4 +74,14 @@
     <servlet-name>CheckLogin</servlet-name>
     <url-pattern>/CheckLogin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EventServlet</display-name>
+    <servlet-name>EventServlet</servlet-name>
+    <servlet-class>domain.EventServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EventServlet</servlet-name>
+    <url-pattern>/EventServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

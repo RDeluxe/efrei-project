@@ -264,6 +264,7 @@ fieldset
 	-moz-border-radius: 11px 11px 11px 11px;
 }
 #search_suggest_event {
+	left:282px;
 	position : relative;
 	background-color : white;
 	width : 100px;

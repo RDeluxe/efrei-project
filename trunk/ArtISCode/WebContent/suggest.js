@@ -37,10 +37,12 @@ var searchReq = createAjaxObj();
 //Starts the AJAX request.
 function searchSuggest() {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+		if (document.getElementById('txtSearch').value != '') {
 		var str = escape(document.getElementById('txtSearch').value);
 		searchReq.open("GET", 'Search?keyword=' + str, true);
 		searchReq.onreadystatechange = handleSearchSuggest;
 		searchReq.send(null);
+		}
 	}
 }
 
@@ -48,6 +50,8 @@ function result() {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
 		var str = escape(document.getElementById('txtSearch').value);
 		searchReq.open("GET", 'Result?keyword=' + str, true);
+		document.getElementById('txtSearch').value = '';
+		document.getElementById('search_suggest').innerHTML = '';
 		searchReq.onreadystatechange = handleResult;
 		searchReq.send(null);
 	}

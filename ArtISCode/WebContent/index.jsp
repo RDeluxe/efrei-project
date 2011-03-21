@@ -13,7 +13,7 @@
 <body>
 <div id="page">
 
-<div id="entete"><a href="index.jsp"><img src="banner.jpg" width="947" height="186" border=no></a></div>
+<div id="entete"><a href="index.jsp"><img src="Img/banner.jpg" width="950" height="100" border=no></a></div>
 
 <div id="menu">
 <table id="menutab">
@@ -32,7 +32,8 @@
   System.out.println(kind);
   }
    String sessionlog=(String) session.getAttribute("login");
-  if(sessionlog==null){%>
+  if(sessionlog==null){
+	    request.getSession().invalidate();%>
 
   <td id="menubutton" onclick='document.location.href="register.jsp"'>
  Register
@@ -49,8 +50,7 @@
   </form>
   
   
-  <%request.getSession().invalidate();
-  }else{%>
+  <%}else{%>
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>
@@ -82,9 +82,11 @@
 
 </div>
 <div id="contenu">
+
 </div>
 <div id="pied">
 </div>
 </div>
+
 </body>
 </html>

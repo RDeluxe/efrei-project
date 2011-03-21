@@ -263,3 +263,8 @@ fieldset
 	font-size: 11px;
 	-moz-border-radius: 11px 11px 11px 11px;
 }
+#search_suggest_event {
+	position : relative;
+	background-color : white;
+	width : 100px;
+}

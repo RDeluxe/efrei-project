@@ -26,7 +26,7 @@ public class DAOEvent implements IDAOEvent {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Event> getAllEvent() {
-		List<Event> ev = (List<Event>) session.createQuery("from event");
+		List<Event> ev = (List<Event>) session.createQuery("from Event").list();
 		return ev;
 	}
 

@@ -100,8 +100,8 @@ function handleGetProfileReq() {
 		+'<div id="desc">'
 		+ str[10]
 		+'</div>'+ '<br/>' + ' <br/>'
-		+'<input type="button" value="Invite to your Event" onclick="javascript:getEventReq();" />'
-		+'<div id="search_suggest"></div>'
+		+'<div><input type="button" value="Invite to your Event" onmouseover="javascript:getEventReq();" onmouseout="document.getElementById(\'search_suggest_event\').innerHTML = \'\';" />'
+		+'</div><div id="search_suggest_event"></div>'
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
@@ -267,7 +267,7 @@ function getEventReq() {
 
 function handleGetEvent() {
 	if (searchReq.readyState == 4) {
-		var ss = document.getElementById('search_suggest');
+		var ss = document.getElementById('search_suggest_event');
 		ss.innerHTML = '';
 		var str = searchReq.responseText.split("\n");
 		for(i=0; i < str.length - 1; i++) {

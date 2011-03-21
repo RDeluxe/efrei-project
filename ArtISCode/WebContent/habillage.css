@@ -118,10 +118,14 @@ body {
 /*filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#FFF', EndColorStr='#000'); background:-moz-linear-gradient(left, #FFF 0%, #000 100%); background:-webkit-gradient(linear, left top, right top, color-stop(0,#FFF), color-stop(1, #000));*/
 #kind {
 	margin-bottom: 10px;
-	border-color: #FFF;
+	border-color: #CCC;
 	border-width: 1px;
 	border-style: solid;
 	text-align: center;
+	margin-right: 40px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
 
 }
 input, textarea
@@ -149,11 +153,11 @@ fieldset
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
-	margin-right: 20px;
+	margin-right: 40px;
 	
 }
 #menubutton {
-	color : #F5F5F5;
+	color : #000;
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;

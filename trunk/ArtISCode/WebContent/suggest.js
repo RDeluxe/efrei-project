@@ -56,7 +56,7 @@ function result() {
 //Called when the AJAX response is returned.
 function  handleResult() {
 	if (searchReq.readyState == 4) {
-		var ss = document.getElementById('result');
+		var ss = document.getElementById('contenu');
 		ss.innerHTML = '';
 		var str = searchReq.responseText.split("\n");
 		i=0;

@@ -92,9 +92,9 @@ function handleGetProfileReq() {
 		+'<div id="info">'
 		+'Name : '+ str[2] +' <br/>'
 		+'Firstname : '+ str[1] +' <br/>'
-		+'Address : '+ str[6]
-		+ str[7]
-		+ str[8]
+		+'Address : '+ str[6] +''
+		+ str[7] +''
+		+ str[8] +''
 		+ str[9] +' <br/>'
 		+ str[3] +' <br/>'
 		+' Tags : '

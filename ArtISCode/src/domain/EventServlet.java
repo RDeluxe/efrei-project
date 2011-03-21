@@ -2,6 +2,8 @@ package domain;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletException;
@@ -30,13 +32,12 @@ public class EventServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);	
 		String login = (String) session.getAttribute("login");
-		DAOUser daoU = new DAOUser();
-		User user = daoU.searchByLogin(login);
-		Set<Event> events = user.getEvents();
+		DAOEvent daoE = new DAOEvent();
+		List<Event> events = daoE.getAllEvent();
 		Writer out = response.getWriter();
 		
 		for (Event e : events) {
-			out.write(e.getName()+"\n");
+			if (e.getOwner().getLogin().equalsIgnoreCase(login)) out.write(e.getName()+"\n");
 		}
 	}
 

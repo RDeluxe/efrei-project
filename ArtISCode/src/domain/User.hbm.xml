@@ -21,7 +21,7 @@
 		
 		<many-to-one name="address" column="ADRRESSID" unique="true" not-null="true" cascade="all"/>
 
-		<set name="events" inverse="true">
+		<set name="events" inverse="true" lazy="true" cascade="all">
 			<key column="ID"/>
 			<one-to-many class="domain.Event"/>
 		</set>

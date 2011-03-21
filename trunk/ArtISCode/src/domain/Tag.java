@@ -97,4 +97,8 @@ public class Tag {
 	public void addArtist(Artist a) {
 		artist.add(a);
 	}
+	
+	public void removeArtist(Artist a) {
+		artist.remove(a);
+	}
 }

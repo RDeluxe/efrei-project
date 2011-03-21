@@ -150,11 +150,17 @@ public class Profile extends HttpServlet {
 					Set<Tag> tags = artist.getTag();
 					Iterator<Tag> it = tags.iterator();
 					Tag Tag1 = it.next();
+					Tag1.removeArtist(artist);
 					Tag1 = search.SearchTagByName(tag1);
+					Tag1.addArtist(artist);
 					Tag Tag2 = it.next();
+					Tag2.removeArtist(artist);
 					Tag2 = search.SearchTagByName(tag2);
+					Tag2.addArtist(artist);
 					Tag Tag3 = it.next();
+					Tag3.removeArtist(artist);
 					Tag3 = search.SearchTagByName(tag3);
+					Tag3.addArtist(artist);
 					service.modifyArtist(artist);
 				request.setAttribute("result", "upok");
 				request.getRequestDispatcher("index.jsp").forward(request, response);

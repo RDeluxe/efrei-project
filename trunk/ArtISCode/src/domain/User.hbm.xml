@@ -22,7 +22,7 @@
 		<many-to-one name="address" column="ADRRESSID" unique="true" not-null="true" cascade="all"/>
 
 		<set name="events" inverse="true" lazy="true" cascade="all">
-			<key column="ID"/>
+			<key column="OWNER"/>
 			<one-to-many class="domain.Event"/>
 		</set>
 		
@@ -36,7 +36,7 @@
 			</set>
 			
 			<set name="participants" inverse="true">
-				<key column="ID"/>
+				<key column="MEMBER"/>
 				<one-to-many class="domain.Participant"/>
 			</set>
 		</joined-subclass>

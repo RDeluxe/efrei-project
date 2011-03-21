@@ -38,7 +38,7 @@ public class EventServlet extends HttpServlet {
 		DAOEvent daoE = new DAOEvent();
 		List<Event> events = daoE.getAllEvent();
 		Writer out = response.getWriter();
-		
+
 		for (Event e : events) {
 			if (e.getOwner().getLogin().equalsIgnoreCase(login)) out.write(e.getId() + "\n" + e.getName()+"\n");
 		}
@@ -54,7 +54,7 @@ public class EventServlet extends HttpServlet {
 		SearchEventEngine see = new SearchEventEngine();
 		controller.Search s = new controller.Search();
 		Artist a = (Artist) s.SearchByLogin(login);
-		Event e = see.searchById(Long.parseLong(event));
+		Event e = see.searchById(1);
 		
 		System.out.println(e.getId()+ " " + a.getId());
 		

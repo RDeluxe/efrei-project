@@ -88,7 +88,7 @@ function handleSearchSuggest() {
 			//IE doesn't support dynamically added attributes.
 			var suggest = '<div onmouseover="javascript:suggestOver(this);" ';
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
-			suggest += 'onclick="javascript:setSearch(this.innerHTML);" ';
+			suggest += 'onclick="javascript:setSearch(this.innerHTML);javascript:result();" ';
 			suggest += 'class="suggest_link">' + str[i] + '</div>';
 			ss.innerHTML += suggest;
 		}

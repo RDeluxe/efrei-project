@@ -22,7 +22,7 @@ body {
 }
 #entete { padding:5px; margin: auto; width: auto; }
 #menu {
-	background-color:#F5F5F5;	
+	background-color:#3B8DD0;	
 	width:95%;
 	height:40px;
 	margin:auto;
@@ -150,14 +150,27 @@ fieldset
 	
 }
 #menubutton {
-	color : #000;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
+	-moz-border-radius: 11px 11px 11px 11px;
+    -moz-box-shadow: 0 1px 2px #666666;
+    background: url("/img/glass.png") repeat-x scroll 0 50% #DDDDDD;
+    float: left;
+    font-weight: bold;
+    height: 13px;
+    margin: 2px 5px;
+    overflow: hidden;
+    padding: 3px 0 4px;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+    font-family: "Lucida Grande","Trebuchet MS",sans-serif;
+    font-size: 11px;
+    color: #333333;
 }
 #menubutton:hover {
-	color : black;
-	background-color : #D7D7D7;
+	background-color : #F1F1F1;
+	color: #333333;
+	font-family: "Lucida Grande","Trebuchet MS",sans-serif;
+    font-size: 11px;
 }
 #info {
 	background-color:#F5F5F5;	
@@ -189,4 +202,41 @@ fieldset
 	box-shadow : 3px 3px 6px 0 #333;
 	-moz-box-shadow: 3px 3px 6px 0 #333;
 	-webkit-box-shadow: 3px 3px 6px 0 #333;	
+}
+#menulabel {
+	font-family: "Lucida Grande","Trebuchet MS",sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+#menu input {
+	width : 100px;
+	float : left;
+}
+#menu label {
+	float : left;
+}
+#menubuttonform {
+	-moz-border-radius: 11px 11px 11px 11px;
+    -moz-box-shadow: 0 1px 2px #666666;
+    background: url("/img/glass.png") repeat-x scroll 0 50% #DDDDDD;
+    float: left;
+    font-weight: bold;
+	height : 20px;
+	margin: 2px 5px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+    font-family: "Lucida Grande","Trebuchet MS",sans-serif;
+    font-size: 11px;
+    color: #333333;
+    padding-bottom : 3px;
+}
+#search_suggest {
+	float : left;
+	position : relative;
+	background-color : white;
+	left : -100px;
+	top: 20px;
+	width : 100px;
 }

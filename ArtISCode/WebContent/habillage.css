@@ -4,7 +4,7 @@ body {
 	text-align: center;
 	font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif;
 	color:#FFF;
-	background-image: url(background.jpg);
+	background-image: url(./Img/background.jpg);
 	background-repeat:no-repeat;
 	width:1000px;
 	margin-left:auto;
@@ -151,9 +151,10 @@ fieldset
 	
 }
 #menubutton {
+	cursor : pointer;
 	-moz-border-radius: 11px 11px 11px 11px;
     -moz-box-shadow: 0 1px 2px #666666;
-    background: url("/img/glass.png") repeat-x scroll 0 50% #DDDDDD;
+    background: url("./Img/glass.png") repeat-x scroll 0 50% #DDDDDD;
     float: left;
     font-weight: bold;
     height: 13px;
@@ -211,16 +212,17 @@ fieldset
     margin-top: 5px;
 }
 #menu input {
-	width : 100px;
+	width : 90px;
 	float : left;
 }
 #menu label {
 	float : left;
 }
 #menubuttonform {
+	cursor : pointer;
 	-moz-border-radius: 11px 11px 11px 11px;
     -moz-box-shadow: 0 1px 2px #666666;
-    background: url("/img/glass.png") repeat-x scroll 0 50% #DDDDDD;
+    background: url("./Img/glass.png") repeat-x scroll 0 50% #DDDDDD;
     float: left;
     font-weight: bold;
 	height : 20px;
@@ -228,7 +230,7 @@ fieldset
     overflow: hidden;
     text-align: center;
     text-decoration: none;
-    width: 100px;
+    width: 90px;
     font-family: "Lucida Grande","Trebuchet MS",sans-serif;
     font-size: 11px;
     color: #333333;
@@ -248,10 +250,16 @@ fieldset
 	background-color : #F5F5F5;
 }
 #searchBox {
-	background : url("/img/search.png") no-repeat scroll 7px 3px #FFFFFF;
-	padding-left : 5px;
 	float : right;
 	position : relative;
-	top : -25px;
+	top : -27px;
 	margin-right : 5px;
+}
+#txtSearch {
+	background : url("./Img/search.png") no-repeat scroll 7px 3px #FFFFFF;
+	padding-left: 20px;
+	padding-top:3px;
+	padding-bottom : 3px;
+	font-size: 11px;
+	-moz-border-radius: 11px 11px 11px 11px;
 }

@@ -82,22 +82,17 @@
 
 </div>
 <div id="contenu">
-<div id="kind">
-<p>
-<a href="register.jsp">User Register</a> &nbsp; &nbsp; &nbsp; &nbsp;   
-<a href="registerA.jsp">Artist Register</a> &nbsp; &nbsp; &nbsp; &nbsp;     
-<a href="registerP.jsp">Professional Register</a>
-</p>
-</div>
-
-  
   <form method="post" action="Register">
   <fieldset>
   <legend>Registration page for User</legend>
     <fieldset>
     <legend>Basic Info</legend><br/>
     Kind of account:<br/>
-    <input type="text" name="kind" value="User" readonly="readonly" /><br/>
+     <SELECT name="kind">
+		<OPTION VALUE="User" onclick="javascript:registerUser();">User</OPTION>
+		<OPTION VALUE="Artist" onclick="javascript:registerArtist();">Artist</OPTION>
+		<OPTION VALUE="Professional" onclick="">Professional</OPTION>	
+	</SELECT><br/>
     Firstname:<br/>
     <input type="text" name="firstname"  size="25" /><br/>
     Lastname:<br/>
@@ -127,6 +122,7 @@
     <input type="text" name="country"  size="25" /><br/>
     </fieldset>
     <br/>
+    <div id="kindform"></div>
     <p></p>
     <input type="submit"
 value="Submit" />

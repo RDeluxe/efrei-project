@@ -75,6 +75,7 @@
 	User user=new User();
 	user.setLogin(name);
 	user.setPassword(name);	
+	user.setFirstname(name);
 	Address address=new Address();
 	user.setAddress(address);	
 	Boolean check=service.RegisteringUser(user);

@@ -47,9 +47,7 @@ public class ManageEvent implements ManageEventService {
 	@Override
 	public void inviteArtist(Event e, Artist a) {
 		Participant p = new Participant();
-		Set<Participant> ps = e.getArtists();
-		ps.add(p);
-		e.setArtists(ps);
+		p.setEvent(e);
 		p.setMember(a);
 		p.setUserState("OK");
 		p.setArtistState("WAITING");

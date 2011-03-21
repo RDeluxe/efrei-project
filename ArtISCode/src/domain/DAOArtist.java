@@ -115,7 +115,7 @@ public class DAOArtist implements IDAOArtist {
 	}
 
 	@Override
-	public User searchUserById(int id) {
+	public User searchUserById(long id) {
 		return (User)session.get(Artist.class, id);
 	}
 	

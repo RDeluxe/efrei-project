@@ -55,5 +55,5 @@ public interface IDAOUser {
 	 */
 	public List<User> searchUserByName(String firstname, String lastname);
 	
-	public User searchUserById(int id);
+	public User searchUserById(long id);
 }

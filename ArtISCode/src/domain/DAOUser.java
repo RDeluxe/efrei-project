@@ -96,7 +96,7 @@ public class DAOUser implements IDAOUser {
 	}
 
 	@Override
-	public User searchUserById(int id) {
+	public User searchUserById(long id) {
 		return (User) session.get(User.class, id);
 	}
 }

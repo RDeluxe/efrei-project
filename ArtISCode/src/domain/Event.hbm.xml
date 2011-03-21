@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="domain.Event" table="EVENT">
         <id name="id" type="long">
-            <column name="ID" />
+            <column name="ID_EVENT" />
             <generator class="increment" />
         </id>
         <property name="name" type="java.lang.String">
@@ -20,7 +20,7 @@
         <many-to-one name="owner" class="domain.User" column="OWNER"/>
         
         <set name="artists" inverse="true" lazy="true">
-            <key column="ID"/>
+            <key column="EVENT"/>
             <one-to-many class="domain.Participant" />
         </set>
     </class>

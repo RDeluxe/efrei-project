@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="domain.Participant" table="PARTICIPANT">
         <id name="id" type="long">
-            <column name="ID" />
+            <column name="ID_PART" />
             <generator class="assigned" />
         </id>
         <many-to-one name="member" column="MEMBER" class="domain.Artist" cascade="all"/>

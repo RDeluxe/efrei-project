@@ -181,3 +181,62 @@ function handleModifyReq() {
 	}
 }
 
+function registerArtist() {
+	var text = '<fieldset>'
+	    +'<legend>Artist Information</legend><br/>'
+	    +'<label for="description">Your Description</label><br />'
+	    +' <textarea name="description" id="description"></textarea><br/>'
+	    +' Choose Tags (3 maximum):<br/>'
+	    +' <SELECT name="tag1">'
+	    +'<OPTION VALUE="rock">Rock</OPTION>'
+	    +'<OPTION VALUE="pop">Pop</OPTION>'
+	    +'<OPTION VALUE="classic">Classic</OPTION>'
+	    +'<OPTION VALUE="folk">Folk</OPTION>'
+	    +'<OPTION VALUE="soloist">Soloist</OPTION>'	
+	    +'<OPTION VALUE="band">Band</OPTION>'
+	    +'<OPTION VALUE="celtic">Celtic</OPTION>'	
+	    +'<OPTION VALUE="hard">Hard rock</OPTION>'		
+	    +'</SELECT><br/>'
+	    +'<SELECT name="tag2">'
+	    +'<OPTION VALUE="rock">Rock</OPTION>'
+	    +'<OPTION VALUE="pop">Pop</OPTION>'
+	    +'<OPTION VALUE="classic">Classic</OPTION>'
+	    +'<OPTION VALUE="folk">Folk</OPTION>'
+	    +'<OPTION VALUE="soloist">Soloist</OPTION>'
+	    +'<OPTION VALUE="band">Band</OPTION>'
+	    +'<OPTION VALUE="celtic">Celtic</OPTION>'	
+	    +'<OPTION VALUE="hard">Hard rock</OPTION>'	
+	    +'</SELECT>'
+	    +'<SELECT name="tag3"><br/>'
+	    +'<OPTION VALUE="rock">Rock</OPTION>'
+	    +'<OPTION VALUE="pop">Pop</OPTION>'
+	    +'<OPTION VALUE="classic">Classic</OPTION>'
+	    +'<OPTION VALUE="folk">Folk</OPTION>'
+	    +'<OPTION VALUE="soloist">Soloist</OPTION>'	
+	    +'<OPTION VALUE="band">Band</OPTION>'
+	    +'<OPTION VALUE="celtic">Celtic</OPTION>'
+	    +'<OPTION VALUE="hard">Hard rock</OPTION>'	
+	    +'</SELECT><br>'
+	    +'</fieldset>';
+		document.getElementById('kindform').innerHTML = text;
+}
+
+function handleRegisterArtist() {
+	
+}
+
+function registerUser() {
+	document.getElementById('kindform').innerHTML = '';
+}
+
+function handleRegisterUser() {
+	
+}
+
+function registerPro() {
+	
+}
+
+function handleRegisterPro() {
+	
+}

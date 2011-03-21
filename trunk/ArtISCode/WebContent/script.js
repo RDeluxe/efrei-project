@@ -88,6 +88,7 @@ function handleGetProfileReq() {
 		var displayer = document.getElementById('contenu');
 		var result = '<div id="left">'
 		+'<div id="info">'
+		+'<input id="loginArtist" type="hidden" value="'+str[4]+'"/>'
 		+'Name : '+ str[2] +' <br/>'
 		+'Firstname : '+ str[1] +' <br/>'
 		+'Address : '+ str[6] +''
@@ -100,7 +101,7 @@ function handleGetProfileReq() {
 		+'<div id="desc">'
 		+ str[10]
 		+'</div>'+ '<br/>' + ' <br/>'
-		+'<div><input type="button" value="Invite to your Event" onclick="javascript:getEventReq();" onblur="document.getElementById(\'search_suggest_event\').innerHTML = \'\';" />'
+		+'<div><input type="button" value="Invite to your Event" onclick="javascript:getEventReq();"/>'
 		+'</div><div id="search_suggest_event"></div>'
 		+'</div>'
 		+'</div>'
@@ -270,14 +271,23 @@ function handleGetEvent() {
 		var ss = document.getElementById('search_suggest_event');
 		ss.innerHTML = '';
 		var str = searchReq.responseText.split("\n");
-		for(i=0; i < str.length - 1; i++) {
+		for(i=0; i < str.length - 1; i+=2) {
 			//Build our element string.  This is cleaner using the DOM, but
 			//IE doesn't support dynamically added attributes.
 			var suggest = '<div onmouseover="javascript:suggestOver(this);" ';
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
-			suggest += 'onclick="" ';
-			suggest += 'class="suggest_link">' + str[i] + '</div>';
+			suggest += 'onclick="javascript:addArtistToEvent();" ';
+			suggest += 'class="suggest_link"><input id="eventID" type="hidden" value="'+str[i] +'"/>' + str[i+1] + '</div>';
 			ss.innerHTML += suggest;
 		}
+	}
+}
+
+function addArtistToEvent() {
+	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+		var login = document.getElementById('loginArtist').value;
+		var event = document.getElementById("eventID").value;
+		searchReq.open("POST", 'EventServlet?login='+login+'&event='+event , true);
+		searchReq.send(null);
 	}
 }

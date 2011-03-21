@@ -1,7 +1,11 @@
 package controller;
 
+import java.util.Set;
+
 import domain.Artist;
+import domain.DAOArtist;
 import domain.DAOEvent;
+import domain.DAOParticipant;
 import domain.Event;
 import domain.Participant;
 import domain.User;
@@ -9,6 +13,8 @@ import domain.User;
 public class ManageEvent implements ManageEventService {
 
 	DAOEvent daoE = new DAOEvent();
+	DAOParticipant daoP = new DAOParticipant();
+	DAOArtist daoA = new DAOArtist();
 
 	@Override
 	public void createEvent(Event e) {
@@ -41,11 +47,13 @@ public class ManageEvent implements ManageEventService {
 	@Override
 	public void inviteArtist(Event e, Artist a) {
 		Participant p = new Participant();
-		p.setEvent(e);
+		Set<Participant> ps = e.getArtists();
+		ps.add(p);
+		e.setArtists(ps);
 		p.setMember(a);
 		p.setUserState("OK");
 		p.setArtistState("WAITING");
-		daoE.updateEvent(e);
+		daoP.addParticipant(p);
 	}
 
 }

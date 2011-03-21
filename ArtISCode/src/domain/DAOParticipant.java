@@ -25,7 +25,7 @@ public class DAOParticipant implements IDAOParticipant {
 
 	@Override
 	public List<Participant> getAllParticipant() {
-		List<Participant> p = (List<Participant>) session.createQuery("from participant");
+		List<Participant> p = (List<Participant>) session.createQuery("from Participant");
 		return p;
 	}
 	

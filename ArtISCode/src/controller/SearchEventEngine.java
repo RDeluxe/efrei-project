@@ -57,4 +57,15 @@ public class SearchEventEngine implements SearchEventService {
 		return null;
 	}
 
+	@Override
+	public List<Event> searchByName(String name) {
+		List<Event> events = daoE.getAllEvent();		
+		Iterator<Event> it = events.iterator();
+		while (it.hasNext()) {
+			Event e = it.next();
+			if (e.getName().equals(name)) events.remove(e);
+		}
+		return events;
+	}
+
 }

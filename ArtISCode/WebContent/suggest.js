@@ -73,7 +73,7 @@ function  handleResult() {
 			suggest += 'class="suggest_link"><h3>FirstName :</h3>' + str[i] + '&nbsp&nbsp&nbsp<h3> LastName :</h3>'+str[i+1];
 			suggest += '<br /><br />';
 			suggest += '<input id="loginReq" type="hidden" name="login" value="'+str[i+2]+'">';
-			suggest += '<button onclick="javascript:getProfileReq()">Go on the profile</button>';
+			suggest += '<button onclick="javascript:getProfileReq(\''+ str[i+2] +'\')">Go on the profile</button>';
 			suggest += '</form>';
 			suggest += '</div>';
 			ss.innerHTML += suggest;

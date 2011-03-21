@@ -45,7 +45,6 @@ function handleProfileReq() {
 	if (searchReq.readyState == 4) {
 		var str = searchReq.responseText.split('\n');
 		var displayer = document.getElementById('contenu');
-		alert(str[10]);
 		var result = '<div id="left">'
 		+'<div id="info">'
 		+'Name : '+ str[2] +' <br/>'
@@ -74,10 +73,9 @@ function handleProfileReq() {
 	}
 }
 
-function getProfileReq() {
+function getProfileReq(login) {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
-		var str = escape(document.getElementById('loginReq').value);
-			searchReq.open("POST", 'GetProfile?login=' + str , true);
+			searchReq.open("POST", 'GetProfile?login=' + login , true);
 			searchReq.onreadystatechange = handleGetProfileReq;
 			searchReq.send(null);
 	}

@@ -5,6 +5,7 @@ import controller.Search;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -32,20 +33,25 @@ public class EventPage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession(true);	
+		String login = (String) session.getAttribute("login");
+		Date date= new Date(System.currentTimeMillis());
+		System.out.println(date);
+		Search searchuser = new Search();
+		User user = searchuser.SearchByLogin(login);
+		SearchEventEngine search = new SearchEventEngine();
+		List<Event> events = search.searchByUser(user);
+		System.out.println("event servlet");
+		
+		request.setAttribute("events", events);
+		request.getRequestDispatcher("events.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);	
-		String login = (String) session.getAttribute("login");
-		Search searchuser = new Search();
-		User user = searchuser.SearchByLogin(login);
-		SearchEventEngine search = new SearchEventEngine();
-		List<Event> events = search.searchByUser(user);
-		request.setAttribute("events", events);
-		request.getRequestDispatcher("events.jsp").forward(request, response);
+		
 		
 		
 		

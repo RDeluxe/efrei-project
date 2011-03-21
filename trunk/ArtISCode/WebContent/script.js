@@ -45,7 +45,6 @@ function handleProfileReq() {
 	if (searchReq.readyState == 4) {
 		var str = searchReq.responseText.split('\n');
 		var displayer = document.getElementById('contenu');
-		alert(str[10]);
 		var result = '<div id="left">'
 		+'<div id="info">'
 		+'Name : '+ str[2] +' <br/>'

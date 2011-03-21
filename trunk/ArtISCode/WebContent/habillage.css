@@ -14,25 +14,15 @@ body {
 #page {
 	float:none;
 	width: 60em;
-	background-color:#F5F5F5;
-
 	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	border-style: solid;
-	border-color: #FFF;
-	border-width: 1px;
-		border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	box-shadow : 3px 3px 6px 0 #333;
-	-moz-box-shadow: 3px 3px 6px 0 #333;
-	-webkit-box-shadow: 3px 3px 6px 0 #333;
 	padding-bottom:20px;
 	color : black;
 }
 #entete { padding:5px; margin: auto; width: auto; }
 #menu {
+	background-color:#F5F5F5;	
 	width:95%;
 	height:40px;
 	margin:auto;
@@ -167,6 +157,7 @@ fieldset
 	background-color : #D7D7D7;
 }
 #info {
+	background-color:#F5F5F5;	
 	border: 1px solid;
 	border-radius:10px;
 	-moz-border-radius:10px;
@@ -176,8 +167,8 @@ fieldset
 	-webkit-box-shadow: 3px 3px 6px 0 #333;
 }
 #desc {
-		border: 1px solid;
-
+	border: 1px solid;
+	background-color:#F5F5F5;		
 	margin-top : 20px;
 	border-radius:10px;
 	-moz-border-radius:10px;
@@ -185,4 +176,14 @@ fieldset
 	box-shadow : 3px 3px 6px 0 #333;
 	-moz-box-shadow: 3px 3px 6px 0 #333;
 	-webkit-box-shadow: 3px 3px 6px 0 #333;
+}
+#pic {
+	border: 1px solid;
+	background-color:#F5F5F5;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	box-shadow : 3px 3px 6px 0 #333;
+	-moz-box-shadow: 3px 3px 6px 0 #333;
+	-webkit-box-shadow: 3px 3px 6px 0 #333;	
 }

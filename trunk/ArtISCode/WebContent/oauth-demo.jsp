@@ -8,7 +8,7 @@
 <body>
  
 
-<img src='mdp_logo.jpg'/><br>
+<img src="Img/mdp_logo.jpg"/><br>
 <%
   String callback = request.getParameter("callback");
 

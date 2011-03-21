@@ -269,3 +269,14 @@ fieldset
 	background-color : white;
 	width : 100px;
 }
+
+table
+{
+   border-collapse: collapse;
+   font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+td, th /* Mettre une bordure sur les td ET les th */
+{
+   border: 1px solid grey;
+   font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}

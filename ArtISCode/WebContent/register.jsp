@@ -58,23 +58,26 @@
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>
-   <td id="menubutton" onClick="javascript:displayEventsReq()">
+   <td id="menubutton" onClick="document.location='EventPage'">
   Manage Events
   </td>
    <td id="menubutton" onClick="document.location='deconnexion.jsp'">
 	Deconnexion
   </td>
   <%} %>
-
-</tr>
-</table>
-<div id="searchBox"><form action="javascript:result();">
+  
+  <td>
+  	<form action="javascript:result();">
     <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" autocomplete="off" />
     
     <input id="menubuttonform" type="hidden" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" />
      
 	</form>
-</div>
+  
+</td>
+
+</tr>
+</table>
 <div id="search_suggest"></div>
  
 

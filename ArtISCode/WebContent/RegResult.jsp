@@ -58,7 +58,7 @@
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>
-   <td id="menubutton" onClick="javascript:displayEventsReq()">
+   <td id="menubutton" onClick="document.location='EventPage'">
   Manage Events
   </td>
    <td id="menubutton" onClick="document.location='deconnexion.jsp'">

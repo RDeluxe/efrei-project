@@ -77,6 +77,7 @@ public class Profile extends HttpServlet {
 			out.write(a.getZip() + '\n');
 			out.write(a.getCountry() + '\n');
 			out.write(artist.getDescription());
+			
 		}
 	}
 
@@ -85,10 +86,13 @@ public class Profile extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String kind = new String();
+		HttpSession session = request.getSession(true);	
+		DAOArtist daoA = new DAOArtist();
+		
 		String login =request.getParameter("login");
 		String pass1 = (String) request.getParameter("pass1");
 		String pass2 = (String) request.getParameter("pass2");
-		String kind = request.getParameter("kind");
 		String firstname =request.getParameter("firstname");
 		String lastname = (String) request.getParameter("lastname");
 		String mail = request.getParameter("mail");
@@ -100,13 +104,16 @@ public class Profile extends HttpServlet {
 		String tag1 = (String) request.getParameter("tag1");
 		String tag2 = (String) request.getParameter("tag2");
 		String tag3 = (String) request.getParameter("tag3");
+		Artist artisttest = (Artist) daoA.searchByLogin(login);
+		if (artisttest==null)
+		{kind="1";}else{kind="2";}
 		System.out.println(kind+"************************************");
 		
 		ManageUser service= new ManageUser();
 		Search search = new Search();
 		if(pass1.equals(pass2))
 		{
-			if(kind.equalsIgnoreCase("user"))
+			if(kind.equalsIgnoreCase("1"))
 			{
 				
 				User user = service.checkLoginUser(login);
@@ -125,7 +132,7 @@ public class Profile extends HttpServlet {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 				
 			}
-			if(kind.equalsIgnoreCase("artist"))
+			if(kind.equalsIgnoreCase("2"))
 			{
 					Artist artist= service.checkLoginArtist(login);
 					//Set<Artist> artists=new HashSet<Artist>();
@@ -150,6 +157,7 @@ public class Profile extends HttpServlet {
 					Tag2 = search.SearchTagByName(tag2);
 					Tag Tag3 = it.next();
 					Tag3 = search.SearchTagByName(tag3);
+					System.out.println(Tag1);
 					//Tag Tag2 = search.SearchTagByName(tag2);
 					//Tag Tag3 = search.SearchTagByName(tag3);
 					Tag1.addArtist(artist);

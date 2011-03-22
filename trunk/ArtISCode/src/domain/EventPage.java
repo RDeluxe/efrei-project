@@ -6,6 +6,7 @@ import controller.Search;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -40,7 +41,7 @@ public class EventPage extends HttpServlet {
 		User user = searchuser.SearchByLogin(login);
 		SearchEventEngine search = new SearchEventEngine();
 		List<Event> events = search.searchByUser(user);
-		System.out.println("event servlet");
+		System.out.println(events);
 		
 		try {
 			Artist a = (Artist) user;
@@ -48,6 +49,7 @@ public class EventPage extends HttpServlet {
 			request.setAttribute("Artist_events", parts);
 		} catch (Exception e) {
 			e.printStackTrace();
+			request.setAttribute("Artist_events", new HashSet<Participant>());
 		}
 		
 		request.setAttribute("events", events);

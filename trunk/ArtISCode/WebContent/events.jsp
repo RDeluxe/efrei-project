@@ -86,6 +86,11 @@
 </div>
 <div id="contenu">
 <div id="table">
+ <% List<Event> events = (List<Event>) request.getAttribute("events");
+ if(events.size()!=0) {
+ %>
+<fieldset>
+<legend>Your Events</legend>
 <table id="events">
   
   <thead>
@@ -99,8 +104,8 @@
    </tr>
    </thead>
    <tbody>
-   <% List<Event> events = (List<Event>) request.getAttribute("events");
-   for(Iterator it=events.iterator(); it.hasNext();)
+  
+   <%for(Iterator it=events.iterator(); it.hasNext();)
    {
        Event event = (Event) it.next();
        Set<Participant> participants = event.getArtists();
@@ -124,7 +129,59 @@
    </tbody>
 
 </table>
+</fieldset>
+<%} %>
+ <% Set<Participant> parts = (Set<Participant>) request.getAttribute("Artist_events");
+ if (parts.size()!=0) {
+ %>
+<fieldset>
+<legend>They are waiting for you...</legend>
+<table id="events">
+  
+  <thead>
+  <tr>
+       <th>Name</th>
+       <th>Date</th>
+       <th>Duration</th>
+       <th>Your Status</th>
+       <th>Owner Status</th>
+       <th>Update</th>
+   </tr>
+   </thead>
+   <tbody>
+  
+   <%for(Iterator<Participant> it=parts.iterator(); it.hasNext();)
+   {
+       Participant part = it.next();
+       %>
+       <tr>
+       <td align=center><%= part.getEvent().getName() %></td>
+       <td align=center><%= part.getEvent().getDate()%></td>
+       <td align=center><%= part.getEvent().getDuration() %></td>
+       <td align=center>
+       		<select id="artist_status<%= part.getEvent().getId() %>" name="artist_status<%= part.getEvent().getName() %>">
+       			<option value="<%= part.getArtistState() %>"><%= part.getArtistState() %></option>
+       			<option value="WAITING">WAITING</option>
+       			<option value="OK">OK</option>
+       			<option value="CANCEL">CANCEL</option>
+       			<option value="NO">NO</option>
+       		</select></td>
+       <td align=center><%= part.getUserState() %></td>
+       <td id="eventbutton" onclick="javascript:updateEvent('<%= part.getEvent().getId() %>');" align=center></td>
+       </tr>
+       
+   <% }%>
+   
+
+   </tbody>
+
+</table>
+</fieldset>
+<%} %>
 <br/>
+<% if (request.getAttribute("updatedone") != null) { %>
+<h4>Update Done !!!!</h4>
+<%} %>
 <br/>
 <input type="button" value="Add en Event" onclick="document.location='addEvent.jsp'">
 

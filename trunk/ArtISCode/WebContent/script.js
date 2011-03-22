@@ -288,3 +288,8 @@ function addArtistToEvent() {
 		searchReq.send(null);
 	}
 }
+function updateEvent(name) {
+	var elem = document.getElementById('artist_status'+name);
+	alert(elem.options[elem.selectedIndex].value);
+	document.location="UpdateEvent?event=" + name + "&artist_status" + name + "=" + elem.options[elem.selectedIndex].value;
+}

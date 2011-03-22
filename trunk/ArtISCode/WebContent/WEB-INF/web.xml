@@ -104,4 +104,14 @@
     <servlet-name>AddEvent</servlet-name>
     <url-pattern>/AddEvent</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateEvent</display-name>
+    <servlet-name>UpdateEvent</servlet-name>
+    <servlet-class>domain.UpdateEvent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateEvent</servlet-name>
+    <url-pattern>/UpdateEvent</url-pattern>
+  </servlet-mapping>
 </web-app>

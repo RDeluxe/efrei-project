@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -26,13 +27,16 @@ public class SearchEventEngine implements SearchEventService {
 
 	@Override
 	public List<Event> searchByUser(User u) {
-		List<Event> events = daoE.getAllEvent();		
+		List<Event> events = daoE.getAllEvent();
+		List<Event> ret = new ArrayList<Event>();
 		Iterator<Event> it = events.iterator();
 		while (it.hasNext()) {
 			Event e = it.next();
-			if (e.getOwner() != u) events.remove(e);
+			if (e.getOwner().getLogin().equals(u.getLogin())) {
+				ret.add(e);
+			}
 		}
-		return events;
+		return ret;
 	}
 
 	@Override

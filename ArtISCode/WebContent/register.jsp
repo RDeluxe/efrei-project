@@ -146,19 +146,18 @@
 			}
 		%>
 
-		<td>
-		<form action="javascript:result();"><input type="text"
-			id="txtSearch" name="txtSearch" alt="Search Criteria"
-			onkeyup="searchSuggest();" autocomplete="off" /> <input
-			id="menubuttonform" type="hidden" onClick="result()" name="cmdSearch"
-			value="Search" alt="Run Search" /></form>
-
-		</td>
 
 	</tr>
 </table>
-<div id="search_suggest"></div>
-
+<div id="searchBox">
+<form action="javascript:result();">
+    <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" onblur="emptySearchSuggest()" autocomplete="off" />
+    
+    <input id="menubuttonform" type="hidden" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" />
+     
+	</form>
+	<div id="search_suggest"></div>
+</div>
 
 </div>
 <div id="contenu">

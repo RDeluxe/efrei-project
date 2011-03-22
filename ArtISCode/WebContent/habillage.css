@@ -275,8 +275,8 @@ fieldset
 	margin-right : 5px;
 }
 #search_suggest {
-	float : left;
-	position : relative;
+	position : absolute;
+	top:27px;
 	background-color : white;
 	width : 100px;
 }

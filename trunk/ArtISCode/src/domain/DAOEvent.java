@@ -30,4 +30,11 @@ public class DAOEvent implements IDAOEvent {
 		return ev;
 	}
 
+	@Override
+	public void removeEvent(Event e) {
+		Transaction tx = session.beginTransaction();
+		session.delete(e);
+		tx.commit();
+	}
+
 }

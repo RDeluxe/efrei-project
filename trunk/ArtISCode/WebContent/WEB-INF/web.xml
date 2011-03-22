@@ -114,4 +114,14 @@
     <servlet-name>UpdateEvent</servlet-name>
     <url-pattern>/UpdateEvent</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteEvent</display-name>
+    <servlet-name>DeleteEvent</servlet-name>
+    <servlet-class>domain.DeleteEvent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteEvent</servlet-name>
+    <url-pattern>/DeleteEvent</url-pattern>
+  </servlet-mapping>
 </web-app>

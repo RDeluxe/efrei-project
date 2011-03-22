@@ -273,17 +273,17 @@ function handleGetEvent() {
 			//IE doesn't support dynamically added attributes.
 			var suggest = '<div onmouseover="javascript:suggestOver(this);" ';
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
-			suggest += 'onclick="javascript:addArtistToEvent();" ';
-			suggest += 'class="suggest_link"><input id="eventID" type="hidden" value="'+str[i] +'"/>' + str[i+1] + '</div>';
+			suggest += 'onclick="javascript:addArtistToEvent(' +str[i]+');" ';
+			suggest += 'class="suggest_link"><input id="eventID" type="hidden" value="'+str[i] +'"/>' + str[i] + '</div>';
 			ss.innerHTML += suggest;
 		}
 	}
 }
 
-function addArtistToEvent() {
+function addArtistToEvent(event) {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
 		var login = document.getElementById('loginArtist').value;
-		var event = document.getElementById("eventID").value;
+		//var event = document.getElementById("eventID").value;
 		searchReq.open("POST", 'EventServlet?login='+login+'&event='+event , true);
 		searchReq.send(null);
 	}

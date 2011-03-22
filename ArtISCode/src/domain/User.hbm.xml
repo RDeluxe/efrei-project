@@ -35,7 +35,7 @@
 		  		<many-to-many class="domain.Tag" column="ID_TAG"/>
 			</set>
 			
-			<set name="participants" inverse="true">
+			<set name="participants" inverse="true" cascade="all">
 				<key column="MEMBER"/>
 				<one-to-many class="domain.Participant"/>
 			</set>

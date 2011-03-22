@@ -72,7 +72,7 @@
 </table>
 <div id="searchBox">
 <form action="javascript:result();">
-    <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" onblur="emptySearchSuggest()" autocomplete="off" />
+    <input type="text" id="txtSearch"  name="txtSearch" alt="Search Criteria" onkeyup="searchSuggest();" autocomplete="off" />
     
     <input id="menubuttonform" type="hidden" onClick="result()"   name="cmdSearch" value="Search" alt="Run Search" />
      
@@ -111,21 +111,21 @@
        <td align=center><%= event.getName() %></td>
        <td align=center><%= event.getDate()%></td>
        <td align=center><%= event.getDuration() %></td>
-       <td align=center><% System.out.println(participants); if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
+       <td align=left><% System.out.println(participants); if (participants !=null) { %><ul type="none"> <%for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("ok")) {%>
-       <%= participant.getMember().getLogin() %>
+       <li ondblclick="getProfileReq('<%= participant.getMember().getLogin() %>')"> <%= participant.getMember().getLogin() %> </li>
        &nbsp
-       <%}}} %></td>
-       <td align=center><% System.out.println(participants); if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
+       <%} } %></ul><% } %></td>
+       <td align=left><% System.out.println(participants); if (participants !=null) { %><ul type="none"> <%for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("waiting")) {%>
-       <%= participant.getMember().getLogin() %>
+       <li ondblclick="getProfileReq('<%= participant.getMember().getLogin() %>')"> <%= participant.getMember().getLogin() %> </li>
        &nbsp
-       <%}}} %></td>
-       <td align=center><% System.out.println(participants); if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
+       <%}} %></ul><% } %></td>
+       <td align=left><% System.out.println(participants); if (participants !=null) { %><ul type="none"> <%for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("cancel") || participant.getArtistState().equalsIgnoreCase("no")) {%>
-       <%= participant.getMember().getLogin() %>
+       <li ondblclick="getProfileReq('<%= participant.getMember().getLogin() %>')"> <%= participant.getMember().getLogin() %> </li>
        &nbsp
-       <%}}} %></td>
+       <%}} %></ul><% } %></td>
        <td id="eventbutton" onclick="document.location.href='ModifyEvent?event=<%= event.getId() %>'" align=center> Update </td>
        <td id="eventbutton" onclick="document.location.href='DeleteEvent?event=<%= event.getId() %>'" align=center> Delete </td>
        </tr>
@@ -174,7 +174,7 @@
        			<option value="NO">NO</option>
        		</select></td>
        <td align=center><%= part.getUserState() %></td>
-       <td id="eventbutton" onclick="javascript:updateEvent('<%= part.getEvent().getId() %>');" align=center></td>
+       <td id="eventbutton" onclick="javascript:updateEvent('<%= part.getEvent().getId() %>');" align=center>Update</td>
        </tr>
        
    <% }%>

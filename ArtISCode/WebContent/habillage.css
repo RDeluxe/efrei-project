@@ -236,12 +236,6 @@ fieldset
     color: #333333;
     padding-bottom : 3px;
 }
-#search_suggest {
-	float : left;
-	position : relative;
-	background-color : white;
-	width : 100px;
-}
 .suggest_link {
 	border : 1px solid;
 }
@@ -254,6 +248,12 @@ fieldset
 	position : relative;
 	top : -27px;
 	margin-right : 5px;
+}
+#search_suggest {
+	float : left;
+	position : relative;
+	background-color : white;
+	width : 100px;
 }
 #txtSearch {
 	background : url("./Img/search.png") no-repeat scroll 7px 3px #FFFFFF;

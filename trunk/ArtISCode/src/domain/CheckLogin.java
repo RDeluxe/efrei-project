@@ -26,18 +26,22 @@ public class CheckLogin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String  keyword=request.getParameter("keyword");
-		PrintWriter out = response.getWriter();
-		controller.Search s = new controller.Search();
-		if (s.SearchByLogin(keyword)==null) out.print("Login is ok");
-		else out.print("Please pick another login");
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String  login=request.getParameter("loginBox");
+		response.setHeader("ContentType", "text/xml");
+		PrintWriter out = response.getWriter();
+		out.write("<msgs>");
+		controller.Search s = new controller.Search();
+		if (s.SearchByLogin(login)==null) out.print("1");
+		else out.print("2");
+		out.write("</msgs>");
+		out.close();
 	}
 
 }

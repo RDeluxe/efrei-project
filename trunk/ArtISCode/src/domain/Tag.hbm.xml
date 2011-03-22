@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="domain">
-	<class name="Tag" table="TAG">
+	<class name="Tag" table="TAG" lazy="true">
 		
 		<id name="id" column="ID_TAG">
 			<generator class="increment"/>

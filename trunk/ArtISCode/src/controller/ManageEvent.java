@@ -41,6 +41,14 @@ public class ManageEvent implements ManageEventService {
 
 	@Override
 	public void cancelEvent(Event e, User u) {
+		Set<Participant> parts = e.getArtists();
+		
+		while (parts.size()>0) {
+			Participant p = parts.iterator().next();
+			parts.remove(p);
+			e.setArtists(parts);
+			daoP.deleteParticipant(p);
+		}
 		daoE.removeEvent(e);
 	}
 

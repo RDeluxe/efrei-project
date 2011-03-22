@@ -19,7 +19,7 @@
         </property>
         <many-to-one name="owner" class="domain.User" column="OWNER"/>
         
-        <set name="artists" inverse="true" lazy="true">
+        <set name="artists" inverse="true" lazy="true" cascade="all">
             <key column="EVENT"/>
             <one-to-many class="domain.Participant" />
         </set>

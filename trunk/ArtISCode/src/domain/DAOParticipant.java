@@ -30,7 +30,12 @@ public class DAOParticipant implements IDAOParticipant {
 		List<Participant> p = (List<Participant>) session.createQuery("from Participant");
 		return p;
 	}
-	
-	
-	
+
+	@Override
+	public void deleteParticipant(Participant p) {
+		Transaction tx = session.beginTransaction();
+		session.delete(p);
+		tx.commit();
+		session.clear();
+	}
 }

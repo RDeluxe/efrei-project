@@ -122,12 +122,7 @@ public class DAOArtist implements IDAOArtist {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Artist> searchArtistByKeyword(String search) {
-		StringBuilder content = new StringBuilder();
-		content.append("%");
-		for (int i = 0; i < search.length(); i++) {
-			content.append(search.charAt(i) + "%");
-		}
-		List<Artist> ret = (List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("firstname", content.toString())).list();
+		List<Artist> ret = (List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("login", search+'%')).list();
 		return ret;
 	}
 }

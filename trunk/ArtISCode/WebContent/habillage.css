@@ -280,3 +280,51 @@ td, th /* Mettre une bordure sur les td ET les th */
   
    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+#form1 {
+	text-align : left;
+}
+#form1 p {
+	float : left;
+	width : 60%;
+}
+#form1 label {
+	margin-left : 1px;
+	float : left;
+	width: 50%;
+	padding-right: 1%;
+	text-align: right;
+	letter-spacing: 1px;
+}
+#form1 input, #form1 textarea {
+	margin-left: 1%;
+	width: 40%;
+	border: #CCC 1px solid;
+}
+#form1 input[type="submit"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#form1 input[type="submit"]:hover
+{
+	background-color: #66CC33;
+	cursor: pointer;
+}
+
+#form1 input[type="reset"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#form1 input[type="reset"]:hover
+{
+	background-color: #E6484D;
+	cursor: pointer;
+}
+#form1 select {
+	margin-left: 1%;
+	width: 20%;
+	border: #CCC 1px solid;
+}

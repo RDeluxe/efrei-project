@@ -46,6 +46,10 @@ function searchSuggest() {
 	}
 }
 
+function emptySearchSuggest() {
+	document.getElementById('search_suggest').innerHTML = '';
+}
+
 function result() {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
 		var str = escape(document.getElementById('txtSearch').value);

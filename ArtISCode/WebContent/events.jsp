@@ -119,8 +119,8 @@
        <%= participant.getMember().getFirstname() %>
        &nbsp
        <%} %></td>
-       <td id="eventbutton" onclick="document.location='EventPage'" align=center> Update </td>
-       <td id="eventbutton" onclick="document.location='EventPage'" align=center> Delete </td>
+       <td id="eventbutton" onclick="document.location='ModifyEvent?event=<%= event.getId() %>'" align=center> Update </td>
+       <td id="eventbutton" onclick="document.location='DeleteEvent?event=<%= event.getId() %>'" align=center> Delete </td>
        </tr>
        
    <% }%>

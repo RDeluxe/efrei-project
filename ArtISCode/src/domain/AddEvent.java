@@ -35,7 +35,7 @@ public class AddEvent extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.getRequestDispatcher("EventPage").forward(request, response);
 	}
 
 	/**
@@ -45,7 +45,6 @@ public class AddEvent extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);	
 		String login = (String) session.getAttribute("login");
-		List<Event> events = (List<Event>) request.getAttribute("events");
 		String name = request.getParameter("name");
 		String durations = request.getParameter("duration");
 		int duration = Integer.parseInt(durations);
@@ -65,7 +64,6 @@ public class AddEvent extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
-	    System.out.println("Today is " +date );
 		DAOUser daoU = new DAOUser();
 		User user = daoU.searchByLogin(login);
 		long id = user.getId();
@@ -76,13 +74,7 @@ public class AddEvent extends HttpServlet {
 		event.setOwner(user);
 		event.setName(name);
 		manager.createEvent(event);
-		request.setAttribute("events", events);
-		request.getRequestDispatcher("events.jsp").forward(request, response);
-		
-		
-		
-		
-		
+		request.getRequestDispatcher("EventPage").forward(request, response);
 	}
 
 }

@@ -36,8 +36,6 @@ public class EventPage extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);	
 		String login = (String) session.getAttribute("login");
-		Date date= new Date(System.currentTimeMillis());
-		System.out.println(date);
 		Search searchuser = new Search();
 		User user = searchuser.SearchByLogin(login);
 		SearchEventEngine search = new SearchEventEngine();

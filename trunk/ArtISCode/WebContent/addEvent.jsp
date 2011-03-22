@@ -88,13 +88,14 @@
 <div id="add">
 <form id="addEvent" method="post" action="AddEvent">
   <fieldset>
-  <legend>Add en Event</legend>
+  
     <fieldset>
-    <legend>Basic Info</legend><br/>
-    Date<br/>
-     <SELECT name="Month">
-		<OPTION VALUE="01">01</OPTION>
-		<OPTION VALUE="02">02</OPTION>
+    <legend>Date</legend><br/>
+    <p><br/>
+
+      <SELECT name="Month">
+        <OPTION VALUE="01">01</OPTION>
+        <OPTION VALUE="02">02</OPTION>
         <OPTION VALUE="03">03</OPTION>
         <OPTION VALUE="04">04</OPTION>
         <OPTION VALUE="05">05</OPTION>
@@ -105,10 +106,11 @@
         <OPTION VALUE="10">10</OPTION>
         <OPTION VALUE="11">11</OPTION>
         <OPTION VALUE="12">12</OPTION>
-	</SELECT>
-    <SELECT name="Day">
-		<OPTION VALUE="01">01</OPTION>
-		<OPTION VALUE="02">02</OPTION>
+      </SELECT>
+      &nbsp;
+      <SELECT name="Day">
+        <OPTION VALUE="01">01</OPTION>
+        <OPTION VALUE="02">02</OPTION>
         <OPTION VALUE="03">03</OPTION>
         <OPTION VALUE="04">04</OPTION>
         <OPTION VALUE="05">05</OPTION>
@@ -120,7 +122,7 @@
         <OPTION VALUE="11">11</OPTION>
         <OPTION VALUE="12">12</OPTION>
         <OPTION VALUE="13">13</OPTION>
-		<OPTION VALUE="14">14</OPTION>
+        <OPTION VALUE="14">14</OPTION>
         <OPTION VALUE="15">15</OPTION>
         <OPTION VALUE="16">16</OPTION>
         <OPTION VALUE="17">17</OPTION>
@@ -132,46 +134,41 @@
         <OPTION VALUE="23">23</OPTION>
         <OPTION VALUE="24">24</OPTION>
         <OPTION VALUE="25">25</OPTION>
-		<OPTION VALUE="26">26</OPTION>
+        <OPTION VALUE="26">26</OPTION>
         <OPTION VALUE="27">27</OPTION>
         <OPTION VALUE="28">28</OPTION>
         <OPTION VALUE="29">29</OPTION>
         <OPTION VALUE="30">30</OPTION>
         <OPTION VALUE="31">31</OPTION>
-	</SELECT>
-    <SELECT name="Year">
-		<OPTION VALUE="User" onclick="javascript:registerUser();">User</OPTION>
-		<OPTION VALUE="Artist" onclick="javascript:registerArtist();">Artist</OPTION>
-		<OPTION VALUE="Professional" onclick="">Professional</OPTION>	
-	</SELECT>
-    <br/>
-    Firstname:<br/>
-    <input type="text" name="firstname"  size="25" /><br/>
-    Lastname:<br/>
-    <input type="text" name="lastname"  size="25" /><br/>
-    Mail:<br/>
-    <input type="text" name="mail"  /><br/>
-    <br/>
+      </SELECT>
+      &nbsp;
+      <SELECT name="Year">
+        <OPTION VALUE="2011">2011</OPTION>
+        <OPTION VALUE="2012">2012</OPTION>
+        <OPTION VALUE="2013">2013</OPTION>
+        <OPTION VALUE="2014">2014</OPTION>
+        <OPTION VALUE="2015">2015</OPTION>
+        <br/>
+      </SELECT>
+      </p>
+    <p><br/>
+    </p>
+    </fieldset>
+   
+    <fieldset>
+    <legend>Duration (in days)</legend><br/>
+    <p><br/>
+      
+      <input type="text"  name="duration" size="25" />
+      
+    </p>
+    <p>&nbsp;</p>
     </fieldset>
     <fieldset>
-    <legend>Connection Info</legend><br/>
-    <label for="login">Your login:</label>
-    <input type="text" id="loginBox" name="login" size="25" /><div id="loginBoxTip" style="width:250px"></div><br/>
-    <label for="pass1">Your password:</label>
-    <input type="password" id="pass1" name="pass1" size="25" /><div id="pass1Tip" style="width:250px"></div><br/>
-    <label for="pass2">Password Check:</label>
-    <input type="password" id="pass2" name="pass2" size="25" /><div id="pass2Tip" style="width:250px"></div><br/>
-    </fieldset>
-    <fieldset>
-    <legend>Your Address</legend><br/>
-    Street:<br/>
-    <input type="text" name="street"  size="60" /><br/>
-    City:<br/>
-    <input type="text" name ="city"  size="25" /><br/>
-    Zip code:<br/>
-    <input type="text" name="zip"  size="10" /><br/>
-    Country:<br/>
-    <input type="text" name="country"  size="25" /><br/>
+    <legend>Name of the event</legend><br/>
+    
+    <input type="text" name="name"  size="60" /><br/>
+    
     </fieldset>
     <br/>
     <div id="kindform"></div>
@@ -181,6 +178,7 @@ value="Submit" />
     <input type="reset"
 value="Reset" />
  </fieldset>
+
   </form>
  
 

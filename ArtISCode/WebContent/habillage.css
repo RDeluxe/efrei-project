@@ -243,7 +243,8 @@ fieldset
     background: url("./Img/glass.png") repeat-x scroll 0 50% #DDDDDD;
     font-weight: bold;
     height: 13px;
-    margin: 2px 5px;
+    margin-top : 5px;
+    margin-bottom : 5px;
     overflow: hidden;
     padding: 3px 0 4px;
     text-align: center;
@@ -251,6 +252,8 @@ fieldset
     font-family: "Lucida Grande","Trebuchet MS",sans-serif;
     font-size: 11px;
     color: #333333;
+    width: 90px;
+    float: left;
 }
 #eventbutton:hover {
 	background-color : #F1F1F1;

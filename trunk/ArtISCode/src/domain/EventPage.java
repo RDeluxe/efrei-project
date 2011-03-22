@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +42,6 @@ public class EventPage extends HttpServlet {
 		User user = searchuser.SearchByLogin(login);
 		SearchEventEngine search = new SearchEventEngine();
 		List<Event> events = search.searchByUser(user);
-		System.out.println(events);
 		
 		try {
 			Artist a = (Artist) user;
@@ -51,18 +51,17 @@ public class EventPage extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("Artist_events", new HashSet<Participant>());
 		}
-		
+		request.removeAttribute("events");
 		request.setAttribute("events", events);
-		request.getRequestDispatcher("events.jsp").forward(request, response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("events.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+		this.doGet(request, response);
 		
 	}
 

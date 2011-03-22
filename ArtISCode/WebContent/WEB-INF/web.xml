@@ -94,4 +94,14 @@
     <servlet-name>EventPage</servlet-name>
     <url-pattern>/EventPage</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEvent</display-name>
+    <servlet-name>AddEvent</servlet-name>
+    <servlet-class>domain.AddEvent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEvent</servlet-name>
+    <url-pattern>/AddEvent</url-pattern>
+  </servlet-mapping>
 </web-app>

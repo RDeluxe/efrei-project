@@ -274,11 +274,34 @@ table
 {
    border-collapse: collapse;
    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+   
 }
-td, th /* Mettre une bordure sur les td ET les th */
+td 
 {
   
    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+   text-align: center; /* Tous les textes des cellules seront centrés*/
+   padding: 5px;
+}
+th 
+{
+  
+   font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+   text-align: center; /* Tous les textes des cellules seront centrés*/
+   padding: 5px;
+}
+
+#events
+{
+	margin: auto; /* Centre le tableau */
+	border: 4px;
+	border-color:#000;
+	text-align: center;
+	padding: 5px;
+	alignment-adjust: middle;
+}
+
 }
 #form1 {
 	text-align : left;

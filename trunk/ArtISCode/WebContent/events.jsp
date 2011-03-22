@@ -106,16 +106,17 @@
        Set<Participant> participants = event.getArtists();
        %>
        <tr>
-       <td><%= event.getName() %></td>
-       <td><%= event.getDate()%></td>
-       <td><%= event.getDuration() %></td>
-       <td><% for(Iterator it2=participants.iterator(); it2.hasNext();)
+       <td align=center><%= event.getName() %></td>
+       <td align=center><%= event.getDate()%></td>
+       <td align=center><%= event.getDuration() %></td>
+       <td align=center><% for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); %>
        <%= participant.getMember().getFirstname() %>
        &nbsp
        <%} %></td>
-       <td id="menubutton" onclick="document.location='EventPage'"> Update </td>
-       <td id="menubutton" onclick="document.location='EventPage'"> Delete </td>
+       <td id="menubutton" onclick="document.location='EventPage'" align=center> Update </td>
+       <td id="menubutton" onclick="document.location='EventPage'" align=center> Delete </td>
+       </tr>
        
    <% }%>
    
@@ -123,6 +124,10 @@
    </tbody>
 
 </table>
+<br/>
+<br/>
+<input type="button" value="Add en Event" onclick="document.location='addEvent.jsp'">
+
 </div>
  
 </div>

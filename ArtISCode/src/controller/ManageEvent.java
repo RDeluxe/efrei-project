@@ -41,7 +41,7 @@ public class ManageEvent implements ManageEventService {
 
 	@Override
 	public void cancelEvent(Event e, User u) {
-		
+		daoE.removeEvent(e);
 	}
 
 	@Override

@@ -114,16 +114,16 @@
        <td align=center><%= event.getName() %></td>
        <td align=center><%= event.getDate()%></td>
        <td align=center><%= event.getDuration() %></td>
-       <td align=center><% for(Iterator it2=participants.iterator(); it2.hasNext();)
+       <td align=center><% if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); %>
-       <%= participant.getMember().getFirstname() %>
+       <%= participant.getMember().getLogin() %>
        &nbsp
        <%} %></td>
        <td id="eventbutton" onclick="document.location='ModifyEvent?event=<%= event.getId() %>'" align=center> Update </td>
        <td id="eventbutton" onclick="document.location='DeleteEvent?event=<%= event.getId() %>'" align=center> Delete </td>
        </tr>
        
-   <% }%>
+   <% } }%>
    
 
    </tbody>
@@ -132,7 +132,7 @@
 </fieldset>
 <%} %>
  <% Set<Participant> parts = (Set<Participant>) request.getAttribute("Artist_events");
- if (parts.size()!=0) {
+ if (parts!= null && parts.size()!=0) {
  %>
 <fieldset>
 <legend>They are waiting for you...</legend>

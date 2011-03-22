@@ -48,6 +48,7 @@ public class ManageEvent implements ManageEventService {
 	public void inviteArtist(Event e, Artist a) {
 		Participant p = new Participant();
 		p.setEvent(e);
+		e.getArtists().add(p);
 		p.setMember(a);
 		p.setUserState("OK");
 		p.setArtistState("WAITING");

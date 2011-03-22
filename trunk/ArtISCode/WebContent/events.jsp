@@ -91,16 +91,16 @@
  %>
 <fieldset>
 <legend>Your Events</legend>
-<table id="events">
+<table id="events" border="1">
   
   <thead>
   <tr>
        <th>Name</th>
        <th>Date</th>
        <th>Duration</th>
-       <th>Participants</th>
-       <th>Update Event</th>
-       <th>Delete Event</th>
+       <th>Participants OK</th>
+       <th>Participants WAITING</th>
+       <th>Participants NOT PRESENT</th>
    </tr>
    </thead>
    <tbody>
@@ -114,16 +114,26 @@
        <td align=center><%= event.getName() %></td>
        <td align=center><%= event.getDate()%></td>
        <td align=center><%= event.getDuration() %></td>
-       <td align=center><% if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
-       {  Participant participant = (Participant) it2.next(); %>
+       <td align=center><% System.out.println(participants); if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
+       {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("ok")) {%>
        <%= participant.getMember().getLogin() %>
        &nbsp
-       <%} %></td>
+       <%}}} %></td>
+       <td align=center><% System.out.println(participants); if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
+       {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("waiting")) {%>
+       <%= participant.getMember().getLogin() %>
+       &nbsp
+       <%}}} %></td>
+       <td align=center><% System.out.println(participants); if (participants !=null) { for(Iterator it2=participants.iterator(); it2.hasNext();)
+       {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("cancel") || participant.getArtistState().equalsIgnoreCase("no")) {%>
+       <%= participant.getMember().getLogin() %>
+       &nbsp
+       <%}}} %></td>
        <td id="eventbutton" onclick="document.location.href='ModifyEvent?event=<%= event.getId() %>'" align=center> Update </td>
        <td id="eventbutton" onclick="document.location.href='DeleteEvent?event=<%= event.getId() %>'" align=center> Delete </td>
        </tr>
        
-   <% } }%>
+   <% } %>
    
 
    </tbody>

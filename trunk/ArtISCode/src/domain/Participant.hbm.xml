@@ -4,12 +4,11 @@
 <!-- Generated 15 mars 2011 18:20:06 by Hibernate Tools 3.4.0.Beta1 -->
 <hibernate-mapping>
     <class name="domain.Participant" table="PARTICIPANT">
-        <id name="id" type="long">
-            <column name="ID_PART" />
-            <generator class="assigned" />
+        <id name="id" column="ID_PART">
+            <generator class="increment"/>
         </id>
         <many-to-one name="member" column="MEMBER" class="domain.Artist" cascade="all"/>
-        <many-to-one name="event" class="domain.Event" column="EVENT" cascade="all" not-null="false"/>
+        <many-to-one name="event" class="domain.Event" column="EVENT" cascade="all"/>
         <property name="artistState" type="java.lang.String">
             <column name="ARTISTSTATE" />
         </property>

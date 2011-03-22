@@ -54,7 +54,7 @@ public class EventServlet extends HttpServlet {
 		SearchEventEngine see = new SearchEventEngine();
 		controller.Search s = new controller.Search();
 		Artist a = (Artist) s.SearchByLogin(login);
-		Event e = see.searchById(1);
+		Event e = see.searchById(Long.parseLong(event));
 		
 		System.out.println(e.getId()+ " " + a.getId());
 		

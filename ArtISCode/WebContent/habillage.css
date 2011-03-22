@@ -236,6 +236,28 @@ fieldset
     color: #333333;
     padding-bottom : 3px;
 }
+#eventbutton {
+	cursor : pointer;
+	-moz-border-radius: 11px 11px 11px 11px;
+    -moz-box-shadow: 0 1px 2px #666666;
+    background: url("./Img/glass.png") repeat-x scroll 0 50% #DDDDDD;
+    font-weight: bold;
+    height: 13px;
+    margin: 2px 5px;
+    overflow: hidden;
+    padding: 3px 0 4px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Lucida Grande","Trebuchet MS",sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+#eventbutton:hover {
+	background-color : #F1F1F1;
+	color: #333333;
+	font-family: "Lucida Grande","Trebuchet MS",sans-serif;
+    font-size: 11px;
+}
 .suggest_link {
 	border : 1px solid;
 }

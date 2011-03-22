@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,6 +43,14 @@ public class EventPage extends HttpServlet {
 		SearchEventEngine search = new SearchEventEngine();
 		List<Event> events = search.searchByUser(user);
 		System.out.println("event servlet");
+		
+		try {
+			Artist a = (Artist) user;
+			Set<Participant> parts = a.getParticipants();
+			request.setAttribute("Artist_events", parts);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		request.setAttribute("events", events);
 		request.getRequestDispatcher("events.jsp").forward(request, response);

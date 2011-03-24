@@ -51,7 +51,7 @@ it will automatically rewrite the file without asking the user.
        fi.write(savedFile);
            }
        }
-       out.print("File has already been uploaded");
+       out.print("File has already been uploaded(It is placed under /efrei-project/trunk/ArtISCode/WebContent/Img/)");
     } catch (Exception e) {
        e.printStackTrace();
        out.print("Sorry, file size cannot be larger than 12MB");

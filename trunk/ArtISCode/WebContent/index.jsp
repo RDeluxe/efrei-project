@@ -100,15 +100,6 @@
 <div id="pied"></div>
 </div>
 
-<!--
-The following code are newly added!
--->
-
-<form name="myform" action="fileUpload.jsp" method="post"
-	enctype="multipart/form-data">File:<br>
-<input type="file" name="myfile"><br>
-<br>
-<input type="submit" name="submit" value="Commit"></form>
 
 
 </body>

@@ -22,6 +22,7 @@
 		<td id="menubutton" onClick='document.location.href="index.jsp"'>
 		Accueil</td>
 		<%
+		//checking session
 			String result = (String) request.getAttribute("result");
 			System.out.println(result);
 			if ((result != null) && (result.equalsIgnoreCase("ok"))) {

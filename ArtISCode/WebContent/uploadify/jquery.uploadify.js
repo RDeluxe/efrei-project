@@ -45,7 +45,7 @@ if(jQuery)(
 						// Required Settings
 						id       : jQuery(this).attr('id'),
 						swf      : 'uploadify.swf',
-						uploader : 'uploadify.php',
+						uploader : 'Upload',
 						
 						// Options
 						auto : false,
@@ -54,7 +54,7 @@ if(jQuery)(
 						buttonImage     : false,
 						buttonText      : 'SELECT FILES',
 						cancelImage     : 'uploadify-cancel.png',
-						checkExisting   : 'uploadify-check-existing.php',
+						// checkExisting   : 'uploadify-check-existing.php',
 						debug           : false,
 						fileObjName     : 'Filedata',
 						fileSizeLimit   : 0,

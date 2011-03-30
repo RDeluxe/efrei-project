@@ -48,7 +48,7 @@ public class Upload extends HttpServlet {
 				      uploadPath.mkdirs();
 				   }
 				   // Create a buffer folder
-				   File tempPathFile = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\buffer\\");
+				   File tempPathFile = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\buffer\\");
 				   if (!tempPathFile.exists()) {
 				      tempPathFile.mkdirs();
 				   }

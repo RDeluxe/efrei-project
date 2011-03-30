@@ -6,18 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link href="uploadify/uploadify.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="uploadify/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="uploadify/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="uploadify/swfobject.js"></script>
-<script type="text/javascript" src="uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $('#file_upload').uploadify({
-    'uploader'  : 'uploadify/uploadify.swf',
-    'script'    : 'uploadify/uploadify.php',
-    'cancelImg' : 'uploadify/cancel.png',
-    'folder'    : 'uploads',
+    'uploader'    : 'Upload',
+    'swf'  : 'uploadify/uploadify.swf',
+    'cancelImage' : 'uploadify/uploadify-cancel.png',
     'auto'      : true
   });
+ 
 });
 </script>
 </head>

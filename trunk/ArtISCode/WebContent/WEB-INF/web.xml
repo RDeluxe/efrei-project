@@ -124,4 +124,34 @@
     <servlet-name>DeleteEvent</servlet-name>
     <url-pattern>/DeleteEvent</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Upload</display-name>
+    <servlet-name>Upload</servlet-name>
+    <servlet-class>domain.Upload</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Upload</servlet-name>
+    <url-pattern>/Upload</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChekFil</display-name>
+    <servlet-name>ChekFil</servlet-name>
+    <servlet-class>domain.ChekFil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChekFil</servlet-name>
+    <url-pattern>/ChekFil</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckFile</display-name>
+    <servlet-name>CheckFile</servlet-name>
+    <servlet-class>domain.CheckFile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckFile</servlet-name>
+    <url-pattern>/CheckFile</url-pattern>
+  </servlet-mapping>
 </web-app>

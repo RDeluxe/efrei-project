@@ -21,4 +21,9 @@ public class DAONotification implements IDAONotification {
 		tx.commit();
 	}
 
+	@Override
+	public Notification getById(long id) {
+		return (Notification) session.get(Notification.class, id);
+	}
+
 }

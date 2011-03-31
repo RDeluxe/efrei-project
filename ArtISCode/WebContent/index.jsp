@@ -35,7 +35,7 @@
 					for (Notification n : nots) {
 						%>
 						<div id="not">
-						<a onclick="closeNotification(<%= sessionlog%>,<%= n.getId()%>)" href="javascript:"><img src="./Img/growlclose.gif"/></a>
+						<a onclick="javascript:closeNotification(<%= sessionlog%>,<%= n.getId()%>);return false;" href="#"><img src="./Img/growlclose.gif"/></a>
 						<h6>Notification</h6>
 						<%= n.getMessage() %>
 						</div>

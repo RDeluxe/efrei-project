@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import domain.Artist;
@@ -63,6 +64,21 @@ public class ManageEvent implements ManageEventService {
 		p.setUserState("OK");
 		p.setArtistState("WAITING");
 		daoP.addParticipant(p);
+	}
+
+	@Override
+	public void cancelArtist(Event e, Artist a) {
+		Set<Participant> parts = a.getParticipants();
+		boolean stop = false;
+		Participant p = null;
+		Iterator<Participant> it = parts.iterator();
+		while (!stop && it.hasNext()) {
+			p = it.next();
+			if (p.getEvent().getId() == e.getId()) stop = true;
+		}
+		parts.remove(p);
+		e.getArtists().remove(p);
+		daoP.deleteParticipant(p);
 	}
 
 }

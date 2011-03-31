@@ -3,16 +3,20 @@
  */
 package controller;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import domain.Artist;
 import domain.DAOArtist;
+import domain.DAONotification;
 import domain.DAOPro;
 import domain.DAOTag;
 import domain.DAOUser;
 import domain.Entertainment_Pro;
 import domain.IDAOArtist;
 import domain.IDAOUser;
+import domain.Notification;
 import domain.Tag;
 import domain.User;
 
@@ -33,6 +37,7 @@ public class ManageUser implements ManagingUsersService {
 	private IDAOUser daoU = new DAOUser();
 	private DAOTag daoT = new DAOTag();
 	private DAOPro daoP = new DAOPro();
+	private DAONotification daoN = new DAONotification();
 	
 	
 	
@@ -169,5 +174,16 @@ public class ManageUser implements ManagingUsersService {
 			return true;
 		}
 		else return false;
+	}
+
+	@Override
+	public void deleteNotifications(String u) {
+		User user = searchService.SearchByLogin(u);
+		Set<Notification> nots = user.getMessages();
+		for (Notification n : nots) {
+			user.getMessages().remove(n);
+			daoN.removeNotification(n);
+		}
+		daoU.updateUser(user);
 	}
 }

@@ -154,4 +154,14 @@
     <servlet-name>CheckFile</servlet-name>
     <url-pattern>/CheckFile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CloseNotification</display-name>
+    <servlet-name>CloseNotification</servlet-name>
+    <servlet-class>domain.CloseNotification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CloseNotification</servlet-name>
+    <url-pattern>/CloseNotification</url-pattern>
+  </servlet-mapping>
 </web-app>

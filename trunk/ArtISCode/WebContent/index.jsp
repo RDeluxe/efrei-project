@@ -35,14 +35,15 @@
 					for (Notification n : nots) {
 						%>
 						<div id="not">
-						<a onclick="closeNotification(<%= n.getId()%>)" href="javascript:"><img src="./Img/growlclose.gif"/></a>
-						<h4><%= n.getMessage() %></h4>
+						<a onclick="closeNotification(<%= sessionlog%>,<%= n.getId()%>)" href="javascript:"><img src="./Img/growlclose.gif"/></a>
+						<h6>Notification</h6>
+						<%= n.getMessage() %>
 						</div>
 						
 						<%
 					}
 					%>
-					<div id="close" style="display : none"><a onclick="closeAllNotification()" href="javascript:">close all notification</a></div>
+					<div id="close" style="display : none"><a href="#" onclick="javascript:closeAllNotification('<%= sessionlog%>');return false;">close all notification</a></div>
 					<%
 				} else {
 					System.out.println("Pas de messages");

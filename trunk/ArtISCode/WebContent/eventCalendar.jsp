@@ -100,6 +100,8 @@
 
 </div>
 <div id="calendar"></div>
+<br/>
+<input type="button" value="Add en Event" onclick="document.location='addEvent.jsp'">
 <div id="pied">
 </div>
 </div>

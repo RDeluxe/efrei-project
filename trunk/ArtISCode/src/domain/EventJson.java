@@ -53,7 +53,7 @@ public class EventJson extends HttpServlet {
 			JSONObject object=new JSONObject();
 			object.put("title", e.getName());
 			object.put("start", new java.sql.Date(e.getDate().getTime()).toString());
-			object.put("end", new java.sql.Date(e.getDate().getTime()+e.getDuration()*1000*24*60*60).toString());
+			object.put("end", new java.sql.Date(e.getDate().getTime()+(e.getDuration()-1)*1000*24*60*60).toString());
 			object.put("allDay", true);
 			object.put("url", "./event.jsp?eventid=" + e.getId());
 			arrayObj.add(object);

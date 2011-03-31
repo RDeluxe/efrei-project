@@ -211,4 +211,25 @@ public class User {
 	public Set<Event> getEvents() {
 		return events;
 	}
+	
+	public void setMessages(Set<Notification> messages) {
+		this.messages = messages;
+	}
+
+	public Set<Notification> getMessages() {
+		return messages;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	private Set<Notification> messages;
+	
+	private String photo;
+	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="controller.*" import="domain.Notification" import="java.util.Set" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,18 +12,8 @@
 
 </head>
 <body>
-<div id="page">
-
-<div id="entete"><a href="index.jsp"><img src="Img/banner.jpg"
-	width="950" height="100" border=no></a></div>
-
-<div id="menu">
-<table id="menutab">
-	<tr>
-		<td id="menubutton" onClick='document.location.href="index.jsp"'>
-		Accueil</td>
-		<%
-		//checking session
+			<%
+			//checking session
 			String result = (String) request.getAttribute("result");
 			System.out.println(result);
 			if ((result != null) && (result.equalsIgnoreCase("ok"))) {
@@ -34,6 +25,34 @@
 				System.out.println(kind);
 			}
 			String sessionlog = (String) session.getAttribute("login");
+			 %>
+<div id="notifications"><%
+		
+			if (sessionlog != null) {
+				controller.Search searchEngine = new controller.Search();
+				Set<Notification> nots = searchEngine.SearchByLogin((String)session.getAttribute("login")).getMessages();
+				for (Notification n : nots) {
+					%>
+					<div id="not">
+					<%= n.getMessage() %>
+					</div>
+					
+					<%
+				}
+			}
+		%></div>
+<div id="page">
+
+<div id="entete"><a href="index.jsp"><img src="Img/banner.jpg"
+	width="950" height="100" border=no></a></div>
+
+<div id="menu">
+<table id="menutab">
+	<tr>
+		<td id="menubutton" onClick='document.location.href="index.jsp"'>
+		Accueil</td>
+		<%
+		
 			if (sessionlog == null) {
 				request.getSession().invalidate();
 		%>

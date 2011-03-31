@@ -376,3 +376,11 @@ th
 	width: 20%;
 	border: #CCC 1px solid;
 }
+#notifications {
+	position : absolute;
+	right : 5px;
+	top : 10px;
+}
+#not {
+	position : relative;
+}

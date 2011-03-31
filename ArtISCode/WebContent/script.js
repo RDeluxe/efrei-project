@@ -60,28 +60,39 @@ function handleProfileReq() {
 		+'<div id="desc">'
 		+ str[10]+'</div>' + '<br/>' + ' <br/>'
 		+'<input type="button" value="Modify your profile" onclick="javascript:modifyReq();" />'
-		+'<div id="uploadFILE">'
-		+'<form name="myform" action="fileUpload.jsp" method="post" enctype="multipart/form-data">Select a file:<br>'
-		+'<input type="file" name="myFile"><br>'
-		+'<br>'
-		+'<input type="submit" name="submit" value="Upload"></form>'		
-		+'</div>'
+		+'<input id="file_upload" name="file_upload" type="file"/>'	
+		//+'<div id="uploadFILE">'
+		//+'<form name="myform" action="fileUpload.jsp" method="post" enctype="multipart/form-data">Select a file:<br>'
+		//+'<input type="file" name="myFile"><br>'
+		//+'<br>'
+		//+'<input type="submit" name="submit" value="Upload"></form>'		
+		//+'</div>'
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
 		+'<div id="pic">'
 		+'<img src="Img/portrait.jpg" width="180" height="240" border=no>'
 		+'</div>'
-		+'<div id="uploadPIC">'
-		+'<form name="picForm" action="picUpload.jsp" method="post" enctype="multipart/form-data">Select a picture:<br>'
-		+'<input type="file" name="myPIC"><br>'
-		+'<br>'
-		+'<input type="submit" name="submit" value="Upload"></form>'		
-		+'</div>'
+		//+'<div id="uploadPIC">'
+		//+'<form name="picForm" action="picUpload.jsp" method="post" enctype="multipart/form-data">Select a picture:<br>'
+		//+'<input type="file" name="myPIC"><br>'
+		//+'<br>'
+		//+'<input type="submit" name="submit" value="Upload"></form>'		
+		
+		//+'</div>'
 		+'<div id="events">'
 		+'</div>'
 		+'</div>';
+		
 		displayer.innerHTML = result;
+		
+		$('#file_upload').uploadify({
+			  'scriptData': { 'session': '<%=session.getAttribute("login")%>'},
+			   'uploader'    : 'Upload',
+			    'swf'  : 'uploadify/uploadify.swf',
+			    'cancelImage' : 'uploadify/uploadify-cancel.png',
+			    'auto'      : true
+			  });
 	}
 }
 

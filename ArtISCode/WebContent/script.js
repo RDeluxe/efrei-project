@@ -308,7 +308,6 @@ function updateEvent(name) {
 
 function closeAllNotification(login) {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
-		alert("toto");
 		searchReq.open("GET", 'CloseNotification?login=' + login, true);
 		searchReq.onreadystatechange = handleClosingNotifications;
 		searchReq.send(null);
@@ -316,7 +315,6 @@ function closeAllNotification(login) {
 }
 function closeNotification(login, notId) {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
-		alert("toto");
 		searchReq.open("GET", 'CloseNotification?login=' + login + '&notId=' + notId, true);
 		searchReq.send(null);
 	}

@@ -36,7 +36,7 @@
 						%>
 						<div id="not">
 						<a onclick="javascript:closeNotification('<%= sessionlog%>','<%= n.getId()%>');this.parentNode.setAttribute('style', 'display:none');return false;" href="#"><img src="./Img/growlclose.gif"/></a>
-						<h6>Notification</h6>
+						<h3>Notification</h6>
 						<%= n.getMessage() %>
 						</div>
 						

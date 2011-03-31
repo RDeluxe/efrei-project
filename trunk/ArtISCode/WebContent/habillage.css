@@ -395,6 +395,7 @@ th
     position: relative;
     text-align: left;
     z-index: 99;
+    font-size: 10px;
 }
 #not a{
 	text-align : center;
@@ -407,6 +408,9 @@ th
     right: 5px;
     top: 5px;
     border : 0 none;
+}
+#not h6 {
+	margin:0px;
 }
 #close {
 	position: relative;

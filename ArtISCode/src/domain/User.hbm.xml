@@ -19,9 +19,16 @@
 		
 		<property name="email" column="EMAIL" type="string"/>
 		
+		<property name="photo" column="PHOTO" type="string"/>
+		
 		<many-to-one name="address" column="ADRRESSID" unique="true" not-null="true" cascade="all"/>
 
-		<set name="events" inverse="true" lazy="true" cascade="all">
+		<!--<set name="messages" inverse="true" lazy="true" cascade="all">
+			<key column="USER"/>
+			<one-to-many class="domain.Notification"/>
+		</set>
+		
+		--><set name="events" inverse="true" lazy="true" cascade="all">
 			<key column="OWNER"/>
 			<one-to-many class="domain.Event"/>
 		</set>
@@ -29,6 +36,8 @@
 		<joined-subclass name="Artist" table="ARTIST" lazy="true">
 		  	<key column="ID_USER"/>
 		 	<property name="description" column="DESCRIPTION" type="text"/>
+		 	
+		 	<property name="music" column="MUSIC" type="string"/>
 		  
 			<set name="tag" table="TAGGED" cascade="all">
 				<key column="ID_USER"/>

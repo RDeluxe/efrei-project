@@ -6,17 +6,17 @@
     <session-factory>
 	
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/artisdb3</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/artisdb2</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         
         <mapping resource="domain/User.hbm.xml" /> 
   		<mapping resource="domain/Tag.hbm.xml" /> 
   		<mapping resource="domain/Address.hbm.xml" /> 
         <mapping resource="domain/Participant.hbm.xml" /> 
         <mapping resource="domain/Event.hbm.xml" /> 
-        <!-- <mapping resource="domain/Notification.hbm.xml" />  -->
+        <mapping resource="domain/Notification.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

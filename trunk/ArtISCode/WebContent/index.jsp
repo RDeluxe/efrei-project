@@ -26,18 +26,26 @@
 			}
 			String sessionlog = (String) session.getAttribute("login");
 			 %>
-<div id="notifications"><%
+<div id="notifications" onmouseover="document.getElementById('close').setAttribute('style', 'display:block');" onmouseout="document.getElementById('close').setAttribute('style', 'display:none');"><%
 		
 			if (sessionlog != null) {
 				controller.Search searchEngine = new controller.Search();
-				Set<Notification> nots = searchEngine.SearchByLogin((String)session.getAttribute("login")).getMessages();
-				for (Notification n : nots) {
+				Set<Notification> nots = searchEngine.SearchByLogin(sessionlog).getMessages();
+				if (nots!= null) {
+					for (Notification n : nots) {
+						%>
+						<div id="not">
+						<a onclick="closeNotification(<%= n.getId()%>)" href="javascript:"><img src="./Img/growlclose.gif"/></a>
+						<h4><%= n.getMessage() %></h4>
+						</div>
+						
+						<%
+					}
 					%>
-					<div id="not">
-					<%= n.getMessage() %>
-					</div>
-					
+					<div id="close" style="display : none"><a onclick="closeAllNotification()" href="javascript:">close all notification</a></div>
 					<%
+				} else {
+					System.out.println("Pas de messages");
 				}
 			}
 		%></div>

@@ -305,3 +305,17 @@ function updateEvent(name) {
 	alert(elem.options[elem.selectedIndex].value);
 	document.location="UpdateEvent?event=" + name + "&artist_status" + name + "=" + elem.options[elem.selectedIndex].value;
 }
+
+function closeAllNotification(login) {
+	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+		alert("toto");
+		searchReq.open("GET", 'CloseNotification?login=' + login, true);
+		searchReq.onreadystatechange = handleClosingNotification;
+		searchReq.send(null);
+	}
+}
+
+function handleClosingNotification() {
+	document.getElementById('notifications').setAttribute('onmouseover', "");
+	document.getElementById('notifications').innerHTML = '';
+}

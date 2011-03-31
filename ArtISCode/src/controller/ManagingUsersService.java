@@ -61,5 +61,6 @@ public interface ManagingUsersService {
 	
 	public Boolean RegisteringArtist(Artist artist);
 	
+	public void deleteNotifications(String u);
 	
 }

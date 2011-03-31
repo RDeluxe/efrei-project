@@ -377,10 +377,63 @@ th
 	border: #CCC 1px solid;
 }
 #notifications {
-	position : absolute;
+	position : fixed;
 	right : 5px;
 	top : 10px;
+	color : #000000;
+	display: block;
+	width: 250px;
+    z-index: 99;
 }
 #not {
-	position : relative;
+	-moz-border-radius: 8px 8px 8px 8px;
+    background: none repeat scroll 0 0 #000000;
+    color: #FFFFFF;
+    margin: 5px 0;
+    opacity: 0.70;
+    padding: 8px;
+    position: relative;
+    text-align: left;
+    z-index: 99;
+}
+#not a{
+	text-align : center;
+	opacity: 0.75;
+	cursor : pointer;
+	text-decoration : none;
+}
+#not img {
+	position: absolute;
+    right: 5px;
+    top: 5px;
+    border : 0 none;
+}
+#close {
+	position: relative;
+	-moz-border-radius: 8px 8px 8px 8px;
+    background: none repeat scroll 0 0 #000000;
+    color: #FFFFFF;
+    margin: 5px 0;
+    opacity: 0.70;
+	font-size: 10px;
+    font-weight: bold;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 99;
+    text-decoration: underline;
+}
+#close a{
+	color : #FFFFFF;
+	text-align : center;
+	opacity: 0.75;
+	cursor : pointer;
+	text-decoration : none;
+}
+#close a{
+	color : #FFFFFF;
+	text-align : center;
+	opacity: 0.75;
+	cursor : pointer;
+	text-decoration : none;
 }

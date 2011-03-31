@@ -23,12 +23,12 @@
 		
 		<many-to-one name="address" column="ADRRESSID" unique="true" not-null="true" cascade="all"/>
 
-		<!--<set name="messages" inverse="true" lazy="true" cascade="all">
+		<set name="messages" inverse="true" lazy="true" cascade="all">
 			<key column="USER"/>
 			<one-to-many class="domain.Notification"/>
 		</set>
 		
-		--><set name="events" inverse="true" lazy="true" cascade="all">
+		<set name="events" inverse="true" lazy="true" cascade="all">
 			<key column="OWNER"/>
 			<one-to-many class="domain.Event"/>
 		</set>

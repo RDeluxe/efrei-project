@@ -42,22 +42,78 @@ public class EventJson extends HttpServlet {
 		JSONArray arrayObj = new JSONArray();
 		Search searchuser = new Search();
 		User user = searchuser.SearchByLogin((String)request.getSession().getAttribute("login"));
+		String kind = request.getParameter("kind");
 		SearchEventEngine search = new SearchEventEngine();
-		List<Event> events = search.searchByUser(user);
-		
-		
-		
-		
-		
-		for (Event e : events) {
-			JSONObject object=new JSONObject();
-			object.put("title", e.getName());
-			object.put("start", new java.sql.Date(e.getDate().getTime()).toString());
-			object.put("end", new java.sql.Date(e.getDate().getTime()+(e.getDuration()-1)*1000*24*60*60).toString());
-			object.put("allDay", true);
-			object.put("url", "./event.jsp?eventid=" + e.getId());
-			arrayObj.add(object);
-		}
+			if (kind.equals("yours")) {
+				List<Event> events = search.searchByUser(user);
+				for (Event e : events) {
+					JSONObject object=new JSONObject();
+					object.put("title", e.getName());
+					object.put("start", new java.sql.Date(e.getDate().getTime()).toString());
+					object.put("end", new java.sql.Date(e.getDate().getTime()+(e.getDuration()-1)*1000*24*60*60).toString());
+					object.put("allDay", true);
+					object.put("url", "./event.jsp?eventid=" + e.getId());
+					arrayObj.add(object);
+				}
+			} else try {
+				Artist a = (Artist) user;
+				if (kind.equals("waiting")) {
+					Set<Participant> participants = a.getParticipants();
+					if (participants !=null) {
+						for(Iterator<Participant> it2 = participants.iterator(); it2.hasNext();) {
+							Participant participant = (Participant) it2.next(); 
+							if (participant.getArtistState().equalsIgnoreCase("waiting")) {
+								Event e = participant.getEvent();
+								JSONObject object=new JSONObject();
+								object.put("title", e.getName());
+								object.put("start", new java.sql.Date(e.getDate().getTime()).toString());
+								object.put("end", new java.sql.Date(e.getDate().getTime()+(e.getDuration()-1)*1000*24*60*60).toString());
+								object.put("allDay", true);
+								object.put("url", "./event.jsp?eventid=" + e.getId());
+								arrayObj.add(object);
+								} 
+							}
+						} 
+				}
+				if (kind.equals("ok")) {
+					Set<Participant> participants = a.getParticipants();
+					if (participants !=null) {
+						for(Iterator<Participant> it2 = participants.iterator(); it2.hasNext();) {
+							Participant participant = (Participant) it2.next(); 
+							if (participant.getArtistState().equalsIgnoreCase("ok")) {
+								Event e = participant.getEvent();
+								JSONObject object=new JSONObject();
+								object.put("title", e.getName());
+								object.put("start", new java.sql.Date(e.getDate().getTime()).toString());
+								object.put("end", new java.sql.Date(e.getDate().getTime()+(e.getDuration()-1)*1000*24*60*60).toString());
+								object.put("allDay", true);
+								object.put("url", "./event.jsp?eventid=" + e.getId());
+								arrayObj.add(object);
+								} 
+							}
+						} 
+				}
+				if (kind.equals("no")) {
+					Set<Participant> participants = a.getParticipants();
+					if (participants !=null) {
+						for(Iterator<Participant> it2 = participants.iterator(); it2.hasNext();) {
+							Participant participant = (Participant) it2.next(); 
+							if (participant.getArtistState().equalsIgnoreCase("no")) {
+								Event e = participant.getEvent();
+								JSONObject object=new JSONObject();
+								object.put("title", e.getName());
+								object.put("start", new java.sql.Date(e.getDate().getTime()).toString());
+								object.put("end", new java.sql.Date(e.getDate().getTime()+(e.getDuration()-1)*1000*24*60*60).toString());
+								object.put("allDay", true);
+								object.put("url", "./event.jsp?eventid=" + e.getId());
+								arrayObj.add(object);
+								} 
+							}
+						} 
+				}
+				
+			} catch (Exception e) {
+			}
 		PrintWriter out = response.getWriter();
 		out.println(arrayObj);
 	}

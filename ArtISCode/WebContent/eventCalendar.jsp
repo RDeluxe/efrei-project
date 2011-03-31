@@ -21,7 +21,26 @@
 				right: 'month,agendaWeek,agendaDay'
 			},
 			editable: false,
-			events: 'EventJson'
+			eventSources: [{
+			                   url: 'EventJson?kind=waiting',
+			                   color: 'orange',
+			                   textColor: 'black'
+			               },
+			               {
+			                   url: 'EventJson?kind=ok',
+			                   color: 'green',
+			                   textColor: 'black'
+			               },
+			               {
+			                   url: 'EventJson?kind=no',
+			                   color: 'red',
+			                   textColor: 'black'
+			               },
+			               {
+			                   url: 'EventJson?kind=yours',
+			                   color: 'blue',
+			                   textColor: 'white'
+			               }]
 		});
 		
 	});

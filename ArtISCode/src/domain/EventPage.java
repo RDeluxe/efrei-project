@@ -52,7 +52,7 @@ public class EventPage extends HttpServlet {
 		}
 		request.removeAttribute("events");
 		request.setAttribute("events", events);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("events.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("eventCalendar.jsp");
 		dispatcher.forward(request, response);
 	}
 

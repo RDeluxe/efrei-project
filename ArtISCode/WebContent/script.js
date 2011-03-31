@@ -310,12 +310,19 @@ function closeAllNotification(login) {
 	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
 		alert("toto");
 		searchReq.open("GET", 'CloseNotification?login=' + login, true);
-		searchReq.onreadystatechange = handleClosingNotification;
+		searchReq.onreadystatechange = handleClosingNotifications;
+		searchReq.send(null);
+	}
+}
+function closeNotification(login, notId) {
+	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+		alert("toto");
+		searchReq.open("GET", 'CloseNotification?login=' + login + '&notId=' + notId, true);
 		searchReq.send(null);
 	}
 }
 
-function handleClosingNotification() {
+function handleClosingNotifications() {
 	document.getElementById('notifications').setAttribute('onmouseover', "");
 	document.getElementById('notifications').innerHTML = '';
 }

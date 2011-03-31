@@ -43,7 +43,7 @@ public class ManageEvent implements ManageEventService {
 	public void cancelEvent(Event e, User u) {
 		Set<Participant> parts = e.getArtists();
 		
-		while (parts.size()>0) {
+		while (parts!=null && parts.size()>0) {
 			Participant p = parts.iterator().next();
 			parts.remove(p);
 			e.setArtists(parts);

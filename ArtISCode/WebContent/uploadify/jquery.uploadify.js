@@ -61,7 +61,7 @@ if(jQuery)(
 						fileTypeDesc    : 'All Files (*.*)',
 						fileTypeExts    : '*.*',
 						height          : 30,
-						method          : 'post',
+						method          : 'get',
 						multi           : false,
 						queueID         : false,
 						queueSizeLimit  : 1,

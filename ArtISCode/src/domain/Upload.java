@@ -33,7 +33,8 @@ public class Upload extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		 this.doPost(request, response);
 	}
 
 	/**
@@ -45,7 +46,7 @@ public class Upload extends HttpServlet {
 		String login = (String) request.getParameter("session");
 		System.out.println(login);
 		System.out.println("lol");
-		String login2 = (String) request.getSession().getAttribute("login");
+		String login2 = (String) request.getParameter("login");
 		System.out.println(login2);
 		        
 		        File uploadPath = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads"); // Directory to upload the file

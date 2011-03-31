@@ -44,6 +44,9 @@ public class Upload extends HttpServlet {
 		
 		String login = (String) request.getParameter("session");
 		System.out.println(login);
+		System.out.println("lol");
+		String login2 = (String) request.getSession().getAttribute("login");
+		System.out.println(login2);
 		        
 		        File uploadPath = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads"); // Directory to upload the file
 				   if (!uploadPath.exists()) {

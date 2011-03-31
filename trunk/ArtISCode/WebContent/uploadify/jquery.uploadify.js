@@ -64,7 +64,7 @@ if(jQuery)(
 						method          : 'post',
 						multi           : false,
 						queueID         : false,
-						queueSizeLimit  : 999,
+						queueSizeLimit  : 1,
 						removeCompleted : true,
 						removeTimeout   : 3,
 						requeueErrors   : true,

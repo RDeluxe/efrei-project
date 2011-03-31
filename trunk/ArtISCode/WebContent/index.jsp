@@ -9,6 +9,9 @@
 <link href="habillage.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="suggest.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="uploadify/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="uploadify/swfobject.js"></script>
+<script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
 
 </head>
 <body>

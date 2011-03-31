@@ -88,7 +88,7 @@ function handleProfileReq() {
 		
 		$('#file_upload').uploadify({
 			  'scriptData': { 'session': '<%=session.getAttribute("login")%>'},
-			   'uploader'    : 'Upload?login=<%=session.getAttribute(login)%>',
+			   'uploader'    : 'Upload?login=' +str[4],
 			    'swf'  : 'uploadify/uploadify.swf',
 			    'cancelImage' : 'uploadify/uploadify-cancel.png',
 			    'auto'      : true

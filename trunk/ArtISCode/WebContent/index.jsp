@@ -25,7 +25,7 @@
 				String kind = request.getParameter("kind");
 				session.setAttribute("login", login);
 				session.setAttribute("kind", kind);
-				System.out.println(kind);
+				System.out.println(login);
 			}
 			String sessionlog = (String) session.getAttribute("login");
 			 %>

@@ -43,11 +43,9 @@ public class Upload extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
-		String login = (String) request.getParameter("session");
+	
+		String login = (String) request.getParameter("login");
 		System.out.println(login);
-		System.out.println("lol");
-		String login2 = (String) request.getParameter("login");
-		System.out.println(login2);
 		        
 		        File uploadPath = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads"); // Directory to upload the file
 				   if (!uploadPath.exists()) {

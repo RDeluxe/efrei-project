@@ -54,11 +54,14 @@ public class EventServlet extends HttpServlet {
 		SearchEventEngine see = new SearchEventEngine();
 		controller.Search s = new controller.Search();
 		Artist a = (Artist) s.SearchByLogin(login);
+		System.out.println(login + "*******************" + a);
 		Event e = see.searchById(Long.parseLong(event));
-		
-		System.out.println(e.getId()+ " " + a.getId());
-		
+				
 		ManageEvent me = new ManageEvent();
+		Notification n = new Notification();
+		n.setMessage("You have been invited by " + request.getSession().getAttribute("login") + " to the event " + e.getName());
+		n.setUser(a);
+		a.getMessages().add(n);
 		me.inviteArtist(e, a);
 	}
 

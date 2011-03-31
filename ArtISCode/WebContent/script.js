@@ -286,7 +286,7 @@ function handleGetEvent() {
 			var suggest = '<div onmouseover="javascript:suggestOver(this);" ';
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
 			suggest += 'onclick="javascript:addArtistToEvent(' +str[i]+');" ';
-			suggest += 'class="suggest_link"><input id="eventID" type="hidden" value="'+str[i] +'"/>' + str[i] + '</div>';
+			suggest += 'class="suggest_link"><input id="eventID" type="hidden" value="'+str[i] +'"/>' + str[i+1] + '</div>';
 			ss.innerHTML += suggest;
 		}
 	}

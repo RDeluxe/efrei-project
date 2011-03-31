@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import domain.Artist;
@@ -56,6 +57,7 @@ public class ManageEvent implements ManageEventService {
 	public void inviteArtist(Event e, Artist a) {
 		Participant p = new Participant();
 		p.setEvent(e);
+		if (e.getArtists()==null) e.setArtists(new HashSet<Participant>());
 		e.getArtists().add(p);
 		p.setMember(a);
 		p.setUserState("OK");

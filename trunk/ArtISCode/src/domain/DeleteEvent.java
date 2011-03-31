@@ -41,7 +41,17 @@ public class DeleteEvent extends HttpServlet {
                 ManageEvent manager = new ManageEvent();
                 SearchEventEngine search = new SearchEventEngine();
                 Event event = search.searchById(id);
-                
+                for (Participant p : event.getArtists()) {
+                	if (!p.getArtistState().equalsIgnoreCase("no")) {
+                		Notification n = new Notification();
+                		n.setMessage("The event "+ event.getName() +" which ");
+                		if (p.getArtistState().equalsIgnoreCase("waiting")) n.setMessage(n.getMessage() + "was expectig for your answer ");
+                		else if(p.getArtistState().equalsIgnoreCase("ok")) n.setMessage(n.getMessage() + "was expecting you ");
+                		n.setMessage(n.getMessage() + "has been canceled");
+                		n.setUser(p.getMember());
+                		p.getMember().getMessages().add(n);
+                	}
+                }
                 manager.cancelEvent(event, null);
                 request.getRequestDispatcher("EventPage").forward(request, response);
         }

@@ -14,7 +14,6 @@ public class DAOParticipant implements IDAOParticipant {
 		Transaction tx = session.beginTransaction();
 		session.save(p);
 		tx.commit();
-		session.clear();
 	}
 
 	@Override
@@ -22,7 +21,6 @@ public class DAOParticipant implements IDAOParticipant {
 		Transaction tx = session.beginTransaction();
 		session.update(p);
 		tx.commit();
-		session.clear();
 	}
 
 	@Override
@@ -36,6 +34,5 @@ public class DAOParticipant implements IDAOParticipant {
 		Transaction tx = session.beginTransaction();
 		session.delete(p);
 		tx.commit();
-		session.clear();
 	}
 }

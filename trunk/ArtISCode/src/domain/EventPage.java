@@ -48,7 +48,6 @@ public class EventPage extends HttpServlet {
 			Set<Participant> parts = a.getParticipants();
 			request.setAttribute("Artist_events", parts);
 		} catch (Exception e) {
-			e.printStackTrace();
 			request.setAttribute("Artist_events", new HashSet<Participant>());
 		}
 		request.removeAttribute("events");

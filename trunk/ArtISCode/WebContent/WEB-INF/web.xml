@@ -164,4 +164,14 @@
     <servlet-name>CloseNotification</servlet-name>
     <url-pattern>/CloseNotification</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EventJson</display-name>
+    <servlet-name>EventJson</servlet-name>
+    <servlet-class>domain.EventJson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EventJson</servlet-name>
+    <url-pattern>/EventJson</url-pattern>
+  </servlet-mapping>
 </web-app>

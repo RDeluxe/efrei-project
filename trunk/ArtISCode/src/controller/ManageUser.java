@@ -180,7 +180,8 @@ public class ManageUser implements ManagingUsersService {
 	public void deleteNotifications(String u) {
 		User user = searchService.SearchByLogin(u);
 		Set<Notification> nots = user.getMessages();
-		for (Notification n : nots) {
+		while (nots!=null && nots.size()>0) {
+			Notification n = nots.iterator().next();
 			user.getMessages().remove(n);
 			daoN.removeNotification(n);
 		}

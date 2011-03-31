@@ -442,3 +442,8 @@ th
 	cursor : pointer;
 	text-decoration : none;
 }
+#calendar {
+	width: 900px;
+	margin: 0 auto;
+	margin-top:20px;
+}

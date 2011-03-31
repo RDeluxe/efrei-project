@@ -411,6 +411,7 @@ th
 }
 #not h3 {
 	margin:0px;
+	margin-bottom : 2px;
 }
 #close {
 	position: relative;

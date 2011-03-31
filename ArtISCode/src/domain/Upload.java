@@ -5,11 +5,12 @@ import org.apache.commons.fileupload.servlet.*;
 import org.apache.commons.fileupload.disk.*;
 import java.util.*;
 import java.io.*;
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -41,7 +42,8 @@ public class Upload extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
-		        
+		String login = (String) request.getParameter("session");
+		System.out.println(login);
 		        
 		        File uploadPath = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads"); // Directory to upload the file
 				   if (!uploadPath.exists()) {

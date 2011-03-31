@@ -12,6 +12,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
   $('#file_upload').uploadify({
+	  'scriptData': { 'session': '<%=session.getAttribute("login")%>'}
     'uploader'    : 'Upload',
     'swf'  : 'uploadify/uploadify.swf',
     'cancelImage' : 'uploadify/uploadify-cancel.png',

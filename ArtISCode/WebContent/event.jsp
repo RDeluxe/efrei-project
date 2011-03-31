@@ -117,18 +117,15 @@
        <td align=center><%= event.getDuration() %></td>
        <td align=left><% System.out.println(participants); if (participants !=null) { %><ul type="none"> <%for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("ok")) {%>
-       <li ondblclick="getProfileReq('<%= participant.getMember().getLogin() %>')"> <%= participant.getMember().getLogin() %> </li>
-       &nbsp
+       <li> <a onclick="getProfileReq('<%= participant.getMember().getLogin() %>')" href="javascript:"> <%= participant.getMember().getLogin() %></a> <a class="notiflink" onclick="javascript:removeArtist('<%= participant.getMember().getLogin() %>', '<%= event.getId() %>');this.parentNode.setAttribute('style', 'display:none');return false;" href="#"><img src="./Img/croix_rouge.png"/></a></li>
        <%} } %></ul><% } %></td>
        <td align=left><% System.out.println(participants); if (participants !=null) { %><ul type="none"> <%for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("waiting")) {%>
-       <li ondblclick="getProfileReq('<%= participant.getMember().getLogin() %>')"> <%= participant.getMember().getLogin() %> </li>
-       &nbsp
+       <li> <a onclick="getProfileReq('<%= participant.getMember().getLogin() %>')" href="javascript:"> <%= participant.getMember().getLogin() %></a> <a class="notiflink" onclick="javascript:removeArtist('<%= participant.getMember().getLogin() %>', '<%= event.getId() %>');this.parentNode.setAttribute('style', 'display:none');return false;" href="#"><img src="./Img/croix_rouge.png"/></a> </li>
        <%}} %></ul><% } %></td>
        <td align=left><% System.out.println(participants); if (participants !=null) { %><ul type="none"> <%for(Iterator it2=participants.iterator(); it2.hasNext();)
        {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("cancel") || participant.getArtistState().equalsIgnoreCase("no")) {%>
-       <li ondblclick="getProfileReq('<%= participant.getMember().getLogin() %>')"> <%= participant.getMember().getLogin() %> </li>
-       &nbsp
+       <li> <a onclick="getProfileReq('<%= participant.getMember().getLogin() %>')" href="javascript:"> <%= participant.getMember().getLogin() %></a> <a class="notiflink" onclick="javascript:removeArtist('<%= participant.getMember().getLogin() %>', '<%= event.getId() %>');this.parentNode.setAttribute('style', 'display:none');return false;" href="#"><img src="./Img/croix_rouge.png"/></a> </li>
        <%}} %></ul><% } %></td>
        <td id="eventbutton" onclick="document.location.href='UpdateEvent?event=<%= event.getId() %>'" align=center> Update </td>
        <td id="eventbutton" onclick="document.location.href='DeleteEvent?event=<%= event.getId() %>'" align=center> Delete </td>

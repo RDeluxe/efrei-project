@@ -38,9 +38,9 @@
 					for (Notification n : nots) {
 						%>
 						<div id="not">
-						<a onclick="javascript:closeNotification('<%= sessionlog%>','<%= n.getId()%>');this.parentNode.setAttribute('style', 'display:none');return false;" href="#"><img src="./Img/growlclose.gif"/></a>
+						<a class="notiflink" onclick="javascript:closeNotification('<%= sessionlog%>','<%= n.getId()%>');this.parentNode.setAttribute('style', 'display:none');return false;" href="#"><img src="./Img/growlclose.gif"/></a>
 						<h3>Notification</h6>
-						<%= n.getMessage() %>
+						<a class="notiflink" onclick="javascript:closeNotification('<%= sessionlog%>','<%= n.getId()%>');" href="eventCalendar.jsp"><%= n.getMessage() %></a>
 						</div>
 						
 						<%

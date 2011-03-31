@@ -335,3 +335,10 @@ function handleClosingNotifications() {
 	document.getElementById('notifications').setAttribute('onmouseover', "");
 	document.getElementById('notifications').innerHTML = '';
 }
+
+function removeArtist(artist, event) {
+	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+		searchReq.open("POST", 'CancelArtist?artist=' + artist + '&event=' + event, true);
+		searchReq.send(null);
+	}
+}

@@ -1,30 +1,24 @@
 package domain;
 
 import java.io.IOException;
-import java.io.Writer;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import controller.ManageEvent;
 import controller.SearchEventEngine;
 
 /**
- * Servlet implementation class EventServlet
+ * Servlet implementation class CancelArtist
  */
-public class EventServlet extends HttpServlet {
+public class CancelArtist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EventServlet() {
+    public CancelArtist() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,34 +27,28 @@ public class EventServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);	
-		String login = (String) session.getAttribute("login");
-		DAOEvent daoE = new DAOEvent();
-		List<Event> events = daoE.getAllEvent();
-		Writer out = response.getWriter();
-
-		for (Event e : events) {
-			if (e.getOwner().getLogin().equalsIgnoreCase(login)) out.write(e.getId() + "\n" + e.getName()+"\n");
-		}
+		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String login = request.getParameter("login");
-		String event = request.getParameter("event");
-				
-		SearchEventEngine see = new SearchEventEngine();
-		controller.Search s = new controller.Search();
-		Artist a = (Artist) s.SearchByLogin(login);
-		Event e = see.searchById(Long.parseLong(event));
-				
+		String artistlogin = request.getParameter("artist");
+		String eventid = request.getParameter("event");
+		
+		controller.Search search = new controller.Search();
+		SearchEventEngine searchE = new SearchEventEngine();
 		ManageEvent me = new ManageEvent();
+		
+		Artist a = (Artist) search.SearchByLogin(artistlogin);
+		Event e = searchE.searchById(Long.parseLong(eventid));
+		
 		Notification n = new Notification();
+		n.setMessage("The event " + e.getName() + " where you were invited has canceled your invitation");
 		n.setUser(a);
 		a.getMessages().add(n);
-		me.inviteArtist(e, a);
+		me.cancelArtist(e, a);
 	}
 
 }

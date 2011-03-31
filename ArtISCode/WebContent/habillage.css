@@ -327,6 +327,20 @@ th
 	alignment-adjust: middle;
 }
 
+#events ul {
+	margin : 0;
+	margin-top : auto;
+	margin-bottom : auto;
+	padding : 0;
+}
+#events li {
+	cursor : pointer;
+}
+#events a {
+	color : #00000;
+	text-align : left;
+	cursor : pointer;
+	text-decoration : none;
 }
 #form1 {
 	text-align : left;
@@ -446,6 +460,12 @@ th
 	width: 900px;
 	margin: 0 auto;
 	margin-top:20px;
+}
+a {
+	color : #000000;
+}
+.notiflink {
+	color : #FFFFFFF;
 }
 .uploadifyButton {
 	background-color: #505050;

@@ -13,4 +13,5 @@ public interface ManageEventService {
 	public void refuseEvent(Event e, Artist a);
 	public void cancelEvent(Event e, User u);
 	public void inviteArtist(Event e, Artist a);
+	public void cancelArtist(Event e, Artist a);
 }

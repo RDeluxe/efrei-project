@@ -186,4 +186,13 @@ public class ManageUser implements ManagingUsersService {
 		}
 		daoU.updateUser(user);
 	}
+
+	@Override
+	public void deleteNotification(String u, long notId) {
+		User user = searchService.SearchByLogin(u);
+		Notification n = daoN.getById(notId);
+		user.getMessages().remove(n);
+		daoN.removeNotification(n);
+		daoU.updateUser(user);
+	}
 }

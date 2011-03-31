@@ -63,4 +63,6 @@ public interface ManagingUsersService {
 	
 	public void deleteNotifications(String u);
 	
+	public void deleteNotification(String u, long notId);
+	
 }

@@ -29,9 +29,12 @@ public class CloseNotification extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("login");
 		String notId = request.getParameter("notId");
+		ManagingUsersService mu = new ManageUser();
 		if (notId == null) {
-			ManagingUsersService mu = new ManageUser();
 			mu.deleteNotifications(login);
+		}
+		else {
+			mu.deleteNotification(login, Long.parseLong(notId));
 		}
 	}
 

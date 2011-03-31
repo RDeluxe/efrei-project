@@ -20,7 +20,7 @@
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-			editable: true,
+			editable: false,
 			events: 'EventJson'
 		});
 		

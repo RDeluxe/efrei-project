@@ -154,4 +154,8 @@ public class Address {
 		this.country = country;
 		// end-user-code
 	}
+	
+	public String toString() {
+		return street + ", " + city + " " + zip + ", " + country;
+	}
 }

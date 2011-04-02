@@ -12,6 +12,7 @@ public class Event {
 	private int duration;
 	private User owner;
 	private Set<Participant> artists;
+	private Address address;
 	
 	public String getName() {
 		return name;
@@ -61,6 +62,12 @@ public class Event {
 			}
 		}
 		return p;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public Address getAddress() {
+		return address;
 	}
 	
 }

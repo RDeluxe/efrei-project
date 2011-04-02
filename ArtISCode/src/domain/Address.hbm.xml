@@ -9,9 +9,7 @@
       <generator class="increment"></generator>
     </id>
     
-    <property name="street">
-      <column name="STREET"></column>
-    </property>
+    <property name="street" column="STREET" type="text"/>
     
     <property name="city">
       <column name="CITY"></column>

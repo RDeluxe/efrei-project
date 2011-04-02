@@ -17,6 +17,8 @@
         <property name="duration" type="int">
             <column name="DURATION" />
         </property>
+        <many-to-one name="address" column="ADDRESS" unique="true" not-null="false"/>
+        
         <many-to-one name="owner" class="domain.User" column="OWNER"/>
         
         <set name="artists" inverse="true" lazy="true" cascade="all">

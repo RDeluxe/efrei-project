@@ -342,3 +342,32 @@ function removeArtist(artist, event) {
 		searchReq.send(null);
 	}
 }
+
+var directionDisplay;
+var directionsService;
+var map;
+
+function initializeMap() {
+	directionsService = new google.maps.DirectionsService();
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var myOptions = {
+    zoom: 8,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  directionsDisplay.setMap(map);
+}
+function calcRoute(from, to) {
+	  var request = {
+	    origin:from, 
+	    destination:to,
+	    travelMode: google.maps.DirectionsTravelMode.DRIVING
+	  };
+	  directionsService.route(request, function(result, status) {
+		  if (status == google.maps.DirectionsStatus.OK) {
+	      directionsDisplay.setDirections(result);
+	    }
+	  });
+	}

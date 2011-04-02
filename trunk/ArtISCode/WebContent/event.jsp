@@ -10,10 +10,23 @@
 <link href="habillage.css" rel="stylesheet" type="text/css">
  <script type="text/javascript" src="suggest.js"></script>
   <script type="text/javascript" src="script.js"></script>
- 
+  <script src="jquery-1.5.2.js" type="text/javascript"></script>
+ <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=true">
+</script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <title>Manage Event</title>
 </head>
-<body>
+<%String eventid = (String) request.getParameter("eventid"); 
+String login = (String) request.getSession().getAttribute("login");
+controller.Search search = new controller.Search();
+SearchEventEngine searchE = new SearchEventEngine();
+User u = search.SearchByLogin(login);
+Set<Event> events = u.getEvents();
+Event event = searchE.searchById(Long.parseLong(eventid)); 
+	
+%>
+<body onload="initializeMap();calcRoute('<%= u.getAddress().toString()%>', '<%=event.getAddress().toString()%>');">
 <div id="page">
 
 <div id="entete"><a href="index.jsp"><img src="Img/banner.jpg" width="950" height="100" border=no></a></div>
@@ -24,16 +37,7 @@
   <td id="menubutton" onClick='document.location.href="index.jsp"'>
   	Accueil
   </td>
-  <%String result=(String) request.getAttribute("result");
-  System.out.println(result);
-  if((result!=null)&&(result.equalsIgnoreCase("ok"))){
-  
-	  String login =request.getParameter("login");
-	  String kind = request.getParameter("kind");
-  session.setAttribute( "login", login );
-  session.setAttribute("kind", kind);
-  System.out.println(kind);
-  }
+  <%
    String sessionlog=(String) session.getAttribute("login");
   if(sessionlog==null){
 	    request.getSession().invalidate();%>
@@ -84,13 +88,7 @@
 </div>
 <div id="contenu">
 <div id="table">
- <% String eventid = (String) request.getParameter("eventid"); 
-	String login = (String) request.getSession().getAttribute("login");
-	controller.Search search = new controller.Search();
-	SearchEventEngine searchE = new SearchEventEngine();
-	User u = search.SearchByLogin(login);
-	Set<Event> events = u.getEvents();
-	Event event = searchE.searchById(Long.parseLong(eventid));
+ <% 
 	if (events.contains(event)) {
  %>
 <fieldset>
@@ -144,6 +142,8 @@
 		part = it.next();
 		if (part.getEvent().getId()==event.getId()) stop = true;
 	}
+	Address artistA = a.getAddress();
+	Address eventA = event.getAddress();
  %>
 <fieldset>
 <legend>Modify the event</legend>
@@ -177,13 +177,17 @@
 
 </table>
 </fieldset>
-<%} %>
+
 <br/>
 <% if (request.getAttribute("updatedone") != null) { %>
 <h4>Update Done !!!!</h4>
 <%} %>
 </div>
- 
+<script type="text/javascript">
+calcRoute('<%=eventA.toString()%>', '<%=artistA.toString()%>');
+ </script>
+<div id="map_container"><div id="map_canvas"></div></div>
+<%} %>
 </div>
 <div id="pied">
 </div>

@@ -234,7 +234,6 @@ fieldset
 #info h3 {
 	padding-left : 30px;
 	margin : 0px;
-	margin-top : 5px;
 	background-color : #FF7070;
 	font-weight:bold;
 	letter-spacing: 3px;
@@ -248,7 +247,6 @@ fieldset
 #desc h3 {
 	padding-left : 30px;
 	margin : 0px;
-	margin-top : 5px;
 	background-color : #FF7070;
 	font-weight:bold;
 	letter-spacing: 3px;
@@ -328,10 +326,11 @@ fieldset
 	margin-right : 5px;
 }
 #search_suggest {
+	cursor : pointer;
 	position : absolute;
 	top:27px;
 	background-color : white;
-	width : 100px;
+	width : 150px;
 }
 #txtSearch {
 	background : url("./Img/search.png") no-repeat scroll 7px 3px #FFFFFF;
@@ -342,6 +341,7 @@ fieldset
 	-moz-border-radius: 11px 11px 11px 11px;
 }
 #search_suggest_event {
+	cursor : pointer;
 	left:282px;
 	position : relative;
 	background-color : white;
@@ -612,4 +612,44 @@ a {
 	width: 59%;
 	text-align : left;
 	margin-bottom : 10px;
+}
+#searchdesc {
+	background-color : #FFADAD;
+	width : auto;
+	position : relative;
+	padding : 15px;
+	text-align:justify;
+	border-bottom:0.1em dotted #ff0000;
+	float : left;
+	width : 45%;
+}
+#searchdesc p {
+	margin-top: 0px;
+	float : right;
+	width : 75%;
+}
+#searchdesc img {
+	width : 23%;
+}
+#location {
+	padding : 15px;
+	width : 45%;
+	float : right;
+}
+#infosearch {
+	cursor : pointer;
+	background-color : #FFADAD;
+	width : auto;
+	position : relative;
+	text-align:justify;
+}
+#infosearch h3 {
+	padding-left : 30px;
+	margin : 0px;
+	background-color : #FF7070;
+	font-weight:bold;
+	letter-spacing: 3px;
+}
+#infosearch:hover {
+	opacity : 0.75;
 }

@@ -40,7 +40,9 @@ public class Search extends HttpServlet {
 			
 			while (it.hasNext())
 			{
-				vData.add(it.next().getLogin());
+				Artist a = it.next();
+				vData.add(a.getFirstname() + " " + a.getLastname());
+				vData.add(a.getLogin());
 			}
 			StringBuffer buf = new StringBuffer();
 			for (int i=0;i<vData.size();i++)

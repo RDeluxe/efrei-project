@@ -3,6 +3,8 @@
  */
 package domain;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -122,7 +124,13 @@ public class DAOArtist implements IDAOArtist {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Artist> searchArtistByKeyword(String search) {
-		List<Artist> ret = (List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("login", search+'%')).list();
+		List<Artist> ret = (List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("firstname", '%'+search+'%')).list();
+		ret.addAll((List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("lastname", '%'+search+'%')).list());
+		ret.addAll((List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("login", '%'+search+'%')).list());
+		HashSet<Artist> temp = new HashSet<Artist>();
+		temp.addAll(ret);
+		ret = new ArrayList<Artist>(temp);
+		
 		return ret;
 	}
 

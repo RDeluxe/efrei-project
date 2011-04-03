@@ -48,7 +48,10 @@ public class AddEvent extends HttpServlet {
 		String name = request.getParameter("name");
 		String durations = request.getParameter("duration");
 		int duration = Integer.parseInt(durations);
-		
+		String street =request.getParameter("street");
+		String city =request.getParameter("city");
+		String zip = (String) request.getParameter("zip");
+		String country = request.getParameter("country");
 		String day = request.getParameter("Day");
 		String month = request.getParameter("Month");
 		String year = request.getParameter("Year");
@@ -64,11 +67,17 @@ public class AddEvent extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
+		Address address=new Address();
+		address.setCity(city);
+		address.setCountry(country);
+		address.setStreet(street);
+		address.setZip(zip);
 		DAOUser daoU = new DAOUser();
 		User user = daoU.searchByLogin(login);
 		long id = user.getId();
 		ManageEvent manager = new ManageEvent();
 		Event event = new Event();
+		event.setAddress(address);
 		event.setDate(date);
 		event.setDuration(duration);
 		event.setOwner(user);

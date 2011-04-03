@@ -47,14 +47,6 @@ function handleProfileReq() {
 		var displayer = document.getElementById('contenu');
 		var result = '<div id="left">'
 		+'<div id="info">'
-		+'Name : '+ str[2] +' <br/>'
-		+'Firstname : '+ str[1] +' <br/>'
-		+'Address : '+ str[6] + '&nbsp;'
-		+' Town : '+ str[7] + '&nbsp;'
-		+' Zip : '+ str[8] + '&nbsp;'
-		+' Country : '+ str[9] +' <br/>'
-		+' Mail : '+ str[3] +' <br/>'
-		+' Tags : '
 		+ '<h3>'+ str[1] + ' ' +str[2] + '</h3>'
 		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
 		+'<p>Mail : '+ str[3] +'</p>'
@@ -70,9 +62,6 @@ function handleProfileReq() {
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
-		+'<div id="pic">'
-		+'<img src='+str[10]+' width="180" height="240" border=no>'
-		+'</div>'
 		+'<div id="pic">';
 		if (str[10]==" "){
 			result += '<img src="Img/portrait.jpg" width="180" height="240" border=no>';

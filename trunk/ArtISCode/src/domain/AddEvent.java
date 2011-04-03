@@ -55,7 +55,6 @@ public class AddEvent extends HttpServlet {
 		String day = request.getParameter("Day");
 		String month = request.getParameter("Month");
 		String year = request.getParameter("Year");
-		System.out.println(day);
 		String date_str = day + "/" + month + "/" + year ;
 		DateFormat formatter ; 
 	    Date date = null ; 

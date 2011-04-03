@@ -40,7 +40,6 @@ public class Result extends HttpServlet {
 			
 			while (it.hasNext())
 			{
-				System.out.println("toto*************************");
 				Artist a = it.next();
 				vData.add(a.getFirstname());
 				vData.add(a.getLastname());

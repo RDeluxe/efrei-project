@@ -45,7 +45,6 @@ public class Profile extends HttpServlet {
 		
 		if(kind.equalsIgnoreCase("1"))
 		{
-			System.out.println("user");
 			DAOUser dao = new DAOUser();
 			User user = new User();
 			user= dao.searchByLogin(login);
@@ -109,7 +108,6 @@ public class Profile extends HttpServlet {
 		Artist artisttest = (Artist) daoA.searchByLogin(login);
 		if (artisttest==null)
 		{kind="1";}else{kind="2";}
-		System.out.println(kind+"************************************");
 		
 		ManageUser service= new ManageUser();
 		Search search = new Search();

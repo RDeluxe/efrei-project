@@ -47,23 +47,32 @@ function handleProfileReq() {
 		var displayer = document.getElementById('contenu');
 		var result = '<div id="left">'
 		+'<div id="info">'
+		+'Name : '+ str[2] +' <br/>'
+		+'Firstname : '+ str[1] +' <br/>'
+		+'Address : '+ str[6] + '&nbsp;'
+		+' Town : '+ str[7] + '&nbsp;'
+		+' Zip : '+ str[8] + '&nbsp;'
+		+' Country : '+ str[9] +' <br/>'
+		+' Mail : '+ str[3] +' <br/>'
+		+' Tags : '
 		+ '<h3>'+ str[1] + ' ' +str[2] + '</h3>'
 		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
 		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
+		+'<div id="desc">'
+		+ str[11]
+		+'</div>' 
+		+ '<br/>' 
+		+ ' <br/>'
 		+'<div id="desc"><h3>Description</h3><p>'
 		+ str[11]+'</p></div>' + '<br/>' + ' <br/>'
 		+'<input type="button" value="Modify your profile" onclick="javascript:modifyReq();" />'
-		+'<input id="file_upload" name="file_upload" type="file"/>'	
-		//+'<div id="uploadFILE">'
-		//+'<form name="myform" action="fileUpload.jsp" method="post" enctype="multipart/form-data">Select a file:<br>'
-		//+'<input type="file" name="myFile"><br>'
-		//+'<br>'
-		//+'<input type="submit" name="submit" value="Upload"></form>'		
-		//+'</div>'
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
+		+'<div id="pic">'
+		+'<img src='+str[10]+' width="180" height="240" border=no>'
+		+'</div>'
 		+'<div id="pic">';
 		if (str[10]==" "){
 			result += '<img src="Img/portrait.jpg" width="180" height="240" border=no>';
@@ -73,26 +82,27 @@ function handleProfileReq() {
 		}
 		
 		result += '</div>'
-		//+'<div id="uploadPIC">'
-		//+'<form name="picForm" action="picUpload.jsp" method="post" enctype="multipart/form-data">Select a picture:<br>'
-		//+'<input type="file" name="myPIC"><br>'
-		//+'<br>'
-		//+'<input type="submit" name="submit" value="Upload"></form>'		
-		
-		//+'</div>'
+>
+		+'<div id="player">'
+		+'</div>'
 		+'<div id="events">'
 		+'</div>'
 		+'</div>';
-		
 		displayer.innerHTML = result;
+		if(str[12]!=null)
+			{
+		if((str[12].length > 0)&&(str[12]!="none")){
+			var player = '<object type="application/x-shockwave-flash" data="player/dewplayer-mini.swf" width="200" height="20" id="dewplayer" name="dewplayer">'
+			+'<param name="movie" value="player/dewplayer-mini.swf" />'
+			+'<param name="flashvars" value="mp3='+str[12]+'" />'
+			+'<param name="wmode" value="transparent" />'
+			+'</object>';
+			$('#player').append(player);
+			
+		}
+			}
 		
-		$('#file_upload').uploadify({
-			  'scriptData': { 'session': '<%=session.getAttribute("login")%>'},
-			   'uploader'    : 'Upload?login=' +str[4],
-			    'swf'  : 'uploadify/uploadify.swf',
-			    'cancelImage' : 'uploadify/uploadify-cancel.png',
-			    'auto'      : true
-			  });
+		
 	}
 }
 
@@ -116,6 +126,9 @@ function handleGetProfileReq() {
 		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
 		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
+		+'<div id="desc">'
+		+ str[11]
+		+'</div>'+ '<br/>' + ' <br/>'
 		+'<div id="desc"><h3>Description</h3><p>'
 		+ str[11]+'</p></div>' + '<br/>' + ' <br/>'
 		+'<div><input type="button" value="Invite to your Event" onclick="javascript:getEventReq();"/>'
@@ -123,6 +136,9 @@ function handleGetProfileReq() {
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
+		+'<div id="pic">'
+		+'<img src='+str[10]+' width="180" height="240" border=no>'
+		+'</div>'
 		+'<div id="pic">';
 		if (str[10]==" "){
 			result += '<img src="Img/default_big.gif" width="180" height="240" border=no>';
@@ -132,10 +148,21 @@ function handleGetProfileReq() {
 		}
 		
 		result += '</div>'
+		+'<div id="player">'
+		+'</div>'
 		+'<div id="events">'
 		+'</div>'
 		+'</div>';
 		displayer.innerHTML = result;
+		if((str[12].length > 0)&&(str[12]!="none")){
+			var player = '<object type="application/x-shockwave-flash" data="player/dewplayer-mini.swf" width="200" height="20" id="dewplayer" name="dewplayer">'
+			+'<param name="movie" value="player/dewplayer-mini.swf" />'
+			+'<param name="flashvars" value="mp3='+str[12]+'" />'
+			+'<param name="wmode" value="transparent" />'
+			+'</object>';
+			$('#player').append(player);
+			
+		}
 	}
 }
 
@@ -186,12 +213,23 @@ function handleModifyReq() {
 		  +'<input type="text" name="zip" value="' + str[8] + '"  size="10" /></p>'
 		  +'<p><label for="country">Country:</label>'
 		  +'<input type="text" name="country" value="' + str[9] + '"  size="25" /></p>'
+		  +'</fieldset>'
+		  +'<fieldset>'
+		  +'<legend>Your Picture</legend>'
+		  +'<div id=pic2>'
+		  +'<img src='+str[10]+' width="180" height="240" border=no>'
+		  +'</div>'
+		  +'<div id=upload>'
+		  +'<input id="pic_upload" name="file_upload" type="file"/>'
+		  +'</div>'
 		  +'</fieldset>';
+		 
+		
 		if (str[0] == "2") {
 			result += '<fieldset>'
 			    +'<legend>Artist Information</legend>'
 			    +'<p><label for="form1_description">Your Description</label>'
-			    +'<textarea name="description" id="form1_description">'+str[10]+'</textarea></p>'
+			    +'<textarea name="description" id="form1_description">'+str[11]+'</textarea></p>'
 			    +'<p><label for="form1_tag">Choose Tags (3 maximum):</label>'
 			    +'<SELECT id="form1_tag" name="tag1">'
 			    +'<OPTION VALUE="rock">Rock</OPTION>'
@@ -223,14 +261,37 @@ function handleModifyReq() {
 			    +'<OPTION VALUE="celtic">Celtic</OPTION>'
 			    +'<OPTION VALUE="hard">Hard rock</OPTION>'	
 			    +'</SELECT></p>'
+			    +'</fieldset>'
+			    +'<fieldset>'
+			    +'<legend>Upload your music</legend>'
+			    +'<div=musicup>'
+			    +'<input id="music_upload" name="file_upload" type="file"/>'
+			    +'</div>'
 			    +'</fieldset>';
 		}
+		
 		displayer.innerHTML = result
 		  +'<input type="submit"'
 		  +'value="Submit" />'
 		  +'<input type="reset"'
 		  +'value="Reset" />'
 		  +'</form>';
+		$('#pic_upload').uploadify({
+			  
+			   'uploader'    : 'Upload?login=' +str[4],
+			    'swf'  : 'uploadify/uploadify.swf',
+			    'cancelImage' : 'uploadify/uploadify-cancel.png',
+			    'auto'      : true,
+			    'fileTypeExts'    : '*.jpg;'
+			    			  });
+		$('#music_upload').uploadify({
+			  
+			   'uploader'    : 'Upload?login=' +str[4],
+			    'swf'  : 'uploadify/uploadify.swf',
+			    'cancelImage' : 'uploadify/uploadify-cancel.png',
+			    'auto'      : true,
+			    'fileTypeExts'    : '*.mp3;'
+			    			  });
 	}
 }
 
@@ -238,7 +299,7 @@ function registerArtist() {
 	var text = '<fieldset>'
 	    +'<legend>Artist Information</legend>'
 	    +'<p><label for="form1_description">Your Description</label>'
-	    +'<textarea name="description" id="form1_description"></textarea></p>'
+	    +'<textarea name="description" id="form1_description" rows="10" cols="50"></textarea></p>'
 	    +'<p><label for="form1_tag">Choose Tags (3 maximum):</label>'
 	    +'<SELECT id="form1_tag" name="tag1">'
 	    +'<OPTION VALUE="rock">Rock</OPTION>'

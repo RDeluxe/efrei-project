@@ -52,8 +52,16 @@ public class GetProfile extends HttpServlet {
 		out.write(a.getCity() + '\n');
 		out.write(a.getZip() + '\n');
 		out.write(a.getCountry() + '\n');
-		out.write(artist.getPhoto() + '\n');
-		out.write(artist.getDescription());
+		if(artist.getPhoto()!=null)
+		{
+			out.write("uploads/IMG/" +artist.getLogin()+".jpg" + '\n');
+		}else{out.write("Img/portrait.gif" + '\n');}
+		out.write(artist.getDescription() +'\n');
+		if(artist.getMusic()!=null)
+		{
+			out.write("uploads/MP3/" +artist.getLogin()+".mp3" + '\n');
+		}else{out.write("none");}
+		
 	}
 
 	

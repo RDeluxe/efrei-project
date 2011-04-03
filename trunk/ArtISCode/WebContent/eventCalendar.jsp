@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,7 +46,7 @@
 	});
 
 </script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -74,25 +74,9 @@
   if(sessionlog==null){
 	    request.getSession().invalidate();%>
 
-  <td id="menubutton" onclick='document.location.href="register.jsp"'>
- Register
-  </td>
-  <td>
-  <a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.png"/></a>
-  </td>
-  <td>
-  
-  <form method="post" action="Login">
-  <label id="menulabel" for="login">Login : </label> <input id="login" name="login" type="text" width="70" />
-  <label id="menulabel" for="pass">Password : </label> <input id="pass" name="pass" type="password" width="50" />
-  
-  
-  <input id="menubuttonform" type="submit" value="log in"/>
-
- 
-  </form>
-  
-  
+<jsp:forward page="login.jsp">
+<jsp:param name="msg" value="msg" />
+</jsp:forward>
   <%}else{%>
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile

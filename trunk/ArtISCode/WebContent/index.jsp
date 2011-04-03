@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ page import="controller.*" import="domain.Notification" import="java.util.Set" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="controller.*" import="domain.*" import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -96,7 +96,7 @@
 <div id="searchBox">
 <form action="javascript:result();"><input type="text"
 	id="txtSearch" name="txtSearch" alt="Search Criteria"
-	onkeyup="searchSuggest();" autocomplete="off" /> <input
+	onkeyup="searchSuggest();" autocomplete="off" value="Search" onfocus='if (this.value=="Search") {this.value=""}' onblur='if (this.value=="") {this.value="Search"}' /> <input
 	id="menubuttonform" type="hidden" onClick="result()" name="cmdSearch"
 	value="Search" alt="Run Search" /></form>
 <div id="search_suggest"></div>
@@ -111,7 +111,7 @@
 %> <%
  	if (result.equalsIgnoreCase("ko") == true) {
  %>
-<p>No user with this Login</p>
+<p>Wrong Login or Password</p>
 <%
 	}
 %> <%
@@ -123,6 +123,36 @@
 %> <%
  	}
  %>
+
+<div id="artistsPreview">
+<h3>Dicover some new artists !</h3>
+<% 	controller.Search search = new controller.Search();
+	List<Artist> artists = search.searchRandomArtists();
+	for (Artist artist : artists) { %>
+	<div id="artistPreview">
+	<h4 onclick="getProfileReq('<%= artist.getLogin()%>')" style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h4>
+<% 
+	if (artist.getDescription().length()>200) {
+%>
+		<p><%= artist.getDescription().substring(0, 200) + "..." %></p>
+<% } else { %> 
+		<p><%= artist.getDescription() %></p>
+<% } %>
+	</div>
+<% } %>
+</div>
+<div id="news">
+<h3>News</h3>
+<div id="new">
+<h4>New feature</h4>
+<p>You can now visualize throught a <a href="eventCalendar.jsp">calendar</a>, all your event and manage them. Moreover, when you are an artist, you can see the direction to reach the event on a google map. This allow you to decide if you want to participate to this event.</p>
+</div>
+<div id="new">
+<h4>Artis is opening !</h4>
+<p>The brand new website, the next generation of social networking and party organization is there. You can find on this platform an entire new feature package. This website allow you to find your wedding band, your birthday singer, your bar mitzvah DJ, or even your lullaby's violonist.
+We will be happy to provide you some help if needed. You can first <a href="register">create your account</a> if you are an artist (the account creation if free for the first two month).</p>
+</div>
+</div>
 </div>
 <div id="pied"></div>
 </div>

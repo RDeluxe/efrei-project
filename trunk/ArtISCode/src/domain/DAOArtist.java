@@ -125,4 +125,10 @@ public class DAOArtist implements IDAOArtist {
 		List<Artist> ret = (List<Artist>) session.createCriteria(Artist.class).add(Restrictions.like("login", search+'%')).list();
 		return ret;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Artist> getRandomArtists() {
+		return session.createCriteria(Artist.class).add(Restrictions.sqlRestriction("1=1 order by rand()")).setMaxResults(4).list();
+	}
 }

@@ -45,6 +45,7 @@ public class Profile extends HttpServlet {
 		
 		if(kind.equalsIgnoreCase("1"))
 		{
+			System.out.println("user");
 			DAOUser dao = new DAOUser();
 			User user = new User();
 			user= dao.searchByLogin(login);
@@ -59,7 +60,13 @@ public class Profile extends HttpServlet {
 			out.write(a.getStreet() + '\n');
 			out.write(a.getCity() + '\n');
 			out.write(a.getZip() + '\n');
-			out.write(a.getCountry() + '\n');	
+			out.write(a.getCountry() + '\n');
+			if(user.getPhoto()!=null)
+			{
+				
+			out.write("uploads/IMG/" +user.getLogin()+".jpg" + '\n');
+			}else{out.write("Img/portrait.gif" + '\n');}
+			
 		}
 		if(kind.equalsIgnoreCase("2"))
 		{
@@ -75,10 +82,15 @@ public class Profile extends HttpServlet {
 			out.write(a.getCity() + '\n');
 			out.write(a.getZip() + '\n');
 			out.write(a.getCountry() + '\n');
-			out.write(artist.getPhoto()+'\n');
-			out.write(artist.getDescription()+ '\n');
-			
-			
+			if(artist.getPhoto()!=null)
+			{
+				out.write("uploads/IMG/" +artist.getLogin()+".jpg" + '\n');
+			}else{out.write("Img/portrait.gif" +'\n');}
+			out.write(artist.getDescription() +'\n');
+			if(artist.getMusic()!=null)
+			{
+				out.write("uploads/MP3/" +artist.getLogin()+".mp3" + '\n');
+			}else{out.write("none");}
 		}
 	}
 
@@ -108,6 +120,7 @@ public class Profile extends HttpServlet {
 		Artist artisttest = (Artist) daoA.searchByLogin(login);
 		if (artisttest==null)
 		{kind="1";}else{kind="2";}
+		System.out.println(kind+"************************************");
 		
 		ManageUser service= new ManageUser();
 		Search search = new Search();

@@ -15,6 +15,9 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import controller.ManageUser;
+import controller.SearchEventEngine;
+
 /**
  * Servlet implementation class Upload
  */
@@ -44,13 +47,25 @@ public class Upload extends HttpServlet {
 	
 		
 	
+		
 		String login = (String) request.getParameter("login");
 		System.out.println(login);
+		controller.Search s = new controller.Search();
+		DAOArtist daoA = new DAOArtist();
+		Artist a = (Artist) daoA.searchByLogin(login);
+		User user = new User();
+		String kind = new String();
+		if (a==null)
+		{kind="1";}else{kind="2";}
+		if(kind.equalsIgnoreCase("1"))
+		{
+			user = s.SearchByLogin(login);
+		}
+		String folder = "C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads";
 		        
-		        File uploadPath = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads"); // Directory to upload the file
-				   if (!uploadPath.exists()) {
-				      uploadPath.mkdirs();
-				   }
+		
+		        
+				File uploadPath = new File(folder);
 				   // Create a buffer folder
 				   File tempPathFile = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\buffer\\");
 				   if (!tempPathFile.exists()) {
@@ -74,10 +89,83 @@ public class Upload extends HttpServlet {
 				      while (i.hasNext()) {
 				          FileItem fi = (FileItem) i.next();
 				          String fileName = fi.getName();
+				          System.out.println(fileName);
+				          
+				        
+				          
 				          if (fileName != null) {
-				      File fullFile = new File(fi.getName());
-				      File savedFile = new File(uploadPath, fullFile.getName());
-				      fi.write(savedFile);
+				        	  String extension = fileName.substring(fileName.lastIndexOf('.') + 1);
+				        	  System.out.println(extension);
+					          if((extension.equalsIgnoreCase("jpg"))||(extension.equalsIgnoreCase("jpeg")))
+					        		  {
+					        	  
+					        	  folder = "C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\IMG";
+					        	  uploadPath = new File(folder); // Directory to upload the file
+								   if (!uploadPath.exists()) {
+								      uploadPath.mkdirs();
+								   }
+								   File fullFile = new File(fi.getName());
+								      File savedFile = new File(uploadPath, fullFile.getName());
+								      fi.write(savedFile);
+								      if(kind.equalsIgnoreCase("1")){
+								    	  if (user.getPhoto()!=null)
+								    	  {
+								    	  File f = new File( user.getPhoto());
+								    	  f.delete();		
+								    	  savedFile.renameTo(new File(user.getPhoto()));
+								    	  savedFile.delete();
+								    	  }else{
+								    		  user.setPhoto("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\IMG\\"+user.getLogin()+".jpg");
+								    		  savedFile.renameTo(new File(user.getPhoto()));
+									    	  savedFile.delete();
+									    	  ManageUser manager = new ManageUser();
+									    	  manager.modifyUser(user);
+								    	  }
+								    	 
+								      }
+								      if(kind.equalsIgnoreCase("2")){
+								    	  if (a.getPhoto()!=null)
+								    	  {
+								    	  File f = new File( a.getPhoto());
+								    	  f.delete();		
+								    	  savedFile.renameTo(new File(a.getPhoto()));
+								    	  savedFile.delete();
+								    	  }else{
+								    		  a.setPhoto("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\IMG\\"+a.getLogin()+".jpg");
+								    		  savedFile.renameTo(new File(a.getPhoto()));
+									    	  savedFile.delete();
+									    	  ManageUser manager = new ManageUser();
+									    	  manager.modifyArtist(a);
+								    	  }
+								    	 
+								      }
+					        		  }
+					          if((extension.equalsIgnoreCase("mp3"))&&(kind.equalsIgnoreCase("2")))
+					          {
+					        	  
+					        	  folder = "C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\MP3";
+					        	  uploadPath = new File(folder); // Directory to upload the file
+								   if (!uploadPath.exists()) {
+								      uploadPath.mkdirs();
+								   }
+								   File fullFile = new File(fi.getName());
+								      File savedFile = new File(uploadPath, fullFile.getName());
+								      fi.write(savedFile);
+								      if (a.getMusic()!=null)
+							    	  {
+							    	  File f = new File( a.getMusic());
+							    	  f.delete();		
+							    	  savedFile.renameTo(new File(a.getMusic()));
+							    	  savedFile.delete();
+							    	  }else{
+							    		  a.setMusic("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\MP3\\"+a.getLogin()+".mp3");
+							    		  savedFile.renameTo(new File(a.getMusic()));
+								    	  savedFile.delete();
+								    	  ManageUser manager = new ManageUser();
+								    	  manager.modifyUser(a);
+							    	  }
+					          }
+				      
 				          }
 				      }
 				      System.out.print("File has already been uploaded");

@@ -102,9 +102,11 @@
 </div>
 
 </div>
+<div id="contenu">
 <div id="calendar"></div>
 <br/>
 <input type="button" value="Add en Event" onclick="document.location='addEvent.jsp'">
+</div>
 <div id="pied">
 </div>
 </div>

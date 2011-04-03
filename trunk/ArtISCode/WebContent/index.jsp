@@ -12,7 +12,6 @@
 <script type="text/javascript" src="uploadify/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="uploadify/swfobject.js"></script>
 <script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
-<script src="jquery-1.5.2.js"></script>
 
 </head>
 <body>

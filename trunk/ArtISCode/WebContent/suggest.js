@@ -72,16 +72,15 @@ function  handleResult() {
 			//Build our element string.  This is cleaner using the DOM, but
 			//IE doesn't support dynamically added attributes.
 			
-			var suggest = '<div id="info" onmouseover="javascript:suggestOver(this);" ';
+			var suggest = '<div id="infosearch" onmouseover="javascript:suggestOver(this);" ';
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
-			suggest += 'class="suggest_link"><h3>FirstName :</h3>' + str[i] + '&nbsp&nbsp&nbsp<h3> LastName :</h3>'+str[i+1];
-			suggest += '<br /><br />';
-			suggest += '<input id="loginReq" type="hidden" name="login" value="'+str[i+2]+'">';
-			suggest += '<button onclick="javascript:getProfileReq(\''+ str[i+2] +'\')">Go on the profile</button>';
-			suggest += '</form>';
-			suggest += '</div>';
+			suggest += 'class="suggest_link" onclick="javascript:getProfileReq(\''+ str[i+2] +'\')">'
+			+'<h3>'+ str[i] + ' ' +str[i+1] +'</h3>';
+			suggest += '<div id="searchdesc"><img src="'+ str[i+3] +'"/><p>' + str[i+4] + '</p></div>';
+			suggest += '<div id="location"><b>Location : </b>' + str[i+5] + '</div>';
+			suggest += '<div id="pied"></div></div>';
 			ss.innerHTML += suggest;
-			i=i+3;
+			i=i+6;
 		}
 	}
 }
@@ -91,13 +90,13 @@ function handleSearchSuggest() {
 		var ss = document.getElementById('search_suggest');
 		ss.innerHTML = '';
 		var str = searchReq.responseText.split("\n");
-		for(i=0; i < str.length - 1; i++) {
+		for(i=0; i < str.length - 1; i+=2) {
 			//Build our element string.  This is cleaner using the DOM, but
 			//IE doesn't support dynamically added attributes.
 			var suggest = '<div onmouseover="javascript:suggestOver(this);" ';
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
-			suggest += 'onclick="javascript:setSearch(this.innerHTML);javascript:result();" ';
-			suggest += 'class="suggest_link">' + str[i] + '</div>';
+			suggest += 'onclick="javascript:setSearch(this.childNodes[0].value);javascript:result();" ';
+			suggest += 'class="suggest_link"><input id="loginReq" type="hidden" name="login" value="'+str[i+1]+'">' + str[i] + '</div>';
 			ss.innerHTML += suggest;
 		}
 	}

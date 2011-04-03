@@ -40,10 +40,14 @@ public class Result extends HttpServlet {
 			
 			while (it.hasNext())
 			{
+				System.out.println("toto*************************");
 				Artist a = it.next();
 				vData.add(a.getFirstname());
 				vData.add(a.getLastname());
 				vData.add(a.getLogin());
+				vData.add(a.getPhoto());
+				vData.add(a.getDescription());
+				vData.add(a.getAddress().toString());
 			}
 			StringBuffer buf = new StringBuffer();
 			for (int i=0;i<vData.size();i++)

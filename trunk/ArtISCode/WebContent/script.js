@@ -52,7 +52,7 @@ function handleProfileReq() {
 		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
 		+'<div id="desc"><h3>Description</h3><p>'
-		+ str[10]+'</p></div>' + '<br/>' + ' <br/>'
+		+ str[11]+'</p></div>' + '<br/>' + ' <br/>'
 		+'<input type="button" value="Modify your profile" onclick="javascript:modifyReq();" />'
 		+'<input id="file_upload" name="file_upload" type="file"/>'	
 		//+'<div id="uploadFILE">'
@@ -65,11 +65,11 @@ function handleProfileReq() {
 		+'</div>'
 		+'<div id="right" >'
 		+'<div id="pic">';
-		if (str[11]==" "){
+		if (str[10]==" "){
 			result += '<img src="Img/portrait.jpg" width="180" height="240" border=no>';
 		}
 		else {
-			result += '<img src="'+ str[11] +'" width="180" height="240" border=no>';
+			result += '<img src="'+ str[10] +'" width="180" height="240" border=no>';
 		}
 		
 		result += '</div>'

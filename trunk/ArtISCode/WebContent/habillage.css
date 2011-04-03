@@ -221,6 +221,10 @@ fieldset
 	font-family: "Lucida Grande","Trebuchet MS",sans-serif;
     font-size: 11px;
 }
+#left p {
+	padding-left : 15px;
+	padding-right : 15px;
+} 
 #info {
 	background-color : #FFADAD;
 	width : auto;
@@ -228,6 +232,7 @@ fieldset
 	text-align:justify;
 }
 #info h3 {
+	padding-left : 30px;
 	margin : 0px;
 	margin-top : 5px;
 	background-color : #FF7070;
@@ -240,6 +245,15 @@ fieldset
 	position : relative;
 	text-align:justify;
 }
+#desc h3 {
+	padding-left : 30px;
+	margin : 0px;
+	margin-top : 5px;
+	background-color : #FF7070;
+	font-weight:bold;
+	letter-spacing: 3px;
+}
+
 #pic {
 	border: 0;
 	background-color:#FFFFF;

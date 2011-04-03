@@ -693,4 +693,6 @@ a {
 #form2 input[type="submit"] {
 	cursor : pointer;
 	float : right;
+	margin-right : 5px;
+	margin-bottom:10px;
 }

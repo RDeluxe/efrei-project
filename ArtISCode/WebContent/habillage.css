@@ -105,6 +105,13 @@ body {
 	padding-bottom : 15px;
 	text-align:justify;
 }
+#new p {
+	float : right;
+	width : 75%;
+}
+#new img {
+	width : 23%;
+}
 #right {
 	width:25%;
 	height:auto;

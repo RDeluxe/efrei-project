@@ -13,6 +13,7 @@ public class Event {
 	private User owner;
 	private Set<Participant> artists;
 	private Address address;
+	private String description;
 	
 	public String getName() {
 		return name;
@@ -68,6 +69,12 @@ public class Event {
 	}
 	public Address getAddress() {
 		return address;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getDescription() {
+		return description;
 	}
 	
 }

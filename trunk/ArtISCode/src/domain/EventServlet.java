@@ -58,6 +58,7 @@ public class EventServlet extends HttpServlet {
 				
 		ManageEvent me = new ManageEvent();
 		Notification n = new Notification();
+		n.setMessage("You have been invited by " + request.getSession().getAttribute("login") + " to the event " + e.getName());
 		n.setUser(a);
 		a.getMessages().add(n);
 		me.inviteArtist(e, a);

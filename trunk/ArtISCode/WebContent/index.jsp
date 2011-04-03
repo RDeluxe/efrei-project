@@ -59,7 +59,7 @@
 <table id="menutab">
 	<tr>
 		<td id="menubutton" onClick='document.location.href="index.jsp"'>
-		Accueil</td>
+		Home</td>
 		<%
 		
 			if (sessionlog == null) {

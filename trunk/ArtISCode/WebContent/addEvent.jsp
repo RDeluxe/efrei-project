@@ -83,15 +83,11 @@
 </div>
 <div id="contenu">
 <div id="add">
-<form id="addEvent" method="post" action="AddEvent">
+<form id="form1" method="post" action="AddEvent">
   <fieldset>
-  
-    <fieldset>
-    <legend>Date</legend><br/>
-    <p><br/>
-    
- 
-
+  <legend>Event Info</legend>
+   <p><label>Name</label><input type="text" name="name"  size="60" /></p>
+	<p><label>Date</label>
       <SELECT name="Month">
         <OPTION VALUE="01">01</OPTION>
         <OPTION VALUE="02">02</OPTION>
@@ -147,38 +143,25 @@
         <OPTION VALUE="2013">2013</OPTION>
         <OPTION VALUE="2014">2014</OPTION>
         <OPTION VALUE="2015">2015</OPTION>
-        <br/>
       </SELECT>
       </p>
-    <p><br/>
+    <p>
+     <label>Duration</label> <input type="text"  name="duration" size="25" />
     </p>
     </fieldset>
-   
     <fieldset>
-    <legend>Duration (in days)</legend><br/>
-    <p><br/>
-      
-      <input type="text"  name="duration" size="25" />
-      
-    </p>
-    <p>&nbsp;</p>
-    </fieldset>
-    <fieldset>
-    <legend>Name of the event</legend><br/>
-    
-    <input type="text" name="name"  size="60" /><br/>
-    
-    </fieldset>
+		 <legend>Address</legend>
+		 <p><label for="street">Street:</label>
+		 <input type="text" name="street" size="60" /></p>
+		 <p><label for="city">City:</label>
+		 <input type="text" name ="city" size="25" /></p>
+		 <p><label for="zip">Zip code:</label>
+		 <input type="text" name="zip" size="10" /></p>
+		 <p><label for="country">Country:</label>
+		 <input type="text" name="country" size="25" /></p>
+		 </fieldset>
     <br/>
-    <div id="kindform"></div>
-    <p></p>
-    <input type="submit"
-value="Submit" />
-    <input type="reset"
-value="Reset" />
- </fieldset>
-
-  </form>
+   <input type="submit" value="Submit" /><input type="reset" value="Reset" /></form>
  
 
 </div>

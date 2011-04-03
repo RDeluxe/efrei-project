@@ -89,6 +89,7 @@ body {
 }
 #news h3 {
 	margin : 0px;
+	margin-top : 5px;
 	background-color : #FF7070;
 	font-weight:bold;
 	letter-spacing: 3px;
@@ -104,8 +105,10 @@ body {
 	padding-left : 15px;
 	padding-bottom : 15px;
 	text-align:justify;
+	border-bottom:0.1em dotted #ff0000;
 }
 #new p {
+	margin-top: 0px;
 	float : right;
 	width : 75%;
 }
@@ -432,6 +435,11 @@ th
 #form1 select {
 	margin-left: 1%;
 	width: 20%;
+	border: #CCC 1px solid;
+}
+#form1 select[name="Month"], #form1 select[name="Year"], #form1 select[name="Day"] {
+	margin-left: 1%;
+	width: 10%;
 	border: #CCC 1px solid;
 }
 #notifications {

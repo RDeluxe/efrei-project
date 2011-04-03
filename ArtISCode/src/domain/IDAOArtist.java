@@ -21,4 +21,5 @@ public interface IDAOArtist extends IDAOUser {
 	 */
 	public List<Artist> SearchArtistByTag(Tag tag);
 	public List<Artist> searchArtistByKeyword(String search);
+	public List<Artist> getRandomArtists();
 }

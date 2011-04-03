@@ -3,7 +3,10 @@
  */
 package controller;
 
+import java.util.List;
 import java.util.Set;
+
+import domain.Artist;
 import domain.User;
 
 /** 
@@ -48,4 +51,6 @@ public interface SearchService {
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public User SearchById(Integer user_id);
+	
+	public List<Artist> searchRandomArtists();
 }

@@ -3,6 +3,7 @@
  */
 package controller;
 
+import java.util.List;
 import java.util.Set;
 
 import domain.DAOTag;
@@ -78,5 +79,11 @@ public class Search implements SearchService {
 	
 	public Tag SearchTagByName(String name){
 		return daoT.searchTagByName(name);
+	}
+
+	@Override
+	public List<Artist> searchRandomArtists() {
+		
+		return daoA.getRandomArtists();
 	}
 }

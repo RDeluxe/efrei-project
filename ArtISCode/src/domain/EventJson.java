@@ -114,6 +114,7 @@ public class EventJson extends HttpServlet {
 				
 			} catch (Exception e) {
 			}
+		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.println(arrayObj);
 	}

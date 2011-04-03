@@ -183,9 +183,6 @@ Event event = searchE.searchById(Long.parseLong(eventid));
 <h4>Update Done !!!!</h4>
 <%} %>
 </div>
-<script type="text/javascript">
-calcRoute('<%=eventA.toString()%>', '<%=artistA.toString()%>');
- </script>
 <div id="map_container"><div id="map_canvas"></div></div>
 <%} %>
 </div>

@@ -371,3 +371,9 @@ function calcRoute(from, to) {
 	    }
 	  });
 	}
+function login() {
+	alert("login");
+	$.post("Login", { login:document.getElementById("login"), pass:document.getElementById("pass") },function(data) {
+		   alert("Data Loaded: " + data);
+	 } );
+}

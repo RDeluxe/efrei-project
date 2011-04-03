@@ -12,20 +12,19 @@
 <script type="text/javascript" src="uploadify/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="uploadify/swfobject.js"></script>
 <script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
+<script src="jquery-1.5.2.js"></script>
 
 </head>
 <body>
 			<%
 			//checking session
 			String result = (String) request.getAttribute("result");
-			System.out.println(result);
 			if ((result != null) && (result.equalsIgnoreCase("ok"))) {
 
 				String login = request.getParameter("login");
 				String kind = request.getParameter("kind");
 				session.setAttribute("login", login);
 				session.setAttribute("kind", kind);
-				System.out.println(login);
 			}
 			String sessionlog = (String) session.getAttribute("login");
 			 %>
@@ -48,8 +47,6 @@
 					%>
 					<div id="close" style="display : none"><a href="#" onclick="javascript:closeAllNotification('<%= sessionlog%>');return false;">close all notification</a></div>
 					<%
-				} else {
-					System.out.println("Pas de messages");
 				}
 			}
 		%></div>
@@ -71,27 +68,25 @@
 
 		<td id="menubutton" onclick='document.location.href="register.jsp"'>
 		Register</td>
-		<td><a href="oauth-demo.jsp"><img border="0"
-			src="Img/Blue_150_Loginwithmyspaceid.png" /></a></td>
+		<td><a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.png" /></a></td>
 		<td>
-
-		<form method="post" action="Login"><label id="menulabel"
-			for="login">Login : </label> <input id="login" name="login"
-			type="text" width="70" /> <label id="menulabel" for="pass">Password
-		: </label> <input id="pass" name="pass" type="password" width="50" /> <input
-			id="menubuttonform" type="submit" value="log in" /></form>
+		<input id="login" name="login" type="text" value="login" onfocus='if (this.value=="login") {this.value=""}' onblur='if (this.value=="") {this.value="login"}' width="70" />
+		</td>
+		<td>
+		<input id="pass" name="pass" type="password" value="password" onfocus='if (this.value=="password") {this.value=""}' onblur='if (this.value=="") {this.value="password"}' width="50" />
+		</td>
+		<td id="menubutton" onclick='$.post("Login", { login:document.getElementById("login").value, pass:document.getElementById("pass").value }, function(data) { document.documentElement.innerHTML=data;});'>
+		Login
+		</td>
 
 
 		<%
 			} else {
 		%>
 		
-		<td id="menubutton" onclick="javascript:displayProfileReq()">
-		Profile</td>
-		<td id="menubutton" onClick="document.location='eventCalendar.jsp'">
-		Manage Events</td>
-		<td id="menubutton" onClick="document.location='deconnexion.jsp'">
-		Deconnexion</td>
+		<td id="menubutton" onclick="javascript:displayProfileReq()">Profile</td>
+		<td id="menubutton" onClick="document.location='eventCalendar.jsp'">Manage Events</td>
+		<td id="menubutton" onClick="document.location='deconnexion.jsp'">Deconnexion</td>
 		<%
 			}
 		%>

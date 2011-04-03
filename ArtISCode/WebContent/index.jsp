@@ -151,7 +151,7 @@
 <div id="new">
 <h4>Artis is opening !</h4>
 <img src="Img/artislogo.png"/><p>The brand new website, the next generation of social networking and party organization is there. You can find on this platform an entire new feature package. This website allow you to find your wedding band, your birthday singer, your bar mitzvah DJ, or even your lullaby's violonist.
-We will be happy to provide you some help if needed. You can first <a href="register">create your account</a> if you are an artist (the account creation if free for the first two month).</p>
+We will be happy to provide you some help if needed. You can first <a href="register.jsp">create your account</a> if you are an artist (the account creation if free for the first two month).</p>
 <div id="pied"></div>
 </div>
 </div>

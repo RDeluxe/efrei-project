@@ -371,9 +371,61 @@ function calcRoute(from, to) {
 	    }
 	  });
 	}
-function login() {
-	alert("login");
-	$.post("Login", { login:document.getElementById("login"), pass:document.getElementById("pass") },function(data) {
-		   alert("Data Loaded: " + data);
-	 } );
+var geocoder;
+function advancedsearch() {
+	var tag = document.getElementById("tag");
+	var city = document.getElementById("city");
+	var tagname = tag.options[tag.selectedIndex].value;
+	if (searchReq.readyState == 4 || searchReq.readyState == 0) {
+		searchReq.open("GET", 'AdvancedSearch?tagname=' + tagname + '&city=' + city, true);
+		searchReq.onreadystatechange = handleadvancedSearch;
+		searchReq.send(null);
+	}
+}
+var origin;
+var object;
+var result;
+var maxdist;
+var city;
+function handleadvancedSearch() {
+	if (searchReq.readyState == 4) {
+		object = eval('('+ searchReq.responseText +')');   
+		city = document.getElementById("city").value; 
+		result = object.result;
+		geocoder = new google.maps.Geocoder();
+		var displayer = document.getElementById('contenu');
+		maxdist = document.getElementById('dist').value;
+		displayer.innerHTML = '';
+		geocoder.geocode( { 'address': city}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				origin = results[0].geometry.location;
+				var i = 0;
+				while (i<result.length) {
+					distance(result[i].address, origin, i);
+					i++;
+				}
+			};
+		});
+	}
+}
+
+function distance(address, origin, i) {
+	var a;
+	var displayer = document.getElementById('contenu');
+	geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			a = results[0].geometry.location;
+			var dist = google.maps.geometry.spherical.computeDistanceBetween(a, origin);
+			if ((dist/1000)<maxdist) {
+				var suggest = '<div id="infosearch" onmouseover="javascript:suggestOver(this);" ';
+				suggest += 'onmouseout="javascript:suggestOut(this);" ';
+				suggest += 'class="suggest_link" onclick="javascript:getProfileReq(\''+ result[i].login +'\')">'
+				+'<h3>'+ result[i].firstname + ' ' +result[i].lastname +'</h3>';
+				suggest += '<div id="searchdesc"><img src="'+ result[i].photo +'"/><p>' + result[i].description + '</p></div>';
+				suggest += '<div id="location"><b>Location : </b>' +result[i].address+ '<p>Distance to ' + city + ' : ' + Math.ceil(dist/1000) + ' Km</p></div>';
+				suggest += '<div id="pied"></div></div>';
+				displayer.innerHTML += suggest;
+			}
+		};
+	});
 }

@@ -12,7 +12,10 @@
 <script type="text/javascript" src="uploadify/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="uploadify/swfobject.js"></script>
 <script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
-
+<script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=true">
+</script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </head>
 <body>
 			<%
@@ -122,7 +125,28 @@
 %> <%
  	}
  %>
+ <div id="left" style="width : 300px;">
+<div id="advancedsearch">
+<h3>Search for an artist</h3>
+<form id="form2" action="javascript:advancedsearch();">
+	<p><label for="city">City</label><input name="city" id="city" type="text" style="width : 50%"/></p>
+	<p><label for="dist">Distance max</label><input name="dist" id="dist" type="text"style="width : 50%"/></p>
+	<p><label for="tag">Tag</label>
+	<SELECT id="tag" name="tag1"style="width : 30%">
+		<OPTION VALUE="rock">Rock</OPTION>
+		<OPTION VALUE="pop">Pop</OPTION>
+		<OPTION VALUE="classic">Classic</OPTION>
+		<OPTION VALUE="folk">Folk</OPTION>
+		<OPTION VALUE="soloist">Soloist</OPTION>
+		<OPTION VALUE="band">Band</OPTION>
+		<OPTION VALUE="celtic">Celtic</OPTION>
+		<OPTION VALUE="hard">Hard rock</OPTION>	
+	</SELECT>
+	<input type="submit" value="Search">
+	
+</form>
 
+</div>
 <div id="artistsPreview">
 <h3>Dicover some new artists !</h3>
 <% 	controller.Search search = new controller.Search();
@@ -139,6 +163,7 @@
 <% } %>
 	</div>
 <% } %>
+</div>
 </div>
 <div id="news">
 <h3>News</h3>

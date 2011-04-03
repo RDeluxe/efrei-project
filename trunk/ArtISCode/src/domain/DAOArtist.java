@@ -110,9 +110,7 @@ public class DAOArtist implements IDAOArtist {
 	public List<Artist> SearchArtistByTag(Tag tag) {
 		// begin-user-code
 		// TODO Module de remplacement de m閠hode auto-g閚閞�
-		String queryString="from Artist artist where artist.tag="+tag;
-		Query queryObject=session.createQuery(queryString);
-		return (List<Artist>) queryObject.list();
+		return (List<Artist>)session.createCriteria(Artist.class).add(Restrictions.like("tag", tag)).list();
 		// end-user-code
 	}
 

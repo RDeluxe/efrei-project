@@ -3,6 +3,7 @@
  */
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -41,11 +42,15 @@ public class Search implements SearchService {
 	 * @see SearchService#SearchByTags(String... tags)
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> SearchByTags(String... tags) {
-		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return null;
-		// end-user-code
+	public List<Artist> SearchByTags(String tag) {
+		List<User> artists = daoA.getAllUser();
+		List<Artist> res = new ArrayList<Artist>();
+		Tag t = daoT.searchTagByName(tag);
+		for (User u : artists) {
+			Artist a = (Artist) u;
+			if (a.getTag().contains(t)) res.add(a);
+		}
+		return res;
 	}
 
 	/** 

@@ -184,4 +184,14 @@
     <servlet-name>CancelArtist</servlet-name>
     <url-pattern>/CancelArtist</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdvancedSearch</display-name>
+    <servlet-name>AdvancedSearch</servlet-name>
+    <servlet-class>domain.AdvancedSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdvancedSearch</servlet-name>
+    <url-pattern>/AdvancedSearch</url-pattern>
+  </servlet-mapping>
 </web-app>

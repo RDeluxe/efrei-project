@@ -20,7 +20,7 @@ public class OpenSession {
 				session = sessionFactory.openSession();
 				
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				e.printStackTrace();
 			}
 		}
 		return session;

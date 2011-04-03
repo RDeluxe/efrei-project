@@ -48,13 +48,10 @@ public class Login extends HttpServlet {
 		
 		
 		if(check==false){
-			System.out.println("ko");
 			request.setAttribute("result","ko");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		}else {
-		System.out.println("check !");
-				System.out.println("ok");
 				request.setAttribute("result", "ok");
 				
 				request.setAttribute("login", login);

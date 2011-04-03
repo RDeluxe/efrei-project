@@ -102,7 +102,7 @@
 <table id="menutab">
 	<tr>
 		<td id="menubutton" onClick='document.location.href="index.jsp"'>
-		Accueil</td>
+		Home</td>
 		<%
 			String result = (String) request.getAttribute("result");
 			System.out.println(result);
@@ -121,15 +121,16 @@
 
 		<td id="menubutton" onclick='document.location.href="register.jsp"'>
 		Register</td>
-		<td><a href="oauth-demo.jsp"><img border="0"
-			src="Img/Blue_150_Loginwithmyspaceid.png" /></a></td>
+		<td><a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.png" /></a></td>
 		<td>
-
-		<form method="post" action="Login"><label id="menulabel"
-			for="login">Login : </label> <input id="login" name="login"
-			type="text" width="70" /> <label id="menulabel" for="pass">Password
-		: </label> <input id="pass" name="pass" type="password" width="50" /> <input
-			id="menubuttonform" type="submit" value="log in" /></form>
+		<input id="login" name="login" type="text" value="login" onfocus='if (this.value=="login") {this.value=""}' onblur='if (this.value=="") {this.value="login"}' width="70" />
+		</td>
+		<td>
+		<input id="pass" name="pass" type="password" value="password" onfocus='if (this.value=="password") {this.value=""}' onblur='if (this.value=="") {this.value="password"}' width="50" />
+		</td>
+		<td id="menubutton" onclick='$.post("Login", { login:document.getElementById("login").value, pass:document.getElementById("pass").value }, function(data) { document.documentElement.innerHTML=data;});'>
+		Login
+		</td>
 
 
 		<%
@@ -174,7 +175,7 @@
 <p><label for="form1_mail">Mail:</label><input type="text" id="form1_mail" name="mail" /></p>
 </fieldset>
 <fieldset><legend>Connection Info</legend>
-<p><label for="login">Your login:</label><input type="text" id="loginBox"name="login" size="25"/></p><div id="loginBoxTip" style="width: 250px;float:right;"></div>
+<p><label for="loginBox">Your login:</label><input type="text" id="loginBox"name="loginBox" size="25"/></p><div id="loginBoxTip" style="width: 250px;float:right;"></div>
 <p><label for="pass1">Your password:</label><input type="password" id="pass1" name="pass1" size="25"/></p><div id="pass1Tip" style="width: 200px;float:right;"></div>
 <p><label for="pass2">Password Check:</label><input type="password"id="pass2" name="pass2" size="25"/></p><div id="pass2Tip" style="width: 200px;float:right;"></div>
 </fieldset>

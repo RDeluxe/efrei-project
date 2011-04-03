@@ -17,6 +17,9 @@
         <property name="duration" type="int">
             <column name="DURATION" />
         </property>
+        <property name="description" type="text">
+            <column name="DESCRIPTION" />
+        </property>
         <many-to-one name="address" column="ADDRESS" unique="true" not-null="false"/>
         
         <many-to-one name="owner" class="domain.User" column="OWNER"/>

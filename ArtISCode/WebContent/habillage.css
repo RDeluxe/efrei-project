@@ -15,31 +15,25 @@ body {
 	box-shadow:0px 0px 6px 0 #A9A9A9;
 	-moz-box-shadow:0px 0px 6px 0 #A9A9A9;
 	-webkit-box-shadow:0px 0px 6px #A9A9A9;
-	background-color : #FFFFFFF;
 	float:none;
-	width: 60em;
+	width: 950px;
 	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
 	padding-bottom:20px;
 	color : black;
+	background-color : #FFF;
 }
-#entete { padding:5px; margin: auto; width: auto; }
+#entete {margin: auto; width: auto; }
 #menu {
-	background-color:#FFFFFFF;	
-	width:95%;
+	background-color:#F5F5F5;	
 	height:40px;
 	margin:auto;
-	margin-top:10px;
 	text-align:left;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #F5F5F5;
 	color : black;
 	padding-top : 10px;
+	padding-left : 10px;
+	padding-right : 10px;
 }
 
 

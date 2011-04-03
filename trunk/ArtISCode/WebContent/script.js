@@ -69,8 +69,7 @@ function handleProfileReq() {
 		else {
 			result += '<img src="'+ str[10] +'" width="180" height="240" border=no>';
 		}
-		
-		result += '</div>'
+		 '</div>'
 >
 		+'<div id="player">'
 		+'</div>'

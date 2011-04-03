@@ -229,37 +229,39 @@ fieldset
 	font-family: "Lucida Grande","Trebuchet MS",sans-serif;
     font-size: 11px;
 }
+#left p {
+	padding-left : 15px;
+	padding-right : 15px;
+}
 #info {
-	background-color:#F5F5F5;	
-	border: 1px solid;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	box-shadow : 3px 3px 6px 0 #333;
-	-moz-box-shadow: 3px 3px 6px 0 #333;
-	-webkit-box-shadow: 3px 3px 6px 0 #333;
+	background-color : #FFADAD;
+	width : auto;
+	position : relative;
+	text-align:justify;
+}
+#info h3 {
+	padding-left : 30px;
+	margin : 0px;
+	background-color : #FF7070;
+	font-weight:bold;
+	letter-spacing: 3px;
 }
 #desc {
-	border: 1px solid;
-	background-color:#F5F5F5;		
-	margin-top : 20px;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	box-shadow : 3px 3px 6px 0 #333;
-	-moz-box-shadow: 3px 3px 6px 0 #333;
-	-webkit-box-shadow: 3px 3px 6px 0 #333;
+	background-color : #FFADAD;
+	width : auto;
+	position : relative;
+	text-align:justify;
+}
+#desc h3 {
+	padding-left : 30px;
+	margin : 0px;
+	background-color : #FF7070;
+	font-weight:bold;
+	letter-spacing: 3px;
 }
 #pic {
-	border: 1px solid;
-	background-color:#F5F5F5;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	box-shadow : 3px 3px 6px 0 #333;
-	-moz-box-shadow: 3px 3px 6px 0 #333;
-	-webkit-box-shadow: 3px 3px 6px 0 #333;
-	padding: 5px;	
+	border: 0;
+	background-color:#FFFFF;	
 }
 #menulabel {
 	font-family: "Lucida Grande","Trebuchet MS",sans-serif;
@@ -334,7 +336,8 @@ fieldset
 	position : absolute;
 	top:27px;
 	background-color : white;
-	width : 100px;
+	width : 150px;
+	cursor : pointer;
 }
 #txtSearch {
 	background : url("./Img/search.png") no-repeat scroll 7px 3px #FFFFFF;
@@ -349,6 +352,7 @@ fieldset
 	position : relative;
 	background-color : white;
 	width : 100px;
+	cursor : pointer;
 }
 
 table
@@ -441,6 +445,7 @@ th
 {
 	background-color: #E6484D;
 	cursor: pointer;
+	color: #FFFFFF;
 }
 #form1 select {
 	margin-left: 1%;
@@ -484,6 +489,29 @@ th
     right: 5px;
     top: 5px;
     border : 0 none;
+}
+#searchdesc {
+	background-color : #FFADAD;
+	width : auto;
+	position : relative;
+	padding : 15px;
+	text-align:justify;
+	border-bottom:0.1em dotted #ff0000;
+	float : left;
+	width : 45%;
+}
+#searchdesc p {
+	margin-top: 0px;
+	float : right;
+	width : 75%;
+}
+#searchdesc img {
+	width : 23%;
+}
+#location {
+	padding : 15px;
+	width : 45%;
+	float : right;
 }
 #not h3 {
 	margin:0px;

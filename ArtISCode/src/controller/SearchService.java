@@ -32,7 +32,7 @@ public interface SearchService {
 	 * @return
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Set<User> SearchByTags(String... tags);
+	public List<Artist> SearchByTags(String tag);
 
 	/** 
 	 * <!-- begin-UML-doc -->

@@ -58,11 +58,20 @@ body {
 	color: #000;
 	text-align: center;
 }
-#artistsPreview {
+#advancedsearch {
+	float : left;
 	width : 300px;
 	height : auto;
 	background-color : #F5F5F5;
+	margin-bottom : 10px;
+	border : 1px solid #000000;
+}
+#artistsPreview {
 	float : left;
+	width : 300px;
+	height : auto;
+	background-color : #F5F5F5;
+	border : 1px solid #000000;
 }
 #artistsPreview h3 {
 	margin : 0px;
@@ -89,7 +98,6 @@ body {
 }
 #news h3 {
 	margin : 0px;
-	margin-top : 5px;
 	background-color : #FF7070;
 	font-weight:bold;
 	letter-spacing: 3px;
@@ -642,6 +650,7 @@ a {
 	width : auto;
 	position : relative;
 	text-align:justify;
+	margin-bottom : 10px;
 }
 #infosearch h3 {
 	padding-left : 30px;
@@ -652,4 +661,35 @@ a {
 }
 #infosearch:hover {
 	opacity : 0.75;
+}
+#form2 {
+	text-align : left;
+	padding-top : 5px;
+}
+#form2 p {
+	width : 95%;
+	margin-top : 0px;
+	margin-bottom : 10px;
+}
+#form2 label {
+	margin-left : 1px;
+	float : left;
+	width: 45%;
+	padding-right: 1%;
+	text-align: right;
+	letter-spacing: 1px;
+}
+#form2 input, #form1 textarea {
+	margin-left: 1%;
+	width: 50%;
+	border: #CCC 1px solid;
+}
+#form2 select {
+	margin-left: 1%;
+	width: 30%;
+	border: #CCC 1px solid;
+	margin-bottom:10px;
+}
+#form2 input[type="submit"] {
+	cursor : pointer;
 }

@@ -125,9 +125,6 @@ function handleGetProfileReq() {
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
-		+'<div id="pic">'
-		+'<img src='+str[10]+' width="180" height="240" border=no>'
-		+'</div>'
 		+'<div id="pic">';
 		if (str[10]==" "){
 			result += '<img src="Img/default_big.gif" width="180" height="240" border=no>';

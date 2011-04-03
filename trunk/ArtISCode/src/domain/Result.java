@@ -46,7 +46,8 @@ public class Result extends HttpServlet {
 				vData.add(a.getLastname());
 				vData.add(a.getLogin());
 				vData.add(a.getPhoto());
-				vData.add(a.getDescription());
+				if (a.getDescription().length()>200) vData.add(a.getDescription().substring(0, 199)+"...");
+				else vData.add(a.getDescription());
 				vData.add(a.getAddress().toString());
 			}
 			StringBuffer buf = new StringBuffer();

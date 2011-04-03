@@ -679,7 +679,7 @@ a {
 	text-align: right;
 	letter-spacing: 1px;
 }
-#form2 input, #form1 textarea {
+#form2 input {
 	margin-left: 1%;
 	width: 50%;
 	border: #CCC 1px solid;
@@ -692,4 +692,5 @@ a {
 }
 #form2 input[type="submit"] {
 	cursor : pointer;
+	float : right;
 }

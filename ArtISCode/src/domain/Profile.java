@@ -76,7 +76,8 @@ public class Profile extends HttpServlet {
 			out.write(a.getCity() + '\n');
 			out.write(a.getZip() + '\n');
 			out.write(a.getCountry() + '\n');
-			out.write(artist.getDescription());
+			out.write(artist.getDescription()+ '\n');
+			out.write(artist.getPhoto());
 			
 		}
 	}

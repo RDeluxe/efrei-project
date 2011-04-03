@@ -47,18 +47,12 @@ function handleProfileReq() {
 		var displayer = document.getElementById('contenu');
 		var result = '<div id="left">'
 		+'<div id="info">'
-		+'Name : '+ str[2] +' <br/>'
-		+'Firstname : '+ str[1] +' <br/>'
-		+'Address : '+ str[6] + '&nbsp;'
-		+' Town : '+ str[7] + '&nbsp;'
-		+' Zip : '+ str[8] + '&nbsp;'
-		+' Country : '+ str[9] +' <br/>'
-		+' Mail : '+ str[3] +' <br/>'
-		+' Tags : '
-
+		+ '<h3>'+ str[1] + ' ' +str[2] + '</h3>'
+		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
+		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
-		+'<div id="desc">'
-		+ str[10]+'</div>' + '<br/>' + ' <br/>'
+		+'<div id="desc"><h3>Description</h3><p>'
+		+ str[10]+'</p></div>' + '<br/>' + ' <br/>'
 		+'<input type="button" value="Modify your profile" onclick="javascript:modifyReq();" />'
 		+'<input id="file_upload" name="file_upload" type="file"/>'	
 		//+'<div id="uploadFILE">'
@@ -70,9 +64,15 @@ function handleProfileReq() {
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
-		+'<div id="pic">'
-		+'<img src="Img/portrait.jpg" width="180" height="240" border=no>'
-		+'</div>'
+		+'<div id="pic">';
+		if (str[11]==" "){
+			result += '<img src="Img/portrait.jpg" width="180" height="240" border=no>';
+		}
+		else {
+			result += '<img src="'+ str[11] +'" width="180" height="240" border=no>';
+		}
+		
+		result += '</div>'
 		//+'<div id="uploadPIC">'
 		//+'<form name="picForm" action="picUpload.jsp" method="post" enctype="multipart/form-data">Select a picture:<br>'
 		//+'<input type="file" name="myPIC"><br>'

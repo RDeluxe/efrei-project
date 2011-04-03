@@ -112,26 +112,26 @@ function handleGetProfileReq() {
 		var result = '<div id="left">'
 		+'<div id="info">'
 		+'<input id="loginArtist" type="hidden" value="'+str[4]+'"/>'
-		+'Name : '+ str[2] +' <br/>'
-		+'Firstname : '+ str[1] +' <br/>'
-		+'Address : '+ str[6] + '&nbsp;'
-		+' Town : '+ str[7] + '&nbsp;'
-		+' Zip : '+ str[8] + '&nbsp;'
-		+' Country : '+ str[9] +' <br/>'
-		+' Mail : '+ str[3] +' <br/>'
-		+' Tags : '
+		+ '<h3>'+ str[1] + ' ' +str[2] + '</h3>'
+		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
+		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
-		+'<div id="desc">'
-		+ str[10]
-		+'</div>'+ '<br/>' + ' <br/>'
+		+'<div id="desc"><h3>Description</h3><p>'
+		+ str[11]+'</p></div>' + '<br/>' + ' <br/>'
 		+'<div><input type="button" value="Invite to your Event" onclick="javascript:getEventReq();"/>'
 		+'</div><div id="search_suggest_event"></div>'
 		+'</div>'
 		+'</div>'
 		+'<div id="right" >'
-		+'<div id="pic">'
-		+'<img src="Img/default_big.gif" width="180" height="240" border=no>'
-		+'</div>'
+		+'<div id="pic">';
+		if (str[10]==" "){
+			result += '<img src="Img/default_big.gif" width="180" height="240" border=no>';
+		}
+		else {
+			result += '<img src="'+ str[10] +'" width="180" height="240" border=no>';
+		}
+		
+		result += '</div>'
 		+'<div id="events">'
 		+'</div>'
 		+'</div>';

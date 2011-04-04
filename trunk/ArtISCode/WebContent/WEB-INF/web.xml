@@ -194,4 +194,14 @@
     <servlet-name>AdvancedSearch</servlet-name>
     <url-pattern>/AdvancedSearch</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TrackList</display-name>
+    <servlet-name>TrackList</servlet-name>
+    <servlet-class>domain.TrackList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TrackList</servlet-name>
+    <url-pattern>/TrackList</url-pattern>
+  </servlet-mapping>
 </web-app>

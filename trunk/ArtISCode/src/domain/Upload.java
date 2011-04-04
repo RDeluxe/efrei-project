@@ -100,7 +100,7 @@ public class Upload extends HttpServlet {
 					          if((extension.equalsIgnoreCase("jpg"))||(extension.equalsIgnoreCase("jpeg")))
 					        		  {
 					        	  
-					        	  folder =  getServletContext().getRealPath("/" ) + "uploads" + File.separator +"IMG";
+					        	  folder =  getServletContext().getRealPath("/") + "uploads" + File.separator +"IMG";
 					        	  uploadPath = new File(folder); // Directory to upload the file
 								   if (!uploadPath.exists()) {
 								      uploadPath.mkdirs();
@@ -111,13 +111,13 @@ public class Upload extends HttpServlet {
 								      if(kind.equalsIgnoreCase("1")){
 								    	  if (user.getPhoto()!=null)
 								    	  {
-								    	  File f = new File( user.getPhoto());
+								    	  File f = new File(getServletContext().getRealPath("/")+ user.getPhoto());
 								    	  f.delete();		
-								    	  savedFile.renameTo(new File(user.getPhoto()));
+								    	  savedFile.renameTo(new File(getServletContext().getRealPath("/")+user.getPhoto()));
 								    	  savedFile.delete();
 								    	  }else{
-								    		  user.setPhoto(getServletContext().getRealPath("/" )+ "uploads" + File.separator +"IMG"+ File.separator +user.getLogin()+".jpg");
-								    		  savedFile.renameTo(new File(user.getPhoto()));
+								    		  user.setPhoto( "uploads" + File.separator +"IMG"+ File.separator +user.getLogin()+".jpg");
+								    		  savedFile.renameTo(new File(getServletContext().getRealPath("/")+user.getPhoto()));
 									    	  savedFile.delete();
 									    	  ManageUser manager = new ManageUser();
 									    	  manager.modifyUser(user);
@@ -127,13 +127,13 @@ public class Upload extends HttpServlet {
 								      if(kind.equalsIgnoreCase("2")){
 								    	  if (a.getPhoto()!=null)
 								    	  {
-								    	  File f = new File( a.getPhoto());
+								    	  File f = new File(getServletContext().getRealPath("/")+ a.getPhoto());
 								    	  f.delete();		
-								    	  savedFile.renameTo(new File(a.getPhoto()));
+								    	  savedFile.renameTo(new File(getServletContext().getRealPath("/")+a.getPhoto()));
 								    	  savedFile.delete();
 								    	  }else{
-								    		  a.setPhoto(getServletContext().getRealPath("/" ) + "uploads" + File.separator +"IMG"+ File.separator +a.getLogin()+".jpg");
-								    		  savedFile.renameTo(new File(a.getPhoto()));
+								    		  a.setPhoto( "uploads" + File.separator +"IMG"+ File.separator +a.getLogin()+".jpg");
+								    		  savedFile.renameTo(new File(getServletContext().getRealPath("/")+a.getPhoto()));
 									    	  savedFile.delete();
 									    	  ManageUser manager = new ManageUser();
 									    	  manager.modifyArtist(a);
@@ -154,13 +154,13 @@ public class Upload extends HttpServlet {
 								      fi.write(savedFile);
 								      if (a.getMusic()!=null)
 							    	  {
-							    	  File f = new File( a.getMusic());
+							    	  File f = new File(getServletContext().getRealPath("/" ) + a.getMusic());
 							    	  f.delete();		
-							    	  savedFile.renameTo(new File(a.getMusic()));
+							    	  savedFile.renameTo(new File(getServletContext().getRealPath("/" ) +a.getMusic()));
 							    	  savedFile.delete();
 							    	  }else{
-							    		  a.setMusic(getServletContext().getRealPath("/" ) + "uploads" + File.separator +"MP3"+ File.separator+a.getLogin()+".mp3");
-							    		  savedFile.renameTo(new File(a.getMusic()));
+							    		  a.setMusic( "uploads" + File.separator +"MP3"+ File.separator+a.getLogin()+".mp3");
+							    		  savedFile.renameTo(new File(getServletContext().getRealPath("/" ) +a.getMusic()));
 								    	  savedFile.delete(); 
 								    	  ManageUser manager = new ManageUser();
 								    	  manager.modifyUser(a);

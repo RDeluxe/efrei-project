@@ -183,6 +183,12 @@
 </form>
 
 </div>
+
+<object type="application/x-shockwave-flash" data="player/dewplayer-playlist.swf" width="240" height="200" id="dewplayer" name="dewplayer">
+	<param name="wmode" value="transparent" />
+	<param name="movie" value="dewplayer-playlist.swf" />
+	<param name="flashvars" value="xml=TrackList" />
+</object>
 </div>
 <div id="news">
 <h3>News</h3>

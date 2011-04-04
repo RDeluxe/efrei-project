@@ -55,6 +55,7 @@ public class AddEvent extends HttpServlet {
 		String day = request.getParameter("Day");
 		String month = request.getParameter("Month");
 		String year = request.getParameter("Year");
+		String description = request.getParameter("description");
 		String date_str = day + "/" + month + "/" + year ;
 		DateFormat formatter ; 
 	    Date date = null ; 
@@ -81,6 +82,7 @@ public class AddEvent extends HttpServlet {
 		event.setDuration(duration);
 		event.setOwner(user);
 		event.setName(name);
+		event.setDescription(description);
 		manager.createEvent(event);
 		request.getRequestDispatcher("EventPage").forward(request, response);
 	}

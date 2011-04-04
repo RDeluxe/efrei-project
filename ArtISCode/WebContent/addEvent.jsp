@@ -146,7 +146,10 @@
       </SELECT>
       </p>
     <p>
-     <label>Duration</label> <input type="text"  name="duration" size="25" />
+     <label>Duration (in days)</label> <input type="text"  name="duration" size="25" />
+    </p>
+    <p>
+     <label>Description</label> <textarea name="description" ></textarea>
     </p>
     </fieldset>
     <fieldset>

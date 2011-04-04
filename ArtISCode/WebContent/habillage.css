@@ -555,7 +555,8 @@ th
 	width : 75%;
 }
 #searchdesc img {
-	width : 23%;
+	width : auto;
+	height : 90px;
 }
 #location {
 	background-color : #111111;
@@ -622,7 +623,7 @@ a {
 	background-color: #808080;
 }
 .uploadifyQueueItem {
-	background-color: #F5F5F5;
+	background-color: #222222;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;

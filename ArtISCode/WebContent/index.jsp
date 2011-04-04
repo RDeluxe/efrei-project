@@ -151,9 +151,9 @@
 	<img src="<%= artist.getPhoto()%>" width="219" height="218">
 	<h2 style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h2>
 <% 
-	if (artist.getDescription().length()>200) {
+	if (artist.getDescription().length()>500) {
 %>
-		<p><%= artist.getDescription().substring(0, 200) + "..." %></p>
+		<p><%= artist.getDescription().substring(0, 499) + "..." %></p>
 <% } else { %> 
 		<p><%= artist.getDescription() %></p>
 <% } %>

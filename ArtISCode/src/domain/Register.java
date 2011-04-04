@@ -70,10 +70,6 @@ public class Register extends HttpServlet {
 				address.setZip(zip);
 				user.setAddress(address);
 				user.setMessages(new HashSet<Notification>());
-				Notification n = new Notification();
-				n.setMessage("Test");
-				n.setUser(user);
-				user.getMessages().add(n);
 				Boolean check=service.RegisteringUser(user);
 				if(check==true)
 				{

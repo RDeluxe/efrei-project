@@ -132,6 +132,7 @@ Event event = searchE.searchById(Long.parseLong(eventid));
 
 </table>
 </fieldset>
+</div>
 <%} else {
 	Artist a = (Artist) u;
 	Set<Participant> parts = a.getParticipants();

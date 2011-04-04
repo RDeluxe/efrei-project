@@ -260,7 +260,9 @@ function handleModifyReq() {
 			    'cancelImage' : 'uploadify/uploadify-cancel.png',
 			    'auto'      : true,
 			    'fileTypeExts'    : '*.jpg;',
+			    'buttonText' : 'SELECT PICTURE',
 			    'onUploadComplete' : function() {document.getElementById('pic2').innerHTML = '<img src='+str[10]+' width="180" height="240" border=no>';}
+
 			    			  });
 		$('#music_upload').uploadify({
 			  
@@ -268,7 +270,8 @@ function handleModifyReq() {
 			    'swf'  : 'uploadify/uploadify.swf',
 			    'cancelImage' : 'uploadify/uploadify-cancel.png',
 			    'auto'      : true,
-			    'fileTypeExts'    : '*.mp3;'
+			    'fileTypeExts'    : '*.mp3;',
+			    'buttonText' : 'SELECT MUSIC'
 			    			  });
 	}
 }

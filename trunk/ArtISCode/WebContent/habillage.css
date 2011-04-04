@@ -3,11 +3,12 @@ body {
 	text-align: center;
 	font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif;
 	color:#FFF;
-	background-color : #F5F5F5;
+	background-color : #000000;
 	width:1000px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:20px;
+	font-size : 14px;
 }
 
 #page {
@@ -21,11 +22,11 @@ body {
 	margin-right: auto;
 	padding-bottom:20px;
 	color : black;
-	background-color : #FFF;
+	background-color : #00000;
 }
-#entete {margin: auto; width: auto; }
+#entete {margin: auto; width: auto; opacity : 0.75;}
 #menu {
-	background-color:#F5F5F5;	
+	background-color:#111111;	
 	height:40px;
 	margin:auto;
 	text-align:left;
@@ -33,6 +34,7 @@ body {
 	padding-top : 10px;
 	padding-left : 10px;
 	padding-right : 10px;
+	border-bottom : 0.1em solid #FFFFFF;
 }
 
 
@@ -40,7 +42,7 @@ body {
 	clear:both;
 	height:auto;
 	padding:5px;
-	color: #000;
+	color: #FFFFF;
 }
 #results {
 	clear:both;
@@ -49,35 +51,50 @@ body {
 	border-width:1px;
 	border-color:#FFF;
 	border-style:solid;
-	color: #000;
+	color: #FFFFF;
 }
 
 #contenu {
 	padding: 20px;
 	height:auto;
-	color: #000;
+	color: #FFFFFF;
 	text-align: center;
 }
 #advancedsearch {
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
 	float : left;
 	width : 300px;
 	height : auto;
-	background-color : #F5F5F5;
 	margin-bottom : 10px;
-	border : 1px solid #000000;
+	border : 1px solid #F5F5F5;
+	background-color:#111111;	
+	
 }
 #artistsPreview {
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
 	float : left;
 	width : 300px;
 	height : auto;
-	background-color : #F5F5F5;
-	border : 1px solid #000000;
+	border : 1px solid #F5F5F5;
+	color : #FFFFF;
+	background-color:#111111;	
 }
 #artistsPreview h3 {
+	border-top-right-radius:8px;
+	border-top-left-radius:8px;
+	-moz-border-radius-topright:8px;
+	-moz-border-radius-topleft:8px;
+	-webkit-border-top-right-radius:8px;
+	-webkit-border-top-left-radius:8px;
 	margin : 0px;
-	background-color : #FF7070;
+	background-color : #DDDDDD;
 	font-weight:bold;
 	letter-spacing: 3px;
+	color : #000000;
 }
 #artistsPreview h4 {
 	margin-top:2px;
@@ -92,28 +109,38 @@ body {
 	text-align : justify;
 }
 #news {
-	background-color : #F5F5F5;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
 	width : 600px;
 	float : right;
+	border:0.1em solid #FFFFFF;
+	background-color:#111111;	
 }
 #news h3 {
+	border-top-right-radius:8px;
+	border-top-left-radius:8px;
+	-moz-border-radius-topright:8px;
+	-moz-border-radius-topleft:8px;
+	-webkit-border-top-right-radius:8px;
+	-webkit-border-top-left-radius:8px;
 	margin : 0px;
-	background-color : #FF7070;
+	background-color : #DDDDDD;
 	font-weight:bold;
 	letter-spacing: 3px;
+	color : black;
 }
 #new h4 {
 	margin-top:0px;
 }
 #new {
-	background-color : #FFADAD;
 	width : auto;
 	position : relative;
 	padding-right : 15px;
 	padding-left : 15px;
 	padding-bottom : 15px;
 	text-align:justify;
-	border-bottom:0.1em dotted #ff0000;
+	border-bottom:0.1em dotted #FFFFFF;
 }
 #new p {
 	margin-top: 0px;
@@ -468,7 +495,7 @@ th
 }
 #not {
 	-moz-border-radius: 8px 8px 8px 8px;
-    background: none repeat scroll 0 0 #000000;
+    background: none repeat scroll 0 0 #DDDDDD;
     color: #FFFFFF;
     margin: 5px 0;
     opacity: 0.70;
@@ -646,22 +673,9 @@ a {
 #player {
 	border: 1px solid;
 	background-color:#F5F5F5;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	box-shadow : 3px 3px 6px 0 #333;
-	-moz-box-shadow: 3px 3px 6px 0 #333;
-	-webkit-box-shadow: 3px 3px 6px 0 #333;
-
+	position : relative;
 }
 #pic2 {
-	border: 1px solid;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	box-shadow : 3px 3px 6px 0 #333;
-	-moz-box-shadow: 3px 3px 6px 0 #333;
-	-webkit-box-shadow: 3px 3px 6px 0 #333;
 	width:25%;
 	height:auto;
 	text-align : center;
@@ -679,16 +693,16 @@ a {
 
 #infosearch {
 	cursor : pointer;
-	background-color : #FFADAD;
 	width : auto;
 	position : relative;
 	text-align:justify;
 	margin-bottom : 10px;
+	border : 0.1em solid #FFFFFF;
 }
 #infosearch h3 {
 	padding-left : 30px;
 	margin : 0px;
-	background-color : #FF7070;
+	background-color : #DDDDDD;
 	font-weight:bold;
 	letter-spacing: 3px;
 }

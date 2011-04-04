@@ -36,6 +36,11 @@ public class UpdateEvent extends HttpServlet {
 		Artist a = (Artist) s.SearchByLogin((String)request.getSession().getAttribute("login")); 
 		Participant p = e.getParticipant(a);
 		p.setArtistState(artist_status);
+		User user = e.getOwner();
+		Notification n = new Notification();
+		n.setMessage("The status of " + a.getFirstname() + " " + a.getLastname() + " for the event " + e.getName() + " is now : " + artist_status);
+		n.setUser(user);
+		user.getMessages().add(n);
 		me.modifyEvent(e);
 		request.setAttribute("updatedone", "OK");
 		request.getRequestDispatcher("EventPage").forward(request, response);

@@ -55,10 +55,11 @@ public class EventServlet extends HttpServlet {
 		controller.Search s = new controller.Search();
 		Artist a = (Artist) s.SearchByLogin(login);
 		Event e = see.searchById(Long.parseLong(event));
+		User user = s.SearchByLogin((String) request.getSession().getAttribute("login"));
 				
 		ManageEvent me = new ManageEvent();
 		Notification n = new Notification();
-		n.setMessage("You have been invited by " + request.getSession().getAttribute("login") + " to the event " + e.getName());
+		n.setMessage("You have been invited by " + user.getFirstname() + " " + user.getLastname() + " to the event " + e.getName());
 		n.setUser(a);
 		a.getMessages().add(n);
 		me.inviteArtist(e, a);

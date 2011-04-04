@@ -241,7 +241,7 @@ function handleModifyReq() {
 			    +'</fieldset>'
 			    +'<fieldset>'
 			    +'<legend>Upload your music</legend>'
-			    +'<div=musicup>'
+			    +'<div="musicup">'
 			    +'<input id="music_upload" name="file_upload" type="file"/>'
 			    +'</div>'
 			    +'</fieldset>';

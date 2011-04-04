@@ -763,7 +763,21 @@ a {
 #form2 input[type="submit"] {
 	cursor : pointer;
 	float : right;
-
 	margin-right : 5px;
 	margin-bottom:10px;
-
+}
+#sliderbox {
+	color : white;
+	margin-left : 30px;
+	text-align : left;
+	margin-right : 30px;
+	margin-bottom : 20px;
+}
+#slider1 img {
+	border: 1px solid #666666;
+    float: left;
+    margin-right: 36px;
+}
+#slider1 li {
+	cursor : pointer;
+}

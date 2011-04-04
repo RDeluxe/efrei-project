@@ -135,6 +135,6 @@ public class DAOArtist implements IDAOArtist {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Artist> getRandomArtists() {
-		return session.createCriteria(Artist.class).add(Restrictions.sqlRestriction("1=1 order by rand()")).setMaxResults(4).list();
+		return session.createCriteria(Artist.class).add(Restrictions.sqlRestriction("1=1 order by rand()")).list();
 	}
 }

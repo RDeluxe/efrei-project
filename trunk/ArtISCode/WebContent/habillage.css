@@ -261,30 +261,52 @@ fieldset
 	padding-right : 15px;
 }
 #info {
-	background-color : #FFADAD;
 	width : auto;
 	position : relative;
 	text-align:justify;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border:0.1em solid #FFFFFF;
+	background-color:#111111;	
 }
 #info h3 {
 	padding-left : 30px;
+	border-top-right-radius:8px;
+	border-top-left-radius:8px;
+	-moz-border-radius-topright:8px;
+	-moz-border-radius-topleft:8px;
+	-webkit-border-top-right-radius:8px;
+	-webkit-border-top-left-radius:8px;
 	margin : 0px;
-	background-color : #FF7070;
+	background-color : #DDDDDD;
 	font-weight:bold;
 	letter-spacing: 3px;
+	color : #000000;
 }
 #desc {
-	background-color : #FFADAD;
 	width : auto;
 	position : relative;
 	text-align:justify;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border:0.1em solid #FFFFFF;
+	background-color:#111111;	
 }
 #desc h3 {
 	padding-left : 30px;
+	border-top-right-radius:8px;
+	border-top-left-radius:8px;
+	-moz-border-radius-topright:8px;
+	-moz-border-radius-topleft:8px;
+	-webkit-border-top-right-radius:8px;
+	-webkit-border-top-left-radius:8px;
 	margin : 0px;
-	background-color : #FF7070;
+	background-color : #DDDDDD;
 	font-weight:bold;
 	letter-spacing: 3px;
+	color : #000000;
 }
 #pic {
 	border: 0;
@@ -519,12 +541,11 @@ th
     border : 0 none;
 }
 #searchdesc {
-	background-color : #FFADAD;
+	background-color : #111111;
 	width : auto;
 	position : relative;
 	padding : 15px;
 	text-align:justify;
-	border-bottom:0.1em dotted #ff0000;
 	float : left;
 	width : 45%;
 }
@@ -537,6 +558,7 @@ th
 	width : 23%;
 }
 #location {
+	background-color : #111111;
 	padding : 15px;
 	width : 45%;
 	float : right;
@@ -672,8 +694,7 @@ a {
 	margin-bottom : 10px;
 }
 #player {
-	border: 1px solid;
-	background-color:#F5F5F5;
+	margin-top : 20px;
 	position : relative;
 }
 #pic2 {
@@ -693,12 +714,12 @@ a {
 }
 
 #infosearch {
+	background-color : #111111;
 	cursor : pointer;
 	width : auto;
 	position : relative;
 	text-align:justify;
 	margin-bottom : 10px;
-	border : 0.1em solid #FFFFFF;
 }
 #infosearch h3 {
 	padding-left : 30px;
@@ -706,6 +727,7 @@ a {
 	background-color : #DDDDDD;
 	font-weight:bold;
 	letter-spacing: 3px;
+	color : black;
 }
 #infosearch:hover {
 	opacity : 0.75;

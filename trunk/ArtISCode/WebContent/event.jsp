@@ -109,7 +109,7 @@ Event event = searchE.searchById(Long.parseLong(eventid));
        {  Participant participant = (Participant) it2.next(); if (participant.getArtistState().equalsIgnoreCase("cancel") || participant.getArtistState().equalsIgnoreCase("no")) {%>
        <li> <a onclick="getProfileReq('<%= participant.getMember().getLogin() %>')" href="javascript:"> <%= participant.getMember().getLogin() %></a> <a class="notiflink" onclick="javascript:removeArtist('<%= participant.getMember().getLogin() %>', '<%= event.getId() %>');this.parentNode.setAttribute('style', 'display:none');return false;" href="#"><img src="./Img/croix_rouge.png"/></a> </li>
        <%}} %></ul><% } %></td>
-       <td id="eventbutton" onclick="document.location.href='UpdateEvent?event=<%= event.getId() %>'" align=center> Update </td>
+       <td id="eventbutton" onclick="document.location.href='modifyEvent.jsp?event=<%= event.getId() %>'" align=center> Update </td>
        <td id="eventbutton" onclick="document.location.href='DeleteEvent?event=<%= event.getId() %>'" align=center> Delete </td>
        </tr>
    </tbody>

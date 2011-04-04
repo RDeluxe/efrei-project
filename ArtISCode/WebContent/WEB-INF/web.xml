@@ -196,6 +196,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>ModifyEvent</display-name>
+    <servlet-name>ModifyEvent</servlet-name>
+    <servlet-class>domain.ModifyEvent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifyEvent</servlet-name>
+    <url-pattern>/ModifyEvent</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>TrackList</display-name>
     <servlet-name>TrackList</servlet-name>
     <servlet-class>domain.TrackList</servlet-class>

@@ -181,7 +181,7 @@
 	<input type="submit" value="Search">
 	
 </form>
-
+<div id="pied"></div>
 </div>
 
 <object type="application/x-shockwave-flash" data="player/dewplayer-playlist.swf" width="240" height="200" id="dewplayer" name="dewplayer">

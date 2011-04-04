@@ -37,26 +37,13 @@
   if(sessionlog==null){
 	    request.getSession().invalidate();%>
 
-  <td id="menubutton" onclick='document.location.href="register.jsp"'>
- Register
-  </td>
-  <td>
-  <a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.png"/></a>
-  </td>
-  <td>
-  
-  <form method="post" action="Login">
-  <label id="menulabel" for="login">Login : </label> <input id="login" name="login" type="text" width="70" />
-  <label id="menulabel" for="pass">Password : </label> <input id="pass" name="pass" type="password" width="50" />
-  
-  
-  <input id="menubuttonform" type="submit" value="log in"/>
-
- 
-  </form>
-  
+<jsp:forward page="login.jsp">
+<jsp:param name="msg" value="msg" />
+</jsp:forward>
   
   <%}else{%>
+  		<td id="menubutton" onClick="document.location='news.jsp'">News</td>
+  
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>

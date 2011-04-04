@@ -216,7 +216,7 @@ input:focus, textarea:focus
 legend 
 {
 	font-family: Arial, "Arial Black", Georgia, "Times New Roman", Times, serif;
-	color: #C00;
+	color: #BBBBBB;
 	font-weight: bold;
 }
  
@@ -384,6 +384,7 @@ fieldset
 
 table
 {
+	vertical-align : middle ;
    border-collapse: collapse;
    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
    
@@ -394,7 +395,7 @@ td
    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
    text-align: center; /* Tous les textes des cellules seront centrés*/
-   padding: 5px;
+   padding-left: 5px;
 }
 th 
 {
@@ -434,19 +435,19 @@ th
 }
 #form1 p {
 	float : left;
-	width : 60%;
+	width : 70%;
 }
 #form1 label {
 	margin-left : 1px;
 	float : left;
-	width: 50%;
+	width: 33%;
 	padding-right: 1%;
 	text-align: right;
 	letter-spacing: 1px;
 }
 #form1 input, #form1 textarea {
 	margin-left: 1%;
-	width: 40%;
+	width: 25%;
 	border: #CCC 1px solid;
 }
 #form1 input[type="submit"]
@@ -488,14 +489,14 @@ th
 	position : fixed;
 	right : 5px;
 	top : 10px;
-	color : #000000;
+	color : #FFFFFF;
 	display: block;
 	width: 250px;
     z-index: 99;
 }
 #not {
 	-moz-border-radius: 8px 8px 8px 8px;
-    background: none repeat scroll 0 0 #DDDDDD;
+    background: none repeat scroll 0 0 #CCCCCC;
     color: #FFFFFF;
     margin: 5px 0;
     opacity: 0.70;
@@ -547,8 +548,8 @@ th
 #close {
 	position: relative;
 	-moz-border-radius: 8px 8px 8px 8px;
-    background: none repeat scroll 0 0 #000000;
-    color: #FFFFFF;
+    background: none repeat scroll 0 0 #CCCCCC;
+    color: #000000;
     margin: 5px 0;
     opacity: 0.70;
 	font-size: 10px;
@@ -560,14 +561,14 @@ th
     text-decoration: underline;
 }
 #close a{
-	color : #FFFFFF;
+	color : #000000;
 	text-align : center;
 	opacity: 0.75;
 	cursor : pointer;
 	text-decoration : none;
 }
 #close a{
-	color : #FFFFFF;
+	color : #000000;
 	text-align : center;
 	opacity: 0.75;
 	cursor : pointer;
@@ -579,7 +580,7 @@ th
 	margin-top:20px;
 }
 a {
-	color : #000000;
+	color : #FFFFFF;
 }
 .notiflink {
 	color : #FFFFFFF;

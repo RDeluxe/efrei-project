@@ -773,8 +773,11 @@ a {
 	margin-right : 30px;
 	margin-bottom : 20px;
 }
+#slider1 {
+	width : 850px;
+	liststyle: none;
+}
 #slider1 img {
-	border: 1px solid #666666;
     float: left;
     margin-right: 36px;
 }

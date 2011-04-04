@@ -24,6 +24,7 @@
     	controls : false,
     	auto : true
     	});
+    document.getElementById('slider1').setAttribute('style', 'width: 999999px; position: relative; left: -890px;');
   });
 </script>
 </head>
@@ -145,7 +146,7 @@
 
 <%for (User a : artists) { 
 Artist artist = (Artist) a;%>
-	<li onclick="getProfileReq('<%= artist.getLogin()%>')" >
+	<li onclick="getProfileReq('<%= artist.getLogin()%>')"  style='margin:0 0 0 0;' >
 	<img src="Img/album-cocoon.jpg" width="219" height="218">
 	<h2 style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h2>
 <% 

@@ -12,11 +12,20 @@
 <script type="text/javascript" src="uploadify/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="uploadify/swfobject.js"></script>
 <script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
+<link rel="stylesheet" type="text/css" href="bx_styles/bx_styles.css" />
+<script src="jquery.bxSlider.min.js" type="text/javascript"></script>
 <script type="text/javascript"
     src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=true">
 </script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#slider1').bxSlider({
+    	controls : false,
+    	auto : true
+    	});
+  });
+</script>
 </head>
 <body>
 			<%
@@ -108,7 +117,12 @@
 
 
 </div>
+<% 	DAOArtist daoA = new DAOArtist();
+	List<User> artists = daoA.getAllUser();
+%>
+
 <div id="contenu">
+
 <%
 	if (result != null) {
 %> <%
@@ -126,6 +140,25 @@
 %> <%
  	}
  %>
+ <div id="sliderbox">
+<ul id="slider1">
+
+<%for (User a : artists) { 
+Artist artist = (Artist) a;%>
+	<li onclick="getProfileReq('<%= artist.getLogin()%>')" >
+	<img src="Img/album-cocoon.jpg" width="219" height="218">
+	<h2 style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h2>
+<% 
+	if (artist.getDescription().length()>200) {
+%>
+		<p><%= artist.getDescription().substring(0, 200) + "..." %></p>
+<% } else { %> 
+		<p><%= artist.getDescription() %></p>
+<% } %>
+	</li>
+<% } %>
+</ul>
+</div>
  <div id="left" style="width : 300px;">
 <div id="advancedsearch">
 <h3>Search for an artist</h3>
@@ -147,23 +180,6 @@
 	
 </form>
 
-</div>
-<div id="artistsPreview">
-<h3>Dicover some new artists !</h3>
-<% 	controller.Search search = new controller.Search();
-	List<Artist> artists = search.searchRandomArtists();
-	for (Artist artist : artists) { %>
-	<div id="artistPreview">
-	<h4 onclick="getProfileReq('<%= artist.getLogin()%>')" style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h4>
-<% 
-	if (artist.getDescription().length()>200) {
-%>
-		<p><%= artist.getDescription().substring(0, 200) + "..." %></p>
-<% } else { %> 
-		<p><%= artist.getDescription() %></p>
-<% } %>
-	</div>
-<% } %>
 </div>
 </div>
 <div id="news">

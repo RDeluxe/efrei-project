@@ -61,13 +61,14 @@ public class Upload extends HttpServlet {
 		{
 			user = s.SearchByLogin(login);
 		}
-		String folder = "C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads";
+		
+		String folder = getServletContext().getRealPath("/" )+ File.separator + "uploads";
 		        
 		
 		        
 				File uploadPath = new File(folder);
 				   // Create a buffer folder
-				   File tempPathFile = new File("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\buffer\\");
+				   File tempPathFile = new File(getServletContext().getRealPath("/" )+ File.separator + "uploads" + File.separator +  "buffer");
 				   if (!tempPathFile.exists()) {
 				      tempPathFile.mkdirs();
 				   }
@@ -99,7 +100,7 @@ public class Upload extends HttpServlet {
 					          if((extension.equalsIgnoreCase("jpg"))||(extension.equalsIgnoreCase("jpeg")))
 					        		  {
 					        	  
-					        	  folder = "C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\IMG";
+					        	  folder =  getServletContext().getRealPath("/" ) + "uploads" + File.separator +"IMG";
 					        	  uploadPath = new File(folder); // Directory to upload the file
 								   if (!uploadPath.exists()) {
 								      uploadPath.mkdirs();
@@ -115,7 +116,7 @@ public class Upload extends HttpServlet {
 								    	  savedFile.renameTo(new File(user.getPhoto()));
 								    	  savedFile.delete();
 								    	  }else{
-								    		  user.setPhoto("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\IMG\\"+user.getLogin()+".jpg");
+								    		  user.setPhoto(getServletContext().getRealPath("/" )+ "uploads" + File.separator +"IMG"+ File.separator +user.getLogin()+".jpg");
 								    		  savedFile.renameTo(new File(user.getPhoto()));
 									    	  savedFile.delete();
 									    	  ManageUser manager = new ManageUser();
@@ -131,7 +132,7 @@ public class Upload extends HttpServlet {
 								    	  savedFile.renameTo(new File(a.getPhoto()));
 								    	  savedFile.delete();
 								    	  }else{
-								    		  a.setPhoto("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\IMG\\"+a.getLogin()+".jpg");
+								    		  a.setPhoto(getServletContext().getRealPath("/" ) + "uploads" + File.separator +"IMG"+ File.separator +a.getLogin()+".jpg");
 								    		  savedFile.renameTo(new File(a.getPhoto()));
 									    	  savedFile.delete();
 									    	  ManageUser manager = new ManageUser();
@@ -143,7 +144,7 @@ public class Upload extends HttpServlet {
 					          if((extension.equalsIgnoreCase("mp3"))&&(kind.equalsIgnoreCase("2")))
 					          {
 					        	  
-					        	  folder = "C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\MP3";
+					        	  folder = getServletContext().getRealPath("/" ) + "uploads" + File.separator +"MP3";
 					        	  uploadPath = new File(folder); // Directory to upload the file
 								   if (!uploadPath.exists()) {
 								      uploadPath.mkdirs();
@@ -158,9 +159,9 @@ public class Upload extends HttpServlet {
 							    	  savedFile.renameTo(new File(a.getMusic()));
 							    	  savedFile.delete();
 							    	  }else{
-							    		  a.setMusic("C:\\Users\\Pierrick\\Dropbox\\Project\\artIS\\WebContent\\uploads\\MP3\\"+a.getLogin()+".mp3");
+							    		  a.setMusic(getServletContext().getRealPath("/" ) + "uploads" + File.separator +"MP3"+ File.separator+a.getLogin()+".mp3");
 							    		  savedFile.renameTo(new File(a.getMusic()));
-								    	  savedFile.delete();
+								    	  savedFile.delete(); 
 								    	  ManageUser manager = new ManageUser();
 								    	  manager.modifyUser(a);
 							    	  }

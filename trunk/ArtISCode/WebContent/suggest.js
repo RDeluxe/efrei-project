@@ -76,7 +76,7 @@ function  handleResult() {
 			suggest += 'onmouseout="javascript:suggestOut(this);" ';
 			suggest += 'class="suggest_link" onclick="javascript:getProfileReq(\''+ str[i+2] +'\')">'
 			+'<h3>'+ str[i] + ' ' +str[i+1] +'</h3>';
-			suggest += '<div id="searchdesc"><img src="'+ str[i+3] +'"/><p>' + str[i+4] + '</p></div>';
+			suggest += '<div id="searchdesc"><img width="180" height="240" border=no src="'+ str[i+3] +'"/><p>' + str[i+4] + '</p></div>';
 			suggest += '<div id="location"><b>Location : </b>' + str[i+5] + '</div>';
 			suggest += '<div id="pied"></div></div>';
 			ss.innerHTML += suggest;

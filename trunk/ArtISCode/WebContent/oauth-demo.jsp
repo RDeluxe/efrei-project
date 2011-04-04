@@ -49,11 +49,47 @@ h1 {
 
 </head>
 <body>
+<div id="page">
 	<div id="entete">
 		<a href="index.jsp"><img src="Img/banner.jpg" width="950"
 			height="100" border=no>
 		</a>
 	</div>
+	
+	<div id="menu">
+<table id="menutab">
+	<tr>
+		<td id="menubutton" onClick='document.location.href="index.jsp"'>
+		Home</td>
+
+
+		<td id="menubutton" onclick='document.location.href="register.jsp"'>
+		Register</td>
+		<td id="menubutton" onclick='document.location.href="oauth-demo.jsp"' style="width:150px">Register from Myspace</td>
+		<td>
+		<input id="login" name="login" type="text" value="login" onfocus='if (this.value=="login") {this.value=""}' onblur='if (this.value=="") {this.value="login"}' width="70" />
+		</td>
+		<td>
+		<input id="pass" name="pass" type="password" value="password" onfocus='if (this.value=="password") {this.value=""}' onblur='if (this.value=="") {this.value="password"}' width="50" />
+		</td>
+		<td id="menubutton" onclick='$.post("Login", { login:document.getElementById("login").value, pass:document.getElementById("pass").value }, function(data) { document=""; document.write(data);});'>
+		Login
+		</td>
+
+	</tr>
+</table>
+<div id="searchBox">
+<form action="javascript:result();"><input type="text"
+	id="txtSearch" name="txtSearch" alt="Search Criteria"
+	onkeyup="searchSuggest();" autocomplete="off" value="Search" onfocus='if (this.value=="Search") {this.value=""}' onblur='if (this.value=="") {this.value="Search"}' /> <input
+	id="menubuttonform" type="hidden" onClick="result()" name="cmdSearch"
+	value="Search" alt="Run Search" /></form>
+<div id="search_suggest"></div>
+</div>
+
+
+
+</div>
 	
 	<h1>If you click to continue, we will then store your information</h1>
 	
@@ -158,6 +194,7 @@ h1 {
 			<input type="hidden" name="age" value=<%=profile.get("age")%> />
 		</p>
 		<input class=button type="submit" value="Continue" />
+		<input class=button type="button" value="Cansel" name="cansel" onClick="document.location='index.jsp'">
 	</form>
 
 
@@ -166,6 +203,7 @@ h1 {
 		}
 	%>
 
+</div>
 
 </body>
 

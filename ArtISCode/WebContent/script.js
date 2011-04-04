@@ -247,19 +247,20 @@ function handleModifyReq() {
 			    +'</fieldset>';
 		}
 		
-		displayer.innerHTML = result
-		  +'<input type="submit"'
+		result +='<input type="submit"'
 		  +'value="Submit" />'
 		  +'<input type="reset"'
 		  +'value="Reset" />'
 		  +'</form>';
+		displayer.innerHTML = result;
 		$('#pic_upload').uploadify({
 			  
 			   'uploader'    : 'Upload?login=' +str[4],
 			    'swf'  : 'uploadify/uploadify.swf',
 			    'cancelImage' : 'uploadify/uploadify-cancel.png',
 			    'auto'      : true,
-			    'fileTypeExts'    : '*.jpg;'
+			    'fileTypeExts'    : '*.jpg;',
+			    'onUploadComplete' : function() {document.getElementById('pic2').innerHTML = '<img src='+str[10]+' width="180" height="240" border=no>';}
 			    			  });
 		$('#music_upload').uploadify({
 			  

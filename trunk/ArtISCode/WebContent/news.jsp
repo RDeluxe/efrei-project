@@ -63,7 +63,7 @@
 		<%
 			} else {
 		%>
-		
+		<td id="menubutton" onClick="document.location='news.jsp'">News</td>
 		<td id="menubutton" onclick="javascript:displayProfileReq()">Profile</td>
 		<td id="menubutton" onClick="document.location='eventCalendar.jsp'">Manage Events</td>
 		<td id="menubutton" onClick="document.location='deconnexion.jsp'">Deconnexion</td>

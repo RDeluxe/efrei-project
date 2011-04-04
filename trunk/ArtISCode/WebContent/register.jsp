@@ -55,8 +55,8 @@
 			error : function() {
 				alert("the server is busy");
 			},
-			onerror : "the user name is not availabe, try another one",
-			onwait : "check if the name is correct, please wait..."
+			onerror : "the user name is not availabe",
+			onwait : "check if the name is correct"
 		});
 		$("#pass1").formValidator({
 			onshow : "input password",
@@ -121,14 +121,14 @@
 
 		<td id="menubutton" onclick='document.location.href="register.jsp"'>
 		Register</td>
-		<td><a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.jpg" /></a></td>
+		<td id="menubutton" onclick='document.location.href="oauth-demo.jsp"' style="width:150px">Register from Myspace</td>
 		<td>
 		<input id="login" name="login" type="text" value="login" onfocus='if (this.value=="login") {this.value=""}' onblur='if (this.value=="") {this.value="login"}' width="70" />
 		</td>
 		<td>
 		<input id="pass" name="pass" type="password" value="password" onfocus='if (this.value=="password") {this.value=""}' onblur='if (this.value=="") {this.value="password"}' width="50" />
 		</td>
-		<td id="menubutton" onclick='$.post("Login", { login:document.getElementById("login").value, pass:document.getElementById("pass").value }, function(data) { document.documentElement.innerHTML=data;});'>
+		<td id="menubutton" onclick='$.post("Login", { login:document.getElementById("login").value, pass:document.getElementById("pass").value }, function(data) { document=""; document.write(data);});'>
 		Login
 		</td>
 
@@ -175,9 +175,9 @@
 <p><label for="form1_mail">Mail:</label><input type="text" id="form1_mail" name="mail" /></p>
 </fieldset>
 <fieldset><legend>Connection Info</legend>
-<p><label for="loginBox">Your login:</label><input type="text" id="loginBox"name="loginBox" size="25"/></p><div id="loginBoxTip" style="width: 250px;float:right;"></div>
-<p><label for="pass1">Your password:</label><input type="password" id="pass1" name="pass1" size="25"/></p><div id="pass1Tip" style="width: 200px;float:right;"></div>
-<p><label for="pass2">Password Check:</label><input type="password"id="pass2" name="pass2" size="25"/></p><div id="pass2Tip" style="width: 200px;float:right;"></div>
+<p><label for="loginBox">Your login:</label><input type="text" id="loginBox"name="loginBox" size="25"/><label id="loginBoxTip" style="width: 200px;float:right;text-align : left;"></label></p>
+<p><label for="pass1">Your password:</label><input type="password" id="pass1" name="pass1" size="25"/><label id="pass1Tip" style="width: 200px;float:right;text-align : left;"></label></p>
+<p><label for="pass2">Password Check:</label><input type="password"id="pass2" name="pass2" size="25"/><label id="pass2Tip" style="width: 200px;float:right;text-align : left;"></label></p>
 </fieldset>
 <fieldset><legend>Your Address</legend>
 <p><label for="street">Street:</label><input type="text" name="street"size="60" /> </p>

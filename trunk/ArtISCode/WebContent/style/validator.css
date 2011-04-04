@@ -5,30 +5,34 @@
 	font-size: 12px;
 	line-height:22px; 
 	vertical-align:middle;
+	text-align : left;
 }
 .onFocus
 {
-    background:#E9F0FF url(../images/onFocus.gif) no-repeat; 
+    background:url(../images/onFocus.gif) no-repeat; 
     padding-left:25px; 
 	font-size: 12px;
 	line-height:22px; 
 	vertical-align:middle;
+	text-align : left;
 }
 .onError
 {
-    background:#FFF2E9 url(../images/onError.gif) no-repeat;
+    background:url(../images/onError.gif) no-repeat;
     padding-left:25px;
 	font-size: 12px;
 	line-height:22px; 
 	vertical-align:middle;
+	text-align : left;
 }
 .onCorrect
 {
-    background:#E9FFEB url(../images/onCorrect.gif) no-repeat;
+    background:url(../images/onCorrect.gif) no-repeat;
     padding-left:25px;
 	font-size: 12px;
 	line-height:22px; 
 	vertical-align:middle;
+	text-align : left;
 }
 .onLoad
 {
@@ -37,4 +41,5 @@
 	font-size: 12px;
 	line-height:22px; 
 	vertical-align:middle;
+	text-align : left;
 } 

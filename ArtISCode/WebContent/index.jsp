@@ -97,7 +97,7 @@
 		<%
 			} else {
 		%>
-		
+		<td id="menubutton" onClick="document.location='news.jsp'">News</td>
 		<td id="menubutton" onclick="javascript:displayProfileReq()">Profile</td>
 		<td id="menubutton" onClick="document.location='eventCalendar.jsp'">Manage Events</td>
 		<td id="menubutton" onClick="document.location='deconnexion.jsp'">Deconnexion</td>
@@ -192,17 +192,19 @@
 </div>
 <div id="news">
 <h3>News</h3>
+
+<% 	DAONews daoN = new DAONews();
+	List<News> news = daoN.getLastNews(); 
+	for (News n : news) {
+		%>
+
 <div id="new">
-<h4>New feature</h4>
-<img src="Img/calendar.png"/><p>You can now visualize throught a <a href="eventCalendar.jsp">calendar</a>, all your event and manage them. Moreover, when you are an artist, you can see the direction to reach the event on a google map. This allow you to decide if you want to participate to this event.</p>
+<h4><%= n.getTitle() %></h4>
+<img src="<%= n.getImage() %>"/><p><%= n.getText() %></p>
 <div id="pied"></div>
 </div>
-<div id="new">
-<h4>Artis is opening !</h4>
-<img src="Img/artislogo.png"/><p>The brand new website, the next generation of social networking and party organization is there. You can find on this platform an entire new feature package. This website allow you to find your wedding band, your birthday singer, your bar mitzvah DJ, or even your lullaby's violonist.
-We will be happy to provide you some help if needed. You can first <a href="register">create your account</a> if you are an artist (the account creation if free for the first two month).</p>
+<% } %>
 <div id="pied"></div>
-</div>
 </div>
 </div>
 <div id="pied"></div>

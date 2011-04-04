@@ -46,6 +46,8 @@ Event event = searchE.searchById(Long.parseLong(eventid));
 <jsp:param name="msg" value="msg" />
 </jsp:forward>
   <%}else{%>
+  		<td id="menubutton" onClick="document.location='news.jsp'">News</td>
+  
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>

@@ -18,5 +18,6 @@
         <mapping resource="domain/Participant.hbm.xml" /> 
         <mapping resource="domain/Event.hbm.xml" /> 
         <mapping resource="domain/Notification.hbm.xml" />
+        <mapping resource="domain/News.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

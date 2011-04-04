@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>MySpace Information Confirm</title>
+<link href="habillage.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type"
 	content="application/xhtml+xml; charset=UTF-8" />
 <style type="text/css">
@@ -11,9 +12,41 @@
 h1 {
 	font-family: cursive;
 	font-size: 14pt;
+	color:#5F9F9F;
 }
 -->
 </style>
+<style type="text/css">
+.button {
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   padding: 8.5px 17px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 19px;
+   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+</style>
+
 </head>
 <body>
 	<div id="entete">
@@ -21,7 +54,9 @@ h1 {
 			height="100" border=no>
 		</a>
 	</div>
+	
 	<h1>If you click to continue, we will then store your information</h1>
+	
 	<%
 		String callback = request.getParameter("callback");
 
@@ -122,7 +157,7 @@ h1 {
 		<p>
 			<input type="hidden" name="age" value=<%=profile.get("age")%> />
 		</p>
-		<input type="submit" value="Confirm" />
+		<input class=button type="submit" value="Continue" />
 	</form>
 
 

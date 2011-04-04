@@ -127,7 +127,7 @@
 
 		<td id="menubutton" onclick='document.location.href="register.jsp"'>
 		Register</td>
-		<td><a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.png" /></a></td>
+		<td><a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.jpg" /></a></td>
 		<td>
 		<input id="login" name="login" type="text" value="login" onfocus='if (this.value=="login") {this.value=""}' onblur='if (this.value=="") {this.value="login"}' width="70" />
 		</td>

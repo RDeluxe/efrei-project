@@ -51,9 +51,6 @@ function handleProfileReq() {
 		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
 		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
-		+'<div id="desc">'
-		+ str[11]
-		+'</div>' 
 		+ '<br/>' 
 		+ ' <br/>'
 		+'<div id="desc"><h3>Description</h3><p>'
@@ -69,8 +66,7 @@ function handleProfileReq() {
 		else {
 			result += '<img src="'+ str[10] +'" width="180" height="240" border=no>';
 		}
-		 '</div>'
->
+		result+= '</div>'
 		+'<div id="player">'
 		+'</div>'
 		+'<div id="events">'
@@ -114,9 +110,6 @@ function handleGetProfileReq() {
 		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
 		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
-		+'<div id="desc">'
-		+ str[11]
-		+'</div>'+ '<br/>' + ' <br/>'
 		+'<div id="desc"><h3>Description</h3><p>'
 		+ str[11]+'</p></div>' + '<br/>' + ' <br/>'
 		+'<div><input type="button" value="Invite to your Event" onclick="javascript:getEventReq();"/>'
@@ -131,8 +124,7 @@ function handleGetProfileReq() {
 		else {
 			result += '<img src="'+ str[10] +'" width="180" height="240" border=no>';
 		}
-		
-		result += '</div>'
+		result+='</div>'
 		+'<div id="player">'
 		+'</div>'
 		+'<div id="events">'

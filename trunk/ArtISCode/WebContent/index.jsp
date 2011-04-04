@@ -22,9 +22,10 @@
   $(document).ready(function(){
     $('#slider1').bxSlider({
     	controls : false,
-    	auto : true
+    	auto : true,
     	});
     document.getElementById('slider1').setAttribute('style', 'width: 999999px; position: relative; left: -890px;');
+    
   });
 </script>
 </head>
@@ -118,8 +119,8 @@
 
 
 </div>
-<% 	DAOArtist daoA = new DAOArtist();
-	List<User> artists = daoA.getAllUser();
+<% 	controller.Search search = new controller.Search();
+	List<Artist> artists = search.searchRandomArtists();
 %>
 
 <div id="contenu">
@@ -144,8 +145,8 @@
  <div id="sliderbox">
 <ul id="slider1">
 
-<%for (User a : artists) { 
-Artist artist = (Artist) a;%>
+<%for (Artist artist : artists) { 
+%>
 	<li onclick="getProfileReq('<%= artist.getLogin()%>')"  style='margin:0 0 0 0;' >
 	<img src="Img/album-cocoon.jpg" width="219" height="218">
 	<h2 style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h2>

@@ -49,8 +49,10 @@ public class ManageEvent implements ManageEventService {
 			Participant p = parts.iterator().next();
 			parts.remove(p);
 			e.setArtists(parts);
+			p.setEvent(null);
 			daoP.deleteParticipant(p);
 		}
+		e.getOwner().getEvents().remove(e);
 		daoE.removeEvent(e);
 	}
 

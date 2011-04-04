@@ -374,7 +374,7 @@ fieldset
 }
 .suggest_link_over {
 	border : 1px solid;
-	background-color : #F5F5F5;
+	background-color : #444444;
 }
 #searchBox {
 	float : right;
@@ -385,9 +385,10 @@ fieldset
 #search_suggest {
 	position : absolute;
 	top:27px;
-	background-color : white;
+	background-color : #222222;
 	width : 150px;
 	cursor : pointer;
+	color : white;
 }
 #txtSearch {
 	background : url("./Img/search.png") no-repeat scroll 7px 3px #FFFFFF;
@@ -400,9 +401,10 @@ fieldset
 #search_suggest_event {
 	left:282px;
 	position : relative;
-	background-color : white;
+	background-color : #222222;
 	width : 100px;
 	cursor : pointer;
+	color : white;
 }
 
 table

@@ -25,4 +25,9 @@ public class OpenSession {
 		}
 		return session;
 	}
+	
+	public static void clearSession()
+	{
+		session.clear();
+	}
 }

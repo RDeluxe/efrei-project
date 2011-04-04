@@ -19,7 +19,7 @@
 <table id="menutab">
 <tr>
   <td id="menubutton" onClick='document.location.href="index.jsp"'>
-  	Accueil
+  	Home
   </td>
   <%String result=(String) request.getAttribute("result");
   System.out.println(result);
@@ -35,24 +35,19 @@
   if(sessionlog==null){
 	    request.getSession().invalidate();%>
 
-  <td id="menubutton" onclick='document.location.href="register.jsp"'>
- Register
-  </td>
-  <td>
-  <a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.png"/></a>
-  </td>
-  <td>
-  
-  <form method="post" action="Login">
-  <label id="menulabel" for="login">Login : </label> <input id="login" name="login" type="text" width="70" />
-  <label id="menulabel" for="pass">Password : </label> <input id="pass" name="pass" type="password" width="50" />
-  
-  
-  <input id="menubuttonform" type="submit" value="log in"/>
 
- 
-  </form>
-  
+		<td id="menubutton" onclick='document.location.href="register.jsp"'>
+		Register</td>
+		<td><a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.jpg" /></a></td>
+		<td>
+		<input id="login" name="login" type="text" value="login" onfocus='if (this.value=="login") {this.value=""}' onblur='if (this.value=="") {this.value="login"}' width="70" />
+		</td>
+		<td>
+		<input id="pass" name="pass" type="password" value="password" onfocus='if (this.value=="password") {this.value=""}' onblur='if (this.value=="") {this.value="password"}' width="50" />
+		</td>
+		<td id="menubutton" onclick='$.post("Login", { login:document.getElementById("login").value, pass:document.getElementById("pass").value }, function(data) { document.documentElement.innerHTML=data;});'>
+		Login
+		</td>
   
   <%}else{%>
   <td id="menubutton" onclick="javascript:displayProfileReq()">

@@ -58,7 +58,7 @@
 <table id="menutab">
 <tr>
   <td id="menubutton" onClick='document.location.href="index.jsp"'>
-  	Accueil
+  	Home
   </td>
   <%String result=(String) request.getAttribute("result");
   System.out.println(result);

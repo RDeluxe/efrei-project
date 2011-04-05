@@ -158,7 +158,7 @@ function GetThis(T, C, U)
 <%for (Artist artist : artists) { 
 %>
 	<li onclick="getProfileReq('<%= artist.getLogin()%>')"  style='margin:0 0 0 0;' >
-	<img src="<%= artist.getPhoto()%>" width="219" height="218">
+	<%if (artist.getPhoto()!=null) { %><img src="<%= artist.getPhoto()%>" width="219" height="218"> <%} else { %> <img src="Img/default_big.gif" width="219" height="218"><%} %>
 	<h2 style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h2>
 <% 
 	if (artist.getDescription().length()>500) {

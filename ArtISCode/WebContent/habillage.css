@@ -532,6 +532,7 @@ th
     font-size: 10px;
 }
 #not a{
+	color : black;
 	text-align : center;
 	opacity: 0.75;
 	cursor : pointer;

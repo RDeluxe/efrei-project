@@ -51,9 +51,12 @@ function handleProfileReq() {
 		+ '<p>Address : '+ str[6] + ', '+ str[8] + ' ' + str[7] + ' ' + str[9] + '</p>'
 		+'<p>Mail : '+ str[3] +'</p>'
 		+'</div>'
-		+ '<br/>' 
-		+'<div id="desc"><h3>Description</h3><p>'
-		+ str[11]+'</p></div>' + '<br/>' + ' <br/>'
+		+ '<br/>';
+		
+		if (str[11]!='') result+='<div id="desc"><h3>Description</h3><p>'
+		+ str[11]+'</p></div>' + '<br/>';
+		
+		result+= ' <br/>'
 		+'<input type="button" value="Modify your profile" onclick="javascript:modifyReq();" />'
 		+'</div>'
 		+'</div>'
@@ -193,10 +196,10 @@ function handleModifyReq() {
 		  +'</fieldset>'
 		  +'<fieldset>'
 		  +'<legend>Your Picture</legend>'
-		  +'<div id=pic2>'
+		  +'<div id="pic2">'
 		  +'<img src='+str[10]+' width="180" height="240" border=no>'
 		  +'</div>'
-		  +'<div id=upload>'
+		  +'<div id="upload">'
 		  +'<input id="pic_upload" name="file_upload" type="file"/>'
 		  +'</div>'
 		  +'</fieldset>';
@@ -379,7 +382,6 @@ function addArtistToEvent(event) {
 }
 function updateEvent(name) {
 	var elem = document.getElementById('artist_status'+name);
-	alert(elem.options[elem.selectedIndex].value);
 	document.location="UpdateEvent?event=" + name + "&artist_status" + name + "=" + elem.options[elem.selectedIndex].value;
 }
 

@@ -90,7 +90,11 @@ public class Profile extends HttpServlet {
 			if(artist.getMusic()!=null)
 			{
 				out.write("uploads/MP3/" +artist.getLogin()+".mp3" + '\n');
-			}else{out.write("none");}
+			}else{out.write("none"+'\n');}
+			Set<Tag> tags = artist.getTag();
+			for (Tag t : tags) {
+			out.write(t.getName()+'\n');
+			}
 		}
 	}
 

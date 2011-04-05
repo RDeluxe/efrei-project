@@ -8,7 +8,9 @@
   <script type="text/javascript" src="script.js"></script>
 <link rel='stylesheet' type='text/css' href='./fullcalendar/fullcalendar.css' />
 <link rel='stylesheet' type='text/css' href='./fullcalendar/fullcalendar.print.css' media='print' />
-<script type='text/javascript' src='./jquery/jquery-1.5.min.js'></script>
+<script type='text/javascript' src='./uploadify/jquery-1.5.1.min.js'></script>
+<script type="text/javascript" src="uploadify/swfobject.js"></script>
+<script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
 <script type='text/javascript' src='./jquery/jquery-ui-1.8.9.custom.min.js'></script>
 <script type='text/javascript' src='./fullcalendar/fullcalendar.min.js'></script>
 <script type='text/javascript'>

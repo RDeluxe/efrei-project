@@ -156,11 +156,8 @@ h1 {
 			RestV1 r = new RestV1(c);
 
 			JSONObject profile = r.getProfile(id);
-			JSONObject profile_exr = r.getProfile(id, "full");
-			String activity = r.getActivitiesAtom(id);
-			String activity_friend = r.getFriendsActivitiesAtom(id);
 			JSONObject friends = r.getFriends(id);
-			JSONObject photo = r.getPhotos(id, -1, -1);
+			
 
 			//JSONObject photos=r.getPhotos(id,-1,-1);
 			//out.println("qsd"+photos.get("")+"sdf");
@@ -192,6 +189,7 @@ h1 {
 		<p>
 			<input type="hidden" name="age" value=<%=profile.get("age")%> />
 		</p>
+		<p><input type="hidden" name="photo" value=<%=(String)((JSONObject) profile.get("basicprofile")).get("image") %> /></p>
 		<input class=button type="submit" value="Confirm" />
 		<input class=button type="button" value="Cansel" name="cansel" onClick="document.location='index.jsp'">
 	</form>

@@ -22,15 +22,9 @@
 <table id="menutab">
 <tr>
   <td id="menubutton" onClick='document.location.href="index.jsp"'>
-  	Accueil
+  	Home
   </td>
-  <%String result=(String) request.getAttribute("result");
-  String eventid = (String) request.getParameter("event");
-
-  SearchEventEngine s = new SearchEventEngine();
-  Event event = s.searchById(Long.parseLong(eventid));
-
-  
+  <%String result=(String) request.getAttribute("result");  
   System.out.println(result);
   if((result!=null)&&(result.equalsIgnoreCase("ok"))){
   
@@ -43,27 +37,12 @@
    String sessionlog=(String) session.getAttribute("login");
   if(sessionlog==null){
 	    request.getSession().invalidate();%>
-
-  <td id="menubutton" onclick='document.location.href="register.jsp"'>
- Register
-  </td>
-  <td>
-  <a href="oauth-demo.jsp"><img border="0" src="Img/Blue_150_Loginwithmyspaceid.png"/></a>
-  </td>
-  <td>
-  
-  <form method="post" action="Login">
-  <label id="menulabel" for="login">Login : </label> <input id="login" name="login" type="text" width="70" />
-  <label id="menulabel" for="pass">Password : </label> <input id="pass" name="pass" type="password" width="50" />
-  
-  
-  <input id="menubuttonform" type="submit" value="log in"/>
-
- 
-  </form>
-  
+<jsp:forward page="login.jsp">
+<jsp:param name="msg" value="msg" />
+</jsp:forward>
   
   <%}else{%>
+  <td id="menubutton" onClick="document.location='news.jsp'">News</td>
   <td id="menubutton" onclick="javascript:displayProfileReq()">
   Profile
   </td>
@@ -73,7 +52,13 @@
    <td id="menubutton" onClick="document.location='deconnexion.jsp'">
 	Deconnexion
   </td>
-  <%} %>
+  <%} 
+  
+    String eventid = (String) request.getParameter("event");
+
+  SearchEventEngine s = new SearchEventEngine();
+  Event event = s.searchById(Long.parseLong(eventid));
+  %>
 
 </tr>
 </table>
@@ -91,11 +76,7 @@
 <div id="contenu">
 <div id="add">
 <form id="form1" method="post" action="ModifyEvent">
-<script type="text/javascript">
-document.getElementById("Month").selectedIndex=<%= event.getDate().getMonth()-1 %>;
-document.getElementById("Day").selectedIndex=<%= event.getDate().getDay()-1 %>;
-document.getElementById("Year").selectedIndex=<%= event.getDate().getYear()-1 %>;
-</script> 
+
   <fieldset>
   <legend>Event Info</legend>
    <p><label>Name</label><input type="text" name="name"  size="60" value="<%= event.getName() %>" /></p>
@@ -160,6 +141,11 @@ document.getElementById("Year").selectedIndex=<%= event.getDate().getYear()-1 %>
       </SELECT>
       </p>
     <p>
+    <script type="text/javascript">
+document.getElementsByName("Month")[0].selectedIndex=<%= event.getDate().getMonth()%>;
+document.getElementsByName("Day")[0].selectedIndex=<%= event.getDate().getDate()-1 %>;
+document.getElementsByName("Year")[0].selectedIndex=<%= event.getDate().getYear()-111%>;
+</script> 
      <label>Duration</label> <input type="text"  name="duration" size="25" value=<%= event.getDuration() %> />
     </p>
     </fieldset>

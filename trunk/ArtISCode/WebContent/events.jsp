@@ -126,7 +126,7 @@
        <li ondblclick="getProfileReq('<%= participant.getMember().getLogin() %>')"> <%= participant.getMember().getLogin() %> </li>
        &nbsp
        <%}} %></ul><% } %></td>
-       <td id="eventbutton" onclick="document.location.href='UpdateEvent?event=<%= event.getId() %>'" align=center> Update </td>
+       <td id="eventbutton" onclick="document.location.href='modifyEvent.jsp?event=<%= event.getId() %>'" align=center> Update </td>
        <td id="eventbutton" onclick="document.location.href='DeleteEvent?event=<%= event.getId() %>'" align=center> Delete </td>
        </tr>
        

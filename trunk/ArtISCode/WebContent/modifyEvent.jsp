@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="domain.*" %>
+    <%@ page import="controller.*" %>
     <%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,7 +11,7 @@
 <link href="habillage.css" rel="stylesheet" type="text/css">
  <script type="text/javascript" src="suggest.js"></script>
   <script type="text/javascript" src="script.js"></script>
- 
+
 </head>
 <body>
 <div id="page">
@@ -24,6 +25,12 @@
   	Accueil
   </td>
   <%String result=(String) request.getAttribute("result");
+  String eventid = (String) request.getParameter("event");
+
+  SearchEventEngine s = new SearchEventEngine();
+  Event event = s.searchById(Long.parseLong(eventid));
+
+  
   System.out.println(result);
   if((result!=null)&&(result.equalsIgnoreCase("ok"))){
   
@@ -84,9 +91,15 @@
 <div id="contenu">
 <div id="add">
 <form id="form1" method="post" action="ModifyEvent">
+<script type="text/javascript">
+document.getElementById("Month").selectedIndex=<%= event.getDate().getMonth()-1 %>;
+document.getElementById("Day").selectedIndex=<%= event.getDate().getDay()-1 %>;
+document.getElementById("Year").selectedIndex=<%= event.getDate().getYear()-1 %>;
+</script> 
   <fieldset>
   <legend>Event Info</legend>
-   <p><label>Name</label><input type="text" name="name"  size="60" /></p>
+   <p><label>Name</label><input type="text" name="name"  size="60" value="<%= event.getName() %>" /></p>
+   <input type="hidden" name="id" value="<%=event.getId()%>"/>
 	<p><label>Date</label>
       <SELECT name="Month">
         <OPTION VALUE="01">01</OPTION>
@@ -102,6 +115,7 @@
         <OPTION VALUE="11">11</OPTION>
         <OPTION VALUE="12">12</OPTION>
       </SELECT>
+
       &nbsp;
       <SELECT name="Day">
         <OPTION VALUE="01">01</OPTION>
@@ -146,19 +160,19 @@
       </SELECT>
       </p>
     <p>
-     <label>Duration</label> <input type="text"  name="duration" size="25" />
+     <label>Duration</label> <input type="text"  name="duration" size="25" value=<%= event.getDuration() %> />
     </p>
     </fieldset>
     <fieldset>
 		 <legend>Address</legend>
 		 <p><label for="street">Street:</label>
-		 <input type="text" name="street" size="60" /></p>
+		 <input type="text" name="street" size="60" value="<%=event.getAddress().getStreet() %>" /></p>
 		 <p><label for="city">City:</label>
-		 <input type="text" name ="city" size="25" /></p>
+		 <input type="text" name ="city" size="25" value="<%=event.getAddress().getCity() %>" /></p>
 		 <p><label for="zip">Zip code:</label>
-		 <input type="text" name="zip" size="10" /></p>
+		 <input type="text" name="zip" size="10" value="<%=event.getAddress().getZip() %>" /></p>
 		 <p><label for="country">Country:</label>
-		 <input type="text" name="country" size="25" /></p>
+		 <input type="text" name="country" size="25" value="<%=event.getAddress().getCountry() %>" /></p>
 		 </fieldset>
     <br/>
    <input type="submit" value="Submit" /><input type="reset" value="Reset" /></form>

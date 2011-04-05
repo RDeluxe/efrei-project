@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" %>
+	<%@ page import="controller.*" import="domain.*" import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,12 +9,18 @@
 <%String country=request.getParameter("country"); %>
 <%String postalcode=request.getParameter("postalcode"); %>
 <%String street=request.getParameter("region"); %>
+<%String photo=request.getParameter("photo"); %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Index</title>
 <link href="habillage.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="suggest.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="uploadify/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="uploadify/swfobject.js"></script>
+<script type="text/javascript" src="uploadify/jquery.uploadify.js"></script>
+<link rel="stylesheet" type="text/css" href="bx_styles/bx_styles.css" />
+<script src="jquery.bxSlider.min.js" type="text/javascript"></script>
 <script src="jquery_last.js" type="text/javascript"></script>
 <link type="text/css" rel="stylesheet" href="style/validator.css"></link>
 <script src="formValidator.js" type="text/javascript" charset="UTF-8"></script>
@@ -175,6 +182,29 @@ function GetThis(T, C, U)
 </div>
 
 </div>
+
+<div id="sliderbox">
+<ul id="slider1">
+<% 	controller.Search search = new controller.Search();
+	List<Artist> artists = search.searchRandomArtists();
+%>
+<%for (Artist artist : artists) { 
+%>
+	<li onclick="getProfileReq('<%= artist.getLogin()%>')"  style='margin:0 0 0 0;' >
+	<%if (artist.getPhoto()!=null) { %><img src="<%= artist.getPhoto()%>" width="219" height="218"> <%} else { %> <img src="Img/default_big.gif" width="219" height="218"><%} %>
+	<h2 style="cursor : pointer;"><%= artist.getFirstname() + " " + artist.getLastname() %></h2>
+<% 
+	if (artist.getDescription().length()>500) {
+%>
+		<p><%= artist.getDescription().substring(0, 499) + "..." %></p>
+<% } else { %> 
+		<p><%= artist.getDescription() %></p>
+<% } %>
+	</li>
+<% } %>
+</ul>
+</div>
+
 <div id="contenu">
 <form id="form1" method="post" action="Register">
 <fieldset><legend>Basic Info</legend>
@@ -199,6 +229,11 @@ function GetThis(T, C, U)
 <p><label for="zip">Zip code:</label><input type="text" name="zip" size="10" value="<%=postalcode%>"/></p>
 <p><label for="country">Country:</label><input type="text" name="country" size="25" value="<%=country%>"/></p>
 </fieldset>
+<fieldset>
+<p><img src="<%=photo %>" width="219" height="218"></p>
+</fieldset>
+
+
 <div id="kindform"></div>
 <input type="submit" value="Submit" /><input type="reset" value="Reset" />
 <a href="javascript:GetThis('Welcome to Artis, join us now!   www.artis.fr','SUMMARY_GOES_HERE', 'URL_GOES_HERE')">

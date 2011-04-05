@@ -208,36 +208,60 @@ function handleModifyReq() {
 			    +'<p><label for="form1_description">Your Description</label>'
 			    +'<textarea name="description" id="form1_description">'+str[11]+'</textarea></p>'
 			    +'<p><label for="form1_tag">Choose Tags (3 maximum):</label>'
-			    +'<SELECT id="form1_tag" name="tag1">'
-			    +'<OPTION VALUE="rock">Rock</OPTION>'
-			    +'<OPTION VALUE="pop">Pop</OPTION>'
-			    +'<OPTION VALUE="classic">Classic</OPTION>'
-			    +'<OPTION VALUE="folk">Folk</OPTION>'
-			    +'<OPTION VALUE="soloist">Soloist</OPTION>'	
-			    +'<OPTION VALUE="band">Band</OPTION>'
-			    +'<OPTION VALUE="celtic">Celtic</OPTION>'	
-			    +'<OPTION VALUE="hard">Hard rock</OPTION>'		
-			    +'</SELECT>'
-			    +'<SELECT id="form1_tag" name="tag2">'
-			    +'<OPTION VALUE="rock">Rock</OPTION>'
-			    +'<OPTION VALUE="pop">Pop</OPTION>'
-			    +'<OPTION VALUE="classic">Classic</OPTION>'
-			    +'<OPTION VALUE="folk">Folk</OPTION>'
-			    +'<OPTION VALUE="soloist">Soloist</OPTION>'
-			    +'<OPTION VALUE="band">Band</OPTION>'
-			    +'<OPTION VALUE="celtic">Celtic</OPTION>'	
-			    +'<OPTION VALUE="hard">Hard rock</OPTION>'	
-			    +'</SELECT>'
-			    +'<SELECT id="form1_tag" name="tag3"><br/>'
-			    +'<OPTION VALUE="rock">Rock</OPTION>'
-			    +'<OPTION VALUE="pop">Pop</OPTION>'
-			    +'<OPTION VALUE="classic">Classic</OPTION>'
-			    +'<OPTION VALUE="folk">Folk</OPTION>'
-			    +'<OPTION VALUE="soloist">Soloist</OPTION>'	
-			    +'<OPTION VALUE="band">Band</OPTION>'
-			    +'<OPTION VALUE="celtic">Celtic</OPTION>'
-			    +'<OPTION VALUE="hard">Hard rock</OPTION>'	
-			    +'</SELECT></p>'
+			    +'<SELECT id="form1_tag" name="tag1">';
+			if (str[13]=="rock") result += '<OPTION VALUE="rock" SELECTED>Rock</OPTION>';
+			else result += '<OPTION VALUE="rock">Rock</OPTION>';
+			if (str[13]=="pop") result += '<OPTION VALUE="pop" SELECTED>Pop</OPTION>';
+			else result += '<OPTION VALUE="pop">Pop</OPTION>';
+			if (str[13]=="classic") result += '<OPTION VALUE="classic" SELECTED>Classic</OPTION>';
+			else result += '<OPTION VALUE="classic">Classic</OPTION>';
+			if (str[13]=="folk") result += '<OPTION VALUE="folk" SELECTED>Folk</OPTION>';
+			else result += '<OPTION VALUE="folk">Folk</OPTION>';
+			if (str[13]=="soloist") result += '<OPTION VALUE="soloist" SELECTED>Soloist</OPTION>';	
+			else result += '<OPTION VALUE="soloist">Soloist</OPTION>';	
+			if (str[13]=="band") result += '<OPTION VALUE="band" SELECTED>Band</OPTION>';
+			else result += '<OPTION VALUE="band">Band</OPTION>';
+			if (str[13]=="celtic") result += '<OPTION VALUE="celtic" SELECTED>Celtic</OPTION>';
+			else result += '<OPTION VALUE="celtic">Celtic</OPTION>';
+			if (str[13]=="hard") result += '<OPTION VALUE="hard" SELECTED>Hard rock</OPTION>';		
+			else result += '<OPTION VALUE="hard">Hard rock</OPTION>';
+					result += '</SELECT>'
+			    +'<SELECT id="form1_tag" name="tag2">';
+			    if (str[14]=="rock") result += '<OPTION VALUE="rock" SELECTED>Rock</OPTION>';
+				else result += '<OPTION VALUE="rock">Rock</OPTION>';
+				if (str[14]=="pop") result += '<OPTION VALUE="pop" SELECTED>Pop</OPTION>';
+				else result += '<OPTION VALUE="pop">Pop</OPTION>';
+				if (str[14]=="classic") result += '<OPTION VALUE="classic" SELECTED>Classic</OPTION>';
+				else result += '<OPTION VALUE="classic">Classic</OPTION>';
+				if (str[14]=="folk") result += '<OPTION VALUE="folk" SELECTED>Folk</OPTION>';
+				else result += '<OPTION VALUE="folk">Folk</OPTION>';
+				if (str[14]=="soloist") result += '<OPTION VALUE="soloist" SELECTED>Soloist</OPTION>';	
+				else result += '<OPTION VALUE="soloist">Soloist</OPTION>';	
+				if (str[14]=="band") result += '<OPTION VALUE="band" SELECTED>Band</OPTION>';
+				else result += '<OPTION VALUE="band">Band</OPTION>';
+				if (str[14]=="celtic") result += '<OPTION VALUE="celtic" SELECTED>Celtic</OPTION>';
+				else result += '<OPTION VALUE="celtic">Celtic</OPTION>';
+				if (str[14]=="hard") result += '<OPTION VALUE="hard" SELECTED>Hard rock</OPTION>';		
+				else result += '<OPTION VALUE="hard">Hard rock</OPTION>';
+			    result += '</SELECT>'
+			    +'<SELECT id="form1_tag" name="tag3"><br/>';
+			    if (str[15]=="rock") result += '<OPTION VALUE="rock" SELECTED>Rock</OPTION>';
+				else result += '<OPTION VALUE="rock">Rock</OPTION>';
+				if (str[15]=="pop") result += '<OPTION VALUE="pop" SELECTED>Pop</OPTION>';
+				else result += '<OPTION VALUE="pop">Pop</OPTION>';
+				if (str[15]=="classic") result += '<OPTION VALUE="classic" SELECTED>Classic</OPTION>';
+				else result += '<OPTION VALUE="classic">Classic</OPTION>';
+				if (str[15]=="folk") result += '<OPTION VALUE="folk" SELECTED>Folk</OPTION>';
+				else result += '<OPTION VALUE="folk">Folk</OPTION>';
+				if (str[15]=="soloist") result += '<OPTION VALUE="soloist" SELECTED>Soloist</OPTION>';	
+				else result += '<OPTION VALUE="soloist">Soloist</OPTION>';	
+				if (str[15]=="band") result += '<OPTION VALUE="band" SELECTED>Band</OPTION>';
+				else result += '<OPTION VALUE="band">Band</OPTION>';
+				if (str[15]=="celtic") result += '<OPTION VALUE="celtic" SELECTED>Celtic</OPTION>';
+				else result += '<OPTION VALUE="celtic">Celtic</OPTION>';
+				if (str[15]=="hard") result += '<OPTION VALUE="hard" SELECTED>Hard rock</OPTION>';		
+				else result += '<OPTION VALUE="hard">Hard rock</OPTION>';
+			    result += '</SELECT></p>'
 			    +'</fieldset>'
 			    +'<fieldset>'
 			    +'<legend>Upload your music</legend>'

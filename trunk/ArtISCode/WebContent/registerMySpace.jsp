@@ -207,6 +207,7 @@ function GetThis(T, C, U)
 
 <div id="contenu">
 <form id="form1" method="post" action="Register">
+<fieldset><legend>Photo Info</legend><p><img src="<%=photo %>" width="168" height="168"></p></fieldset>
 <fieldset><legend>Basic Info</legend>
 <p><label for="kind">Kind of account:</label>
 	<SELECT name="kind">
@@ -229,9 +230,7 @@ function GetThis(T, C, U)
 <p><label for="zip">Zip code:</label><input type="text" name="zip" size="10" value="<%=postalcode%>"/></p>
 <p><label for="country">Country:</label><input type="text" name="country" size="25" value="<%=country%>"/></p>
 </fieldset>
-<fieldset>
-<p><img src="<%=photo %>" width="219" height="218"></p>
-</fieldset>
+
 
 
 <div id="kindform"></div>

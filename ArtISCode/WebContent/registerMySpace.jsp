@@ -21,6 +21,14 @@
 	charset="UTF-8"></script>
 <script language="javascript" src="DateTimeMask.js"
 	type="text/javascript"></script>
+	<script type="text/javascript">
+function GetThis(T, C, U)
+{
+    var targetUrl = 'http://www.myspace.com/index.cfm?fuseaction=postto&t=' + encodeURIComponent(T)
+    + '&c=' + encodeURIComponent(C) + '&u=' + encodeURIComponent(U);
+    window.open(targetUrl, 'ptm', 'height=450,width=440').focus();
+}
+</script>
 <script type="text/javascript">
 <!--
 	$(document).ready(function() {
@@ -192,7 +200,10 @@
 <p><label for="country">Country:</label><input type="text" name="country" size="25" value="<%=country%>"/></p>
 </fieldset>
 <div id="kindform"></div>
-<input type="submit" value="Submit" /><input type="reset" value="Reset" /></form>
+<input type="submit" value="Submit" /><input type="reset" value="Reset" />
+<a href="javascript:GetThis('Welcome to Artis, join us now!   www.artis.fr','SUMMARY_GOES_HERE', 'URL_GOES_HERE')">
+    <img src="http://cms.myspacecdn.com/cms//ShareOnMySpace/Myspace_btn_ShareOnMyspace.png" border="0" alt="Share on Myspace" /></a>
+</form>
 
 </div>
 <div id="pied"></div>

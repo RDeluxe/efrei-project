@@ -19,6 +19,14 @@
 </script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
+function GetThis(T, C, U)
+{
+    var targetUrl = 'http://www.myspace.com/index.cfm?fuseaction=postto&t=' + encodeURIComponent(T)
+    + '&c=' + encodeURIComponent(C) + '&u=' + encodeURIComponent(U);
+    window.open(targetUrl, 'ptm', 'height=450,width=440').focus();
+}
+</script>
+<script type="text/javascript">
   $(document).ready(function(){
     $('#slider1').bxSlider({
     	controls : false,
@@ -101,6 +109,8 @@
 		<td id="menubutton" onclick="javascript:displayProfileReq()">Profile</td>
 		<td id="menubutton" onClick="document.location='eventCalendar.jsp'">Manage Events</td>
 		<td id="menubutton" onClick="document.location='deconnexion.jsp'">Deconnexion</td>
+		<td><a href="javascript:GetThis('Tell your friends what are you doing','SUMMARY_GOES_HERE', 'URL_GOES_HERE')">
+            <img src="http://cms.myspacecdn.com/cms//ShareOnMySpace/Myspace_btn_ShareOnMyspace.png" border="0" alt="Share on Myspace" /></a></td>
 		<%
 			}
 		%>

@@ -5,8 +5,7 @@
 <head>
 <title>MySpace Information Confirm</title>
 <link href="habillage.css" rel="stylesheet" type="text/css">
-<meta http-equiv="Content-Type"
-	content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <style type="text/css">
 <!--
 h1 {
@@ -91,7 +90,7 @@ h1 {
 
 </div>
 	
-	<h1>If you click to continue, we will then store your information</h1>
+	<h1>To confirm and link your MySpace account</h1>
 	
 	<%
 		String callback = request.getParameter("callback");
@@ -193,7 +192,7 @@ h1 {
 		<p>
 			<input type="hidden" name="age" value=<%=profile.get("age")%> />
 		</p>
-		<input class=button type="submit" value="Continue" />
+		<input class=button type="submit" value="Confirm" />
 		<input class=button type="button" value="Cansel" name="cansel" onClick="document.location='index.jsp'">
 	</form>
 

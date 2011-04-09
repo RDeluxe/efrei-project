@@ -7,7 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import java.util.Arrays;
+/**
+ * Artis v 0.1
+Copyright (c) 2011 Apex Team (EFREI Engineering School)
 
+Please don't use this software or any classes coming from this software without permission.
+
+*/
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->

@@ -15,8 +15,13 @@ import controller.ManageEvent;
 import java.text.DateFormat; 
 import java.text.SimpleDateFormat; 
 import java.text.ParseException; 
+/**
+ * Artis v 0.1
+Copyright (c) 2011 Apex Team (EFREI Engineering School)
 
+Please don't use this software or any classes coming from this software without permission.
 
+*/
 /**
  * Servlet implementation class AddEvent
  */

@@ -4,6 +4,12 @@
 <!DOCTYPE html PUBLIC
         "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtmll/DTD/xhtmll-strict.dtd">
+        <!--  
+ Artis v 0.1
+Copyright (c) 2011 Apex Team (EFREI Engineering School)
+
+Please don't use this software or any classes coming from this software without permission.
+-->
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
 

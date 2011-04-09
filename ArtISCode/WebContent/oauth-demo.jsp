@@ -1,6 +1,12 @@
 <%@ page
 	import="com.myspace.myspaceid.*,com.myspace.myspaceid.oauth.*,org.json.simple.*,controller.*,domain.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--  
+ Artis v 0.1
+Copyright (c) 2011 Apex Team (EFREI Engineering School)
+
+Please don't use this software or any classes coming from this software without permission.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>MySpace Information Confirm</title>

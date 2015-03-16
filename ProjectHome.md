@@ -1,0 +1,1 @@
+A project from the efrei school. This is a platform for artists who want to be known in Europe.
